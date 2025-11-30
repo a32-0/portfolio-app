@@ -11,7 +11,7 @@ export default function Grid({ skip = 2, limit }: Props) {
 
   return (
     <section className="mx-8">
-      <div className="grid md:gap-20 grid-cols-1 gap-10 md:grid-cols-3 2xl:gap-52 2xl:grid-cols-4">
+      <div className="grid md:gap-20 grid-cols-1 gap-10 md:grid-cols-3 2xl:grid-cols-4">
         {projectList.map((p) => (
           <Card
             key={p.slug}
@@ -19,6 +19,7 @@ export default function Grid({ skip = 2, limit }: Props) {
             title={p.title}
             subtitle={p.subtitle}
             src={p.cover}
+            coverType={p.coverType}
           />
         ))}
       </div>

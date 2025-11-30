@@ -19,6 +19,7 @@ export default function GridHero({ limit = 2 }: Props) {
             title={p.title}
             subtitle={p.subtitle}
             src={p.cover}
+            coverType={p.coverType}
           />
         ))}
       </div>

@@ -31,7 +31,7 @@ export const experience: ExperienceData[] = [
     company: 'Ilum Prosperity Sherpas',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    period: '3 yrs 6 mos (Aug 2021 - Jan 2025)',
+    period: '3 yrs 6 mos (Aug 2021 — Jan 2025)',
   },
   {
     id: 'freelance',
@@ -39,6 +39,6 @@ export const experience: ExperienceData[] = [
     company: 'Freelance',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    period: '2 yrs 6 mos (Aug 2018 - Jan 2021)',
+    period: '2 yrs 6 mos (Aug 2018 — Jan 2021)',
   },
 ]
