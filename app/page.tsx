@@ -11,15 +11,17 @@ import Marquee from '@/components/About/Marquee'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20">
-      <Container className="flex flex-col gap-20">
+    <main className="flex flex-col gap-30">
+      <Container className="flex flex-col gap-30">
         <Hero />
       </Container>
+
       <GridHero />
       <Grid />
+
       <Background>
-        <div className="flex flex-col gap-20">
-          <Container className="flex flex-col gap-20">
+        <div className="flex flex-col gap-30">
+          <Container className="flex flex-col gap-30">
             <About />
             <Experience />
             <Certificates />

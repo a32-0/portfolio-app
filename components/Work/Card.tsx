@@ -56,7 +56,7 @@ export default function Card({ href, title, subtitle, src, alt, coverType }: Pro
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
 
   return (
-    <Link href={href} className="block">
+    <Link href={href} className="block break-inside-avoid mb-12 md:mb-20 xl:mb-30">
       <div className="w-full">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} />

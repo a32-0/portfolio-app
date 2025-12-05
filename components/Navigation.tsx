@@ -9,7 +9,7 @@ const scrollToTop = () => {
 
 export default function Navigation() {
   return (
-    <nav className="pt-8 mb-20 flex items-center justify-between font-sans text-base font-normal uppercase">
+    <nav className="pt-8 mb-30 flex items-center justify-between font-sans text-base font-normal uppercase">
       <button
         type="button"
         aria-label="Scroll to top"
