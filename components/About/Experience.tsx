@@ -25,13 +25,13 @@ export default function Experience() {
             </div>
             <div className="flex flex-col gap-2 lg:ml-7">
               <p className="max-w-prose font-light text-base">{experience.description}</p>
-              <p className="text-base font-light uppercase">{experience.period}</p>
+              <p className="text-base font-light text-[#BDBDBD]">{experience.period}</p>
             </div>
           </div>
         ))}
 
         <a href="" target="_blank" className="w-fit">
-          <p className="pl-7 hover:underline hover:text-quaternary uppercase font-light text-base">
+          <p className="pl-7 hover:underline text-[#BDBDBD] hover:text-quaternary uppercase font-light text-base">
             Download resume ↓
           </p>
         </a>

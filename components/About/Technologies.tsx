@@ -16,7 +16,7 @@ export default function Technologies() {
         <div className="flex flex-1 flex-col gap-12 text-xl">
           {technologyCategories.map((category) => (
             <div key={category.id} className="flex flex-col gap-2">
-              <p className=" font-light uppercase text-base">{category.title}</p>
+              <p className=" font-medium text-quaternary text-base">{category.title}</p>
               <ul className="flex flex-wrap items-center gap-x-8 gap-y-6">
                 {category.items.map((item) => (
                   <li key={item.id} className="flex items-center gap-2">

@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import AutoPlayVideo from './AutoPlayVideo'
 
 type Props = {
   href: string
@@ -13,50 +13,11 @@ type Props = {
   alt?: string
 }
 
-function AutoPlayVideo({ src, alt, title }: { src: string; alt?: string; title: string }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
-  useEffect(() => {
-    const node = videoRef.current
-    if (!node) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          node.play().catch(() => {})
-        } else {
-          node.pause()
-        }
-      },
-      { threshold: 0.35 }
-    )
-
-    observer.observe(node)
-    return () => {
-      observer.disconnect()
-      node.pause()
-    }
-  }, [])
-
-  return (
-    <video
-      ref={videoRef}
-      src={src}
-      playsInline
-      loop
-      muted
-      preload="metadata"
-      className="h-auto w-full"
-      aria-label={alt ?? title}
-    />
-  )
-}
-
 export default function Card({ href, title, subtitle, src, alt, coverType }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
 
   return (
-    <Link href={href} className="block break-inside-avoid mb-12 md:mb-20 xl:mb-30">
+    <Link href={href} className="block break-inside-avoid mb-12 md:mb-20 2xl:mb-30">
       <div className="w-full">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} />

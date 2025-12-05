@@ -19,7 +19,7 @@ export default function Certificates() {
               <p className="text-2xl font-medium group-hover:underline">
                 {title} <span className="font-light"> by {issuer}</span>
               </p>
-              <p className="text-base font-light uppercase group-hover:underline">{date}</p>
+              <p className="text-base font-light text-[#BDBDBD]">{date}</p>
             </Link>
           ))}
         </div>
