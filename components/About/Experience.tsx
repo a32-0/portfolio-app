@@ -20,11 +20,11 @@ export default function Experience() {
               )}
               <h4 className="text-4xl font-medium">
                 {experience.role}
-                <span className="font-light"> at {experience.company}</span>
+                <span className="font-light"> @ {experience.company}</span>
               </h4>
             </div>
             <div className="flex flex-col gap-2 lg:ml-7">
-              <p className="max-w-prose font-light text-xl">{experience.description}</p>
+              <p className="max-w-prose font-light text-base">{experience.description}</p>
               <p className="text-base font-light uppercase">{experience.period}</p>
             </div>
           </div>
