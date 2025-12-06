@@ -43,3 +43,10 @@ html {
 .pulse-animation {
   animation: radarPulse 2s infinite ease-out;
 }
+
+/* Custom breakpoint for very wide screens */
+@media (min-width: 2000px) {
+  .columns-2000-4 {
+    columns: 4;
+  }
+}

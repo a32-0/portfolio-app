@@ -10,8 +10,8 @@ export default function Grid({ skip = 2, limit }: Props) {
   const projectList = projects.slice(skip, typeof limit === 'number' ? skip + limit : undefined)
 
   return (
-    <section className="mx-8">
-      <div className="columns-1 md:columns-2 lg:columns-3 2xl:columns-4 gap-12 md:gap-20 2xl:gap-30 [column-fill:balance]">
+    <section className="w-full px-6">
+      <div className="columns-1 sm:columns-2 xl:columns-3 columns-2000-4 gap-10 sm:gap-14 xl:gap-16 [column-fill:balance]">
         {projectList.map((p) => (
           <Card
             key={p.slug}
