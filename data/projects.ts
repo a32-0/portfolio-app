@@ -27,7 +27,7 @@ export const projects: ProjectData[] = [
   {
     slug: 'whatsapp-liverpool',
     title: 'WhatsApp',
-    subtitle: 'Design System',
+    subtitle: 'Conversation Design',
     cover: '/images/projects/whatsapp/cover.png',
     year: '2025',
   },

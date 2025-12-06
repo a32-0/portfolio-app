@@ -11,7 +11,7 @@ export default function GridHero({ limit = 2 }: Props) {
   return (
     <section id="work" className="mx-8">
       <h1 className="uppercase text-primary font-light mb-2 text-2xl">Work</h1>
-      <div className="grid gap-20 grid-cols-1 2xl:gap-30 2xl:grid-cols-2">
+      <div className="grid gap-20 grid-cols-2 2xl:gap-30">
         {projectList.map((p) => (
           <CardHero
             key={p.slug}
