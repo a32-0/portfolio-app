@@ -16,7 +16,6 @@ export default function Home() {
         <Hero />
       </Container>
       <div className="flex flex-col gap-20">
-        <GridHero />
         <Grid />
       </div>
       <Background>
