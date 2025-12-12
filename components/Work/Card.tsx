@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import AutoPlayVideo from './AutoPlayVideo'
@@ -17,7 +15,7 @@ export default function Card({ href, title, subtitle, src, alt, coverType }: Pro
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
 
   return (
-    <Link href={href} className="block break-inside-avoid mb-12">
+    <Link href={href} className="block break-inside-avoid mb-20 3xl:mb-60">
       <div className="w-full">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} />

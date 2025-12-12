@@ -15,9 +15,8 @@ export default function Home() {
       <Container className="flex flex-col gap-30">
         <Hero />
       </Container>
-      <div className="flex flex-col gap-20">
-        <Grid />
-      </div>
+      {/* <GridHero /> */}
+      <Grid />
       <Background>
         <div className="flex flex-col gap-30">
           <Container className="flex flex-col gap-30">

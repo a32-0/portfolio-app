@@ -26,6 +26,8 @@ html {
 
   /* Page max width */
   --page-max: 1120px;
+
+  --breakpoint-3xl: 125rem;
 }
 
 /* Pulse animation */
