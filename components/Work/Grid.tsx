@@ -6,7 +6,7 @@ type Props = {
   limit?: number
 }
 
-export default function Grid({ skip = 0, limit }: Props) {
+export default function Grid({ skip = 2, limit }: Props) {
   const projectList = projects.slice(skip, typeof limit === 'number' ? skip + limit : undefined)
 
   return (

@@ -13,7 +13,7 @@ export const experience: ExperienceData[] = [
     role: 'UX Designer',
     company: 'El Puerto de Liverpool',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Design and improve high-impact customer and internal experiences at scale, optimizing critical flows across web, WhatsApp, and Salesforce used nationwide.',
     period: 'Since February 2025',
     current: true,
   },
@@ -22,7 +22,7 @@ export const experience: ExperienceData[] = [
     role: 'UX Designer',
     company: 'Catarsis',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Deliver end-to-end UX for clients, translating research and business needs into clear, validated designs and production-ready handoffs in close collaboration with stakeholders.',
     period: 'Since July 2023',
   },
   {
@@ -30,7 +30,7 @@ export const experience: ExperienceData[] = [
     role: 'UX/UI Designer, UX Researcher, and UX Engineer',
     company: 'Ilum Prosperity Sherpas',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Bridged UX design, research, and engineering to deliver scalable, high-quality digital products—driving measurable gains in usability, development efficiency, and cross-functional collaboration from concept to production.',
     period: '3 yrs 6 mos (Aug 2021 — Jan 2025)',
   },
   {
@@ -38,7 +38,7 @@ export const experience: ExperienceData[] = [
     role: 'Graphic Designer',
     company: 'Freelance',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Created brand identities and digital visual assets for clients, translating business needs into clear, consistent, and effective visual communication across print and digital channels.',
     period: '2 yrs 6 mos (Aug 2018 — Jan 2021)',
   },
 ]

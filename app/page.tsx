@@ -1,6 +1,7 @@
 import Container from '@/components/Container'
 import Background from '@/components/Background'
 import Hero from '@/components/Hero'
+import GridHero from '@/components/Work/GridHero'
 import Grid from '@/components/Work/Grid'
 import About from '@/components/About/About'
 import Experience from '@/components/About/Experience'
@@ -14,6 +15,7 @@ export default function Home() {
       <Container className="flex flex-col gap-30">
         <Hero />
       </Container>
+      <GridHero />
       <Grid />
       <Background>
         <div className="flex flex-col gap-30">

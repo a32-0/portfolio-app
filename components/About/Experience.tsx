@@ -4,7 +4,7 @@ export default function Experience() {
   return (
     <section>
       <div>
-        <h3 className="text-2xl text-quaternary uppercase font-light mb-2">Experience</h3>
+        <h3 className="text-2xl text-quaternary uppercase font-light mb-2 ml-7">Experience</h3>
       </div>
       <div className="flex flex-col text-white gap-16">
         {experience.map((experience) => (
@@ -24,7 +24,7 @@ export default function Experience() {
               </h4>
             </div>
             <div className="flex flex-col gap-2 lg:ml-7">
-              <p className="max-w-prose font-light text-base">{experience.description}</p>
+              <p className="max-w-200 font-light text-base">{experience.description}</p>
               <p className="text-base font-light text-[#BDBDBD]">{experience.period}</p>
             </div>
           </div>

@@ -6,13 +6,9 @@ export default function Technologies() {
   return (
     <section>
       <div className="flex flex-col gap-8 text-white lg:flex-row">
-        <div className="flex flex-col gap-2 lg:w-1/3 lg:text-right">
-          <p className="text-2xl uppercase font-light text-quaternary">Technologies</p>
-          <p className="text-2xl font-medium">
-            Tools I&apos;ve used, always eager to learn new tech.
-          </p>
+        <div className="">
+          <p className="text-2xl uppercase font-light  text-quaternary">Technologies</p>
         </div>
-
         <div className="flex flex-1 flex-col gap-12 text-xl">
           {technologyCategories.map((category) => (
             <div key={category.id} className="flex flex-col gap-2">
