@@ -14,7 +14,7 @@ export default function Navigation() {
         type="button"
         aria-label="Scroll to top"
         onClick={scrollToTop}
-        className="rounded-full p-1 cursor-pointer transition hover:opacity-80"
+        className="rounded-full p-1 cursor-pointer transition hover:opacity-50"
       >
         <Image src="/icons/catarsis.svg" width={40} height={40} alt="Catarsis" />
       </button>
