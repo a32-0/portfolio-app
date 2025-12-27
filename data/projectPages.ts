@@ -62,7 +62,8 @@ export const projectPages: ProjectPageData[] = [
   },
   {
     slug: 'invoice-liverpool',
-    description: 'Rediseno del flujo de facturacion y tablero de seguimiento de tickets.',
+    description:
+      'El portal de Facturación es la plataforma central de Liverpool para que los clientes generen facturas de todas sus compras, sin importar el canal: tiendas físicas, e-commerce o ventas telefónicas. Cualquier cliente que necesite facturar una compra debe completar este flujo. Al tratarse de una experiencia post-compra, regulada y legalmente sensible, cualquier fricción impacta directamente en la confianza del cliente, en los costos operativos y en la percepción de marca.',
     detailImage: '/images/projects/invoice-liverpool/casestudy.png',
     detailAlt: 'Factura case study',
     meta: [
