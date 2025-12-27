@@ -1,5 +1,4 @@
 import { projectPages } from '@/data/projectPages'
-import { projects } from '@/data/projects'
 import { getCaseStudyImage } from '@/lib/caseStudy'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,10 +8,6 @@ export function generateStaticParams() {
   const activeSlugs = projectPages
     .map((p) => p.slug)
     .filter((slug) => getCaseStudyImage(slug))
-    .filter((slug) => {
-      const base = projects.find((p) => p.slug === slug)
-      return base?.isActive !== false
-    })
 
   return activeSlugs.map((slug) => ({ slug }))
 }
@@ -22,8 +17,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const detail = projectPages.find((p) => p.slug === slug)
   const caseStudyImage = getCaseStudyImage(slug)
 
-  const isDisabled = projects.find((p) => p.slug === slug)?.isActive === false
-  if (!detail || !caseStudyImage || isDisabled) notFound()
+  if (!detail || !caseStudyImage) notFound()
 
   const { description, detailAlt, link, meta = [] } = detail
   const image = caseStudyImage

@@ -15,7 +15,7 @@ export default function GridHero({ limit = 2 }: Props) {
       <div className="columns-1 md:columns-2 gap-20 3xl:gap-60 [column-fill:balance]">
         {projectList.map((p) => {
           const hasCaseStudy = !!getCaseStudyImage(p.slug)
-          const disabled = p.isActive === false || !hasCaseStudy
+          const disabled = !hasCaseStudy
 
           return (
             <CardHero

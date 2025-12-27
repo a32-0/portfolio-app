@@ -15,7 +15,7 @@ export default function Grid({ skip = 2, limit }: Props) {
       <div className="columns-2 xl:columns-3 columns-2000-4 gap-20 3xl:gap-60 [column-fill:balance]">
         {projectList.map((p) => {
           const hasCaseStudy = !!getCaseStudyImage(p.slug)
-          const disabled = p.isActive === false || !hasCaseStudy
+          const disabled = !hasCaseStudy
 
           return (
             <Card
