@@ -9,13 +9,15 @@ type Props = {
   src: string
   coverType?: 'image' | 'video'
   alt?: string
+  disabled?: boolean
 }
 
-export default function Card({ href, title, subtitle, src, alt, coverType }: Props) {
+export default function Card({ href, title, subtitle, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
+  const wrapperClass = 'block break-inside-avoid mb-20 3xl:mb-60'
 
-  return (
-    <Link href={href} className="block break-inside-avoid mb-20 3xl:mb-60">
+  const content = (
+    <>
       <div className="w-full">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} />
@@ -34,6 +36,16 @@ export default function Card({ href, title, subtitle, src, alt, coverType }: Pro
         <h3 className="font-base">{title}</h3>
         <h3 className="font-light text-tertiary">{subtitle}</h3>
       </div>
+    </>
+  )
+
+  if (disabled) {
+    return <div className={wrapperClass}>{content}</div>
+  }
+
+  return (
+    <Link href={href} className={wrapperClass}>
+      {content}
     </Link>
   )
 }

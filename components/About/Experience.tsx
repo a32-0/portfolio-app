@@ -2,9 +2,11 @@ import { experience } from '@/data/experience'
 
 export default function Experience() {
   return (
-    <section>
+    <section id="about">
       <div>
-        <h3 className="text-2xl text-quaternary uppercase font-light mb-2 ml-7">Experience</h3>
+        <h3 className="text-2xl text-quaternary uppercase font-light mb-2 ml-7 mt-30">
+          Experience
+        </h3>
       </div>
       <div className="flex flex-col text-white gap-16">
         {experience.map((experience) => (
@@ -30,7 +32,7 @@ export default function Experience() {
           </div>
         ))}
 
-        <a href="" target="_blank" className="w-fit">
+        <a href="public\docs\UX-Designer_Armando-Rojano.pdf" target="_blank" className="w-fit">
           <p className="pl-7 hover:underline text-[#BDBDBD] hover:text-quaternary uppercase font-light text-base">
             Download resume ↓
           </p>

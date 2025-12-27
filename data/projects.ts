@@ -5,6 +5,7 @@ export type ProjectData = {
   cover: string
   coverType?: 'image' | 'video'
   year?: string
+  isActive?: boolean
 }
 
 export const projects: ProjectData[] = [
@@ -15,6 +16,7 @@ export const projects: ProjectData[] = [
     cover: '/images/projects/invoice-liverpool/cover.mp4',
     coverType: 'video',
     year: '2025',
+    isActive: true,
   },
   {
     slug: 'connect-liverpool',
@@ -23,13 +25,15 @@ export const projects: ProjectData[] = [
     cover: '/images/projects/connect-liverpool/cover.mp4',
     coverType: 'video',
     year: '2025',
+    isActive: true,
   },
   {
     slug: 'whatsapp-liverpool',
     title: 'WhatsApp',
     subtitle: 'Conversation Design',
-    cover: '/images/projects/whatsapp/cover.png',
+    cover: '/images/projects/whatsapp-liverpool/cover.png',
     year: '2025',
+    isActive: true,
   },
   {
     slug: 'salesforce1-liverpool',
