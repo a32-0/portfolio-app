@@ -1,31 +1,31 @@
 import Container from '@/components/Container'
 import Background from '@/components/Background'
 import Hero from '@/components/Hero'
-import WorkGrid from '@/components/Work/WorkGrid'
-import AboutSection from '@/components/About/AboutSection'
-import ExperienceList from '@/components/About/ExperienceList'
+import GridHero from '@/components/Work/GridHero'
+import Grid from '@/components/Work/Grid'
+import Experience from '@/components/About/Experience'
+import Certificates from '@/components/About/Certificates'
+import Technologies from '@/components/About/Technologies'
+import Marquee from '@/components/About/Marquee'
 
 export default function Home() {
   return (
-    <main>
-      <Container>
+    <main className="flex flex-col gap-30">
+      <Container className="flex flex-col gap-30">
         <Hero />
       </Container>
-
-      <section id="work">
-        <Container>
-          <WorkGrid />
-        </Container>
-      </section>
-
-      <section id="about">
-        <Background>
-          <Container>
-            <AboutSection />
-            <ExperienceList />
+      <GridHero />
+      <Grid />
+      <Background>
+        <div className="flex flex-col gap-30">
+          <Container className="flex flex-col gap-30">
+            <Experience />
+            <Certificates />
+            <Technologies />
           </Container>
-        </Background>
-      </section>
+          <Marquee />
+        </div>
+      </Background>
     </main>
   )
 }

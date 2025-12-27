@@ -3,11 +3,9 @@ import Container from './Container'
 
 export default function Header() {
   return (
-    <header className="">
+    <header className="sticky top-0 z-50" id="home">
       <Container>
-        <div className="">
-          <Navigation />
-        </div>
+        <Navigation />
       </Container>
     </header>
   )

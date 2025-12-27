@@ -1,12 +1,17 @@
 @import 'tailwindcss';
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   /* Color Palette */
   --color-primary: #0001f7;
   --color-secondary: #0f1215;
-  --color-tertiary: #b3b3b3;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-tertiary: #292b28;
+  --color-quaternary: #ff1b2d;
+  --color-black: #0d0d0d;
+  --color-white: #fff;
 
   /* Custom fonts */
   --font-sans:
@@ -21,6 +26,8 @@
 
   /* Page max width */
   --page-max: 1120px;
+
+  --breakpoint-3xl: 125rem;
 }
 
 /* Pulse animation */
@@ -37,4 +44,11 @@
 
 .pulse-animation {
   animation: radarPulse 2s infinite ease-out;
+}
+
+/* Custom breakpoint for very wide screens */
+@media (min-width: 2000px) {
+  .columns-2000-4 {
+    columns: 4;
+  }
 }
