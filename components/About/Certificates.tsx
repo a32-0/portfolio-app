@@ -58,7 +58,7 @@ function CertificateCard({ certificate, featured = false }: CardProps) {
         </div>
       </div>
       <p className="text-2xl font-semibold group-hover:underline">{certificate.title}</p>
-      <p className="text-sm font-medium uppercase text-[#c3c3c3]">View credential ↗</p>
+      <p className="text-sm font-light uppercase text-[#c3c3c3]">View credential ↗</p>
     </Link>
   )
 }
