@@ -1,5 +1,7 @@
 'use client'
 
+import type { CSSProperties } from 'react'
+
 const marqueeItems = [
   'UX design',
   'UX Research',
@@ -12,6 +14,7 @@ const marqueeItems = [
 
 export default function Marquee() {
   const sequence = [...marqueeItems, ...marqueeItems, ...marqueeItems]
+  const marqueeStyle: CSSProperties = { '--marquee-speed': '18s' }
 
   return (
     <section aria-label="Capabilities marquee">
@@ -19,6 +22,7 @@ export default function Marquee() {
         <div
           className="flex w-max items-center gap-6 whitespace-nowrap py-10 text-4xl font-normal uppercase"
           data-marquee-track
+          style={marqueeStyle}
         >
           {sequence.map((label, index) => (
             <span key={`${label}-${index}`} className="flex items-center gap-6">
