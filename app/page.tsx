@@ -3,6 +3,7 @@ import Background from '@/components/Background'
 import Hero from '@/components/Hero'
 import GridHero from '@/components/Work/GridHero'
 import Grid from '@/components/Work/Grid'
+import About from '@/components/About/About'
 import Experience from '@/components/About/Experience'
 import Certificates from '@/components/About/Certificates'
 import Technologies from '@/components/About/Technologies'
@@ -19,6 +20,7 @@ export default function Home() {
       <Background>
         <div className="flex flex-col gap-30">
           <Container className="flex flex-col gap-30">
+            <About />
             <Experience />
             <Certificates />
             <Technologies />

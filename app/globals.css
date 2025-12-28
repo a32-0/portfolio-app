@@ -46,6 +46,26 @@ html {
   animation: radarPulse 2s infinite ease-out;
 }
 
+/* Marquee animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+[data-marquee-track] {
+  animation: marquee var(--marquee-speed, 18s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-marquee-track] {
+    animation: none;
+  }
+}
+
 /* Custom breakpoint for very wide screens */
 @media (min-width: 2000px) {
   .columns-2000-4 {

@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import Header from '@/components/Header'
 import FooterSection from '@/components/FooterSection'
 import { Inter, Roboto_Mono, Lora } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -102,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}>
       <body>
+        <Analytics />
         <Header />
         <main>{children}</main>
         <FooterSection />
