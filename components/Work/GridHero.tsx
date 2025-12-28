@@ -11,7 +11,10 @@ export default function GridHero({ limit = 2 }: Props) {
 
   return (
     <section id="work" className="w-full px-8">
-      <h1 className="uppercase text-primary font-light mb-4 text-2xl">Work</h1>
+      <div className="flex flex-col gap-2 mb-6">
+        <p className="text-xl font-light uppercase text-primary">Work</p>
+        <h2 className="text-4xl font-medium md:text-5xl">Selected work I’ve shipped</h2>
+      </div>
       <div className="columns-1 md:columns-2 gap-20 3xl:gap-60 [column-fill:balance]">
         {projectList.map((p) => {
           const hasCaseStudy = !!getCaseStudyImage(p.slug)

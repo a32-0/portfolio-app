@@ -14,7 +14,7 @@ const marqueeItems = [
 
 export default function Marquee() {
   const sequence = [...marqueeItems, ...marqueeItems, ...marqueeItems]
-  const marqueeStyle: CSSProperties = { '--marquee-speed': '18s' }
+  const marqueeStyle: CSSProperties & { '--marquee-speed'?: string } = { '--marquee-speed': '18s' }
 
   return (
     <section aria-label="Capabilities marquee">
