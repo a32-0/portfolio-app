@@ -103,10 +103,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}>
       <body>
-        <Analytics />
         <Header />
         <main>{children}</main>
         <FooterSection />
+        <Analytics />
       </body>
     </html>
   )
