@@ -31,13 +31,13 @@ export const projects: ProjectData[] = [
     cover: '/images/projects/whatsapp-liverpool/cover.png',
     year: '2025',
   },
-  {
+  /*   {
     slug: 'salesforce1-liverpool',
     title: 'Salesforce',
     subtitle: 'Web App Redesign',
     cover: '/images/projects/ox-logistics/cover.png',
     year: '2025',
-  },
+  }, */
   /* {
   slug: "little-lemon",
   title: "Little Lemon",
