@@ -22,6 +22,7 @@ export default function GridHero({ limit = 2 }: Props) {
           return (
             <CardHero
               key={p.slug}
+              slug={p.slug}
               href={`/work/${p.slug}`}
               title={p.title}
               subtitle={p.subtitle}
