@@ -56,7 +56,7 @@ export default function CardHero({
           ))}
         </ul>
         <p className="text-sm uppercase text-quinary transition group-hover:text-black">
-          {highlight.tags.join(' ú ')}
+          {highlight.tags.join(' · ')}
         </p>
       </div>
     </>
