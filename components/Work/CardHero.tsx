@@ -50,7 +50,7 @@ export default function CardHero({
           {highlight.product}
         </p>
         <p className="text-lg font-semibold group-hover:text-primary">{highlight.headline}</p>
-        <ul className="flex list-disc flex-col gap-1 pl-5 text-sm text-quinary transition group-hover:text-black">
+        <ul className="flex list-disc flex-col gap-1 pl-5 text-base text-quinary transition group-hover:text-black">
           {highlight.outcomes.map((item) => (
             <li key={item}>{item}</li>
           ))}
