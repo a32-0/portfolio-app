@@ -15,6 +15,7 @@ type Props = {
 export default function Card({ href, title, subtitle, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const wrapperClass = 'block break-inside-avoid mb-20 3xl:mb-60'
+  const hoverableClass = 'group transition hover:-translate-y-4'
 
   const content = (
     <>
@@ -33,8 +34,10 @@ export default function Card({ href, title, subtitle, src, alt, coverType, disab
         )}
       </div>
       <div className="uppercase items-center pt-2 justify-between flex text-sm">
-        <h3 className="font-base">{title}</h3>
-        <h3 className="font-light text-tertiary">{subtitle}</h3>
+        <h3 className="font-base group-hover:underline group-hover:text-primary">{title}</h3>
+        <h3 className="font-light text-tertiary group-hover:underline group-hover:text-primary">
+          {subtitle}
+        </h3>
       </div>
     </>
   )
@@ -44,7 +47,7 @@ export default function Card({ href, title, subtitle, src, alt, coverType, disab
   }
 
   return (
-    <Link href={href} className={wrapperClass}>
+    <Link href={href} className={`${wrapperClass} ${hoverableClass}`}>
       {content}
     </Link>
   )
