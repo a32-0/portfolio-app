@@ -20,6 +20,7 @@ export default function Grid({ skip = 2, limit }: Props) {
           return (
             <Card
               key={p.slug}
+              slug={p.slug}
               href={`/work/${p.slug}`}
               title={p.title}
               subtitle={p.subtitle}

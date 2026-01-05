@@ -14,7 +14,7 @@ export type CertificatesSection = {
 }
 
 export const certificatesSection: CertificatesSection = {
-  title: 'Continuous learning in practice',
+  title: 'Continuous learning',
   intro:
     'Certifications that keep me sharp and grounded in both design craft and the systems that ship it.',
   items: [

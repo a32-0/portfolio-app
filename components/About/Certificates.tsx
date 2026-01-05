@@ -9,12 +9,9 @@ export default function Certificates() {
   return (
     <section>
       <div className="grid gap-6 text-white lg:grid-cols-[1fr,1.1fr]">
-        <div className="flex flex-col gap-2">
-          <p className="text-xl font-light uppercase text-quaternary">Certificates</p>
-          <h2 className="text-4xl font-medium leading-tight md:text-5xl">
-            {certificatesSection.title}
-          </h2>
-        </div>
+        <h2 className="text-4xl font-medium leading-tight md:text-5xl">
+          {certificatesSection.title}
+        </h2>
 
         <div className="grid gap-6 md:grid-cols-2">
           <CertificateCard certificate={featured} featured />
@@ -53,12 +50,12 @@ function CertificateCard({ certificate, featured = false }: CardProps) {
           />
         </div>
         <div className="flex flex-col">
-          <span className="text-base font-medium text-[#cfcfcf]">{certificate.issuer}</span>
-          <span className="text-base font-medium text-[#9b9b9b]">{certificate.date}</span>
+          <span className="text-base font-medium text-quinary">{certificate.issuer}</span>
+          <span className="text-base font-medium text-quinary">{certificate.date}</span>
         </div>
       </div>
       <p className="text-2xl font-semibold group-hover:underline">{certificate.title}</p>
-      <p className="text-sm font-light uppercase text-[#c3c3c3]">View credential ↗</p>
+      <p className="text-sm font-light uppercase text-quinary">View credential ↗</p>
     </Link>
   )
 }

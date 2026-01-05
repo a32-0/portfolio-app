@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { getProjectHighlight } from '@/data/projectHighlights'
 import AutoPlayVideo from './AutoPlayVideo'
 
 type Props = {
+  slug: string
   href: string
   title: string
   subtitle: string
@@ -12,13 +14,24 @@ type Props = {
   disabled?: boolean
 }
 
-export default function CardHero({ href, title, subtitle, src, alt, coverType, disabled }: Props) {
+export default function CardHero({
+  slug,
+  href,
+  title,
+  subtitle,
+  src,
+  alt,
+  coverType,
+  disabled,
+}: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
-  const wrapperClass = 'block break-inside-avoid mb-12'
+  const highlight = getProjectHighlight(slug)
+  const wrapperClass =
+    'group block break-inside-avoid mb-20 3xl:mb-60 transition hover:-translate-y-4'
 
   const content = (
     <>
-      <div className="w-full">
+      <div className="w-full overflow-hidden">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} />
         ) : (
@@ -32,9 +45,19 @@ export default function CardHero({ href, title, subtitle, src, alt, coverType, d
           />
         )}
       </div>
-      <div className="uppercase items-center pt-2 justify-between flex text-sm">
-        <h3 className="font-base">{title}</h3>
-        <h3 className="font-light text-tertiary">{subtitle}</h3>
+      <div className="mt-4 flex flex-col gap-3 border-t border-quinary pt-4 transition group-hover:border-black">
+        <p className="text-xs font-medium uppercase text-quinary transition group-hover:text-black">
+          {highlight.product}
+        </p>
+        <p className="text-lg font-semibold group-hover:text-primary">{highlight.headline}</p>
+        <ul className="flex list-disc flex-col gap-1 pl-5 text-base text-quinary transition group-hover:text-black">
+          {highlight.outcomes.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="text-sm uppercase text-quinary transition group-hover:text-black">
+          {highlight.tags.join(' · ')}
+        </p>
       </div>
     </>
   )
