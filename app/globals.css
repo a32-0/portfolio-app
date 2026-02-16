@@ -6,13 +6,15 @@ html {
 
 @theme {
   /* Color Palette */
-  --color-primary: #0001f7;
-  --color-secondary: #0f1215;
-  --color-tertiary: #292b28;
-  --color-quaternary: #ff1b2d;
-  --color-quinary: #cfcfcf;
-  --color-black: #0d0d0d;
+  --color-primary: #2e3561;
   --color-white: #fff;
+  --color-quaternary: #f6f6f6;
+  --color-secondary: #dcdcdc;
+  --color-tertiary: #4e4e4e;
+
+  --color-black: #000;
+
+  --color-quinary: #cfcfcf;
 
   /* Custom fonts */
   --font-sans:

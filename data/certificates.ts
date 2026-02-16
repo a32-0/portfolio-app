@@ -1,10 +1,8 @@
 export type CertificatesData = {
   id: string
-  logo: string
-  issuer: string
   title: string
-  date: string
-  href: string
+  href?: string
+  ongoing?: boolean
 }
 
 export type CertificatesSection = {
@@ -15,40 +13,32 @@ export type CertificatesSection = {
 
 export const certificatesSection: CertificatesSection = {
   title: 'Continuous learning',
-  intro:
-    'Certifications that keep me sharp and grounded in both design craft and the systems that ship it.',
+  intro: '',
   items: [
     {
       id: 'certificate-meta',
-      logo: '/icons/mingcute_meta-fill.svg',
-      issuer: 'Meta',
-      title: 'Front-End Developer',
-      date: 'Issued Dec 2024',
+      title: 'Meta Front-End Developer Specialization',
       href: 'https://www.coursera.org/account/accomplishments/specialization/PP36AF1CLIQL',
     },
     {
       id: 'certificate-google',
-      logo: '/icons/ri_google-fill.svg',
-      issuer: 'Google',
-      title: 'UX Design',
-      date: 'Issued May 2024',
+      title: 'Google UX Design Certificate',
       href: 'https://www.coursera.org/account/accomplishments/specialization/9ZF83F88L79P',
     },
     {
       id: 'certificate-design-thinking',
-      logo: '/icons/certiprof.svg',
-      issuer: 'CertiProf',
-      title: 'Design Thinking',
-      date: 'Issued Feb 2024',
+      title: 'Design Thinking Certification',
       href: 'https://www.credly.com/badges/c45179d7-b68f-4841-90ec-2e69fd456ff3/public_url',
     },
     {
       id: 'certificate-scrum',
-      logo: '/icons/certiprof.svg',
-      issuer: 'CertiProf',
-      title: 'Scrum Foundation',
-      date: 'Issued Aug 2023',
+      title: 'Scrum Professional Certification',
       href: 'https://www.credly.com/badges/def86223-ec15-4b8b-9fb8-c6908ce22fc8/public_url',
+    },
+    {
+      id: 'certificate-ongoing-hci',
+      title: 'Ongoing: Perception and Memory in HCI and UX...',
+      ongoing: true,
     },
   ],
 }

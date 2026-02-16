@@ -1,4 +1,3 @@
-// components/Background.tsx
 import { ReactNode } from 'react'
 
 type BackgroundProps = {
@@ -6,5 +5,5 @@ type BackgroundProps = {
 }
 
 export default function Background({ children }: BackgroundProps) {
-  return <div className="w-full bg-secondary">{children}</div>
+  return <div className="w-full bg-primary">{children}</div>
 }
