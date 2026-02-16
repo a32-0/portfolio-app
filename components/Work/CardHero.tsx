@@ -6,60 +6,41 @@ import AutoPlayVideo from './AutoPlayVideo'
 type Props = {
   slug: string
   href: string
-  title: string
-  subtitle: string
   src: string
   coverType?: 'image' | 'video'
   alt?: string
   disabled?: boolean
 }
 
-export default function CardHero({
-  slug,
-  href,
-  title,
-  subtitle,
-  src,
-  alt,
-  coverType,
-  disabled,
-}: Props) {
+export default function CardHero({ slug, href, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const highlight = getProjectHighlight(slug)
-  const wrapperClass =
-    'group block break-inside-avoid mb-20 3xl:mb-60 transition hover:-translate-y-4'
+  const wrapperClass = 'group block break-inside-avoid transition hover:-translate-y-2'
+  const cardLabel = highlight.cardMeta?.split('·')[0]?.trim() || highlight.product
+  const cardTags = highlight.tags.join(' · ')
+  const mediaAlt = alt ?? highlight.product
 
   const content = (
-    <>
+    <div className="inline-flex w-full flex-col items-start justify-start gap-2">
       <div className="w-full overflow-hidden">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={alt} title={title} />
+          <AutoPlayVideo src={src} alt={mediaAlt} title={highlight.product} className="h-96 w-full object-cover" />
         ) : (
           <Image
             src={src}
-            alt={alt ?? title}
-            width={0}
-            height={0}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-            className="h-auto w-full max-w-360 mx-auto"
+            alt={mediaAlt}
+            width={1200}
+            height={836}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="h-96 w-full object-cover"
           />
         )}
       </div>
-      <div className="mt-4 flex flex-col gap-3 border-t border-quinary pt-4 transition group-hover:border-black">
-        <p className="text-xs font-medium uppercase text-quinary transition group-hover:text-black">
-          {highlight.product}
-        </p>
-        <p className="text-lg font-semibold group-hover:text-primary">{highlight.headline}</p>
-        <ul className="flex list-disc flex-col gap-1 pl-5 text-base text-quinary transition group-hover:text-black">
-          {highlight.outcomes.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className="text-sm uppercase text-quinary transition group-hover:text-black">
-          {highlight.tags.join(' · ')}
-        </p>
+      <div className="inline-flex w-full items-center justify-between gap-4">
+        <p className="text-sm font-normal text-neutral-600">{cardLabel}</p>
+        <p className="text-sm font-normal text-neutral-600">{cardTags}</p>
       </div>
-    </>
+    </div>
   )
 
   if (disabled) {

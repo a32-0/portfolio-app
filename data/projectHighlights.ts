@@ -5,6 +5,11 @@ export type ProjectHighlight = {
   headline: string
   outcomes: string[]
   tags: string[]
+  cardMeta?: string
+  cardTitle?: string
+  cardDescription?: string
+  cardMetric?: string
+  cardTitleUnderline?: boolean
 }
 
 const highlightMap: Record<string, ProjectHighlight> = {
@@ -17,6 +22,11 @@ const highlightMap: Record<string, ProjectHighlight> = {
       'Enabled scalable changes via standardized components',
     ],
     tags: ['Enterprise', 'High-traffic', 'Billing', 'Web app', 'Post-purchase', 'B2C'],
+    cardMeta: 'UX Designer · Liverpool · Web / Mobile surfaces',
+    cardTitle: 'Invoicing Flow - Reducing complexity for 184k+ monthly users',
+    cardDescription:
+      'Redesigned the end-to-end invoicing experience across channels to make a critical flow clearer, faster, and less error-prone.',
+    cardMetric: 'Used by 184k+ users each month.',
   },
   'connect-liverpool': {
     product: "Liverpool's Internal Sales Tool",
@@ -27,6 +37,11 @@ const highlightMap: Record<string, ProjectHighlight> = {
       'Designed scalable patterns for long-term evolution',
     ],
     tags: ['Enterprise', 'Internal tool', 'CRM', 'B2B', 'Sales platform'],
+    cardMeta: 'UX Designer · Liverpool · Internal platform',
+    cardTitle: 'Contact Center Platform - Streamlining sales workflows for 40+ agents',
+    cardDescription:
+      'Reworked core operational journeys and UI patterns to reduce friction and improve efficiency in a revenue-critical sales channel.',
+    cardMetric: 'Supports 40+ agents and ~600k-3.7M MXN daily revenue workflows.',
   },
   'whatsapp-liverpool': {
     product: "Liverpool's WhatsApp Bot",
@@ -37,6 +52,12 @@ const highlightMap: Record<string, ProjectHighlight> = {
       'Designed reusable conversational patterns at scale',
     ],
     tags: ['Conversational UX', 'Messaging', 'High-traffic', 'B2C', 'Operations'],
+    cardMeta: 'Product Designer · Liverpool · Cross-functional product cell',
+    cardTitle: 'WhatsApp Services - From assisted support to a scalable conversational product',
+    cardDescription:
+      'Built a reusable conversation framework to reduce agent dependency and scale self-service.',
+    cardMetric: 'Serving ~29k customers per day.',
+    cardTitleUnderline: true,
   },
   'salesforce-liverpool': {
     product: 'Liverpool — Salesforce Modules',
@@ -47,6 +68,11 @@ const highlightMap: Record<string, ProjectHighlight> = {
       'Aligned UX with Lightning Design System standards',
     ],
     tags: ['Enterprise', 'Internal tool', 'CRM', 'Salesforce', 'B2B'],
+    cardMeta: 'UX Designer · Liverpool · Salesforce Lightning',
+    cardTitle: 'Salesforce Modules - Improving internal tools with scalable patterns',
+    cardDescription:
+      'Optimized Lightning modules used by contact center and store teams, aligning usability, consistency, and design-system governance.',
+    cardMetric: 'Used by contact center + store agents across Mexico.',
   },
   'ox-logistics': {
     product: 'OX Logistics',

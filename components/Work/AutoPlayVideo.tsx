@@ -6,10 +6,11 @@ type Props = {
   src: string
   title: string
   alt?: string
+  className?: string
 }
 
 // Plays the video when visible and pauses when it exits viewport.
-export default function AutoPlayVideo({ src, alt, title }: Props) {
+export default function AutoPlayVideo({ src, alt, title, className }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function AutoPlayVideo({ src, alt, title }: Props) {
       loop
       muted
       preload="metadata"
-      className="h-auto w-full"
+      className={className ?? 'h-auto w-full'}
       aria-label={alt ?? title}
     />
   )
