@@ -12,7 +12,7 @@ type Props = {
   disabled?: boolean
 }
 
-export default function CardHero({ slug, href, src, alt, coverType, disabled }: Props) {
+export default function CardSnapshots({ slug, href, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const highlight = getProjectHighlight(slug)
   const wrapperClass = 'group block break-inside-avoid transition hover:-translate-y-2'

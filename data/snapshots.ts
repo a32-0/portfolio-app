@@ -6,14 +6,14 @@ export type SnapshotItem = {
   heightClass: string
 }
 
-export type GridHeroSection = {
+export type SnapshotsSection = {
   id: string
   title: string
   description: string
   columns: SnapshotItem[][]
 }
 
-export const gridHeroSection: GridHeroSection = {
+export const snapshotsSection: SnapshotsSection = {
   id: 'additional-snapshots',
   title: 'Additional snapshots',
   description: 'A curated set of screens and diagrams from projects.',

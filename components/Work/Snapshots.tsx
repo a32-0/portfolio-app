@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { projects } from '@/data/projects'
-import { gridHeroSection } from '@/data/gridHero'
+import { snapshotsSection } from '@/data/snapshots'
 import AutoPlayVideo from './AutoPlayVideo'
-import CardHero from './CardHero'
+import CardSnapshots from './CardSnapshots'
 
 type Props = {
   limit?: number
@@ -14,23 +14,23 @@ function getProjectBySlug(slug: string): ProjectLike | null {
   return projects.find((project) => project.slug === slug) ?? null
 }
 
-export default function GridHero({ limit }: Props) {
+export default function Snapshots({ limit }: Props) {
   const columns =
     typeof limit === 'number'
-      ? gridHeroSection.columns.map((column) => column.slice(0, Math.max(limit, 0)))
-      : gridHeroSection.columns
+      ? snapshotsSection.columns.map((column) => column.slice(0, Math.max(limit, 0)))
+      : snapshotsSection.columns
 
   return (
     <section
-      id={gridHeroSection.id}
+      id={snapshotsSection.id}
       className="inline-flex w-full flex-col items-start justify-start gap-6"
     >
       <div className="flex w-full flex-col items-start justify-start gap-2">
         <h2 className="w-full text-3xl font-medium text-primary tracking-tight">
-          {gridHeroSection.title}
+          {snapshotsSection.title}
         </h2>
         <p className="w-full text-base font-normal text-black tracking-tight">
-          {gridHeroSection.description}
+          {snapshotsSection.description}
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function GridHero({ limit }: Props) {
 
               if (item.variant === 'card') {
                 return (
-                  <CardHero
+                  <CardSnapshots
                     key={item.id}
                     slug={project.slug}
                     href={item.href ?? `/work/${project.slug}`}
