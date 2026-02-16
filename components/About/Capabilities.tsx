@@ -1,12 +1,12 @@
-import { technologySection } from '@/data/technologies'
+import { capabilitiesSection } from '@/data/capabilities'
 
-export default function Technologies() {
-  const rows = [technologySection.items.slice(0, 2), technologySection.items.slice(2, 4)]
+export default function Capabilities() {
+  const rows = [capabilitiesSection.items.slice(0, 2), capabilitiesSection.items.slice(2, 4)]
 
   return (
     <section className="inline-flex w-full flex-col items-center justify-center gap-4 tracking-tight">
       <h2 className="w-full text-center text-2xl font-medium text-primary">
-        {technologySection.title}
+        {capabilitiesSection.title}
       </h2>
 
       {rows.map((row, rowIndex) => (

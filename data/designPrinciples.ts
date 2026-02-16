@@ -1,16 +1,16 @@
-export type AboutPrinciple = {
+export type DesignPrinciple = {
   id: string
   title: string
   description: string
 }
 
-export type AboutData = {
+export type DesignPrinciplesData = {
   title: string
   intro: string
-  principles: AboutPrinciple[]
+  principles: DesignPrinciple[]
 }
 
-export const about: AboutData = {
+export const designPrinciples: DesignPrinciplesData = {
   title: 'Design principles',
   intro:
     'I design with a systems mindset-balancing user needs, operational constraints, and business outcomes.',

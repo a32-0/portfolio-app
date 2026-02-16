@@ -22,23 +22,23 @@ export default function Navigation() {
   return (
     <nav className="mb-30 pt-8 font-sans text-base font-normal tracking-tight">
       <div className="inline-flex w-full flex-wrap items-center justify-between gap-x-6 gap-y-4 text-black md:flex-nowrap">
-        <div className="flex items-center gap-2">
+        <div>
           <Link
             href="/"
             aria-label="Back to home"
-            className="rounded-full p-1 transition hover:opacity-50"
+            className="rounded-full p-1 transition hover:opacity-50 flex items-center gap-2"
             onClick={handleLogoClick}
           >
             <Image src="/icons/catarsis.svg" width={32} height={32} alt="Catarsis" priority />
+            <span>Armando Rojano</span>
           </Link>
-          <span>Armando Rojano</span>
         </div>
 
         <Link href="/#work" className="transition-colors">
           Work
         </Link>
 
-        <Link href="/#about" className="transition-colors">
+        <Link href="/#design-principles" className="transition-colors">
           About
         </Link>
 

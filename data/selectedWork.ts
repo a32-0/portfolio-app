@@ -1,11 +1,11 @@
-export type WorkSectionData = {
+export type SelectedWorkData = {
   id: string
   title: string
   projectHrefBase: string
   projectSlugs: string[]
 }
 
-export const workSection: WorkSectionData = {
+export const selectedWork: SelectedWorkData = {
   id: 'work',
   title: 'Selected work',
   projectHrefBase: '/work',

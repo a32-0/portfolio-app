@@ -4,13 +4,13 @@ export type CapabilityItem = {
   description: string
 }
 
-export type TechnologySection = {
+export type CapabilitiesSection = {
   title: string
   intro: string
   items: CapabilityItem[]
 }
 
-export const technologySection: TechnologySection = {
+export const capabilitiesSection: CapabilitiesSection = {
   title: 'Capabilities',
   intro: '',
   items: [
