@@ -1,30 +1,27 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { getProjectHighlight } from '@/data/projectHighlights'
 import AutoPlayVideo from './AutoPlayVideo'
 
 type Props = {
-  slug: string
-  href: string
+  product: string
   src: string
   coverType?: 'image' | 'video'
   alt?: string
-  disabled?: boolean
 }
 
-export default function CardSnapshots({ slug, href, src, alt, coverType, disabled }: Props) {
+export default function CardSnapshots({ product, src, alt, coverType }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
-  const highlight = getProjectHighlight(slug)
-  const wrapperClass = 'group block break-inside-avoid transition hover:-translate-y-2'
-  const cardLabel = highlight.cardMeta?.split('·')[0]?.trim() || highlight.product
-  const cardTags = highlight.tags.join(' · ')
-  const mediaAlt = alt ?? highlight.product
+  const mediaAlt = alt ?? product
 
-  const content = (
+  return (
     <div className="inline-flex w-full flex-col items-start justify-start gap-2">
-      <div className="w-full overflow-hidden">
+      <div className="w-full">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={mediaAlt} title={highlight.product} className="h-96 w-full object-cover" />
+          <AutoPlayVideo
+            src={src}
+            alt={mediaAlt}
+            title={product}
+            className="h-auto w-full"
+          />
         ) : (
           <Image
             src={src}
@@ -32,24 +29,13 @@ export default function CardSnapshots({ slug, href, src, alt, coverType, disable
             width={1200}
             height={836}
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-96 w-full object-cover"
+            className="h-auto w-full"
           />
         )}
       </div>
-      <div className="inline-flex w-full items-center justify-between gap-4">
-        <p className="text-sm font-normal text-neutral-600">{cardLabel}</p>
-        <p className="text-sm font-normal text-neutral-600">{cardTags}</p>
+      <div className="inline-flex w-full items-center justify-start">
+        <p className="text-sm font-normal text-neutral-600">{product}</p>
       </div>
     </div>
-  )
-
-  if (disabled) {
-    return <div className={wrapperClass}>{content}</div>
-  }
-
-  return (
-    <Link href={href} className={wrapperClass}>
-      {content}
-    </Link>
   )
 }

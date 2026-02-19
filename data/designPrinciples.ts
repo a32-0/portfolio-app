@@ -13,19 +13,18 @@ export type DesignPrinciplesData = {
 export const designPrinciples: DesignPrinciplesData = {
   title: 'Design principles',
   intro:
-    'I design with a systems mindset-balancing user needs, operational constraints, and business outcomes.',
+    'I design with a systems mindset. Balancing user needs, operational constraints, and business outcomes.',
   principles: [
     {
       id: '01',
       title: 'Systems over screens',
       description:
-        'I begin with the lifecycle, handoffs, and edge cases-then shape UI around the system.',
+        'I begin with the lifecycle, handoffs, and edge cases. Then shape UI around the system.',
     },
     {
       id: '02',
       title: 'Clarity over volume',
-      description:
-        'I reduce cognitive load through hierarchy, language, and purposeful defaults.',
+      description: 'I reduce cognitive load through hierarchy, language, and purposeful defaults.',
     },
     {
       id: '03',
