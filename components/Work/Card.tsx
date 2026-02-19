@@ -17,10 +17,10 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const highlight = getProjectHighlight(slug)
   const wrapperClass = 'group block w-full transition-colors'
-  const cardMeta = highlight.cardMeta ?? highlight.product
-  const cardTitle = highlight.cardTitle ?? highlight.headline
-  const cardDescription = highlight.cardDescription ?? highlight.outcomes[0] ?? highlight.headline
-  const cardMetric = highlight.cardMetric ?? highlight.outcomes[1] ?? highlight.tags.join(' · ')
+  const cardMeta = highlight.cardMeta
+  const cardTitle = highlight.cardTitle
+  const cardDescription = highlight.cardDescription
+  const cardMetric = highlight.cardMetric
   const cardTitleClass = highlight.cardTitleUnderline
     ? 'self-stretch text-3xl font-medium text-slate-700 underline decoration-1 underline-offset-2'
     : 'self-stretch text-3xl font-medium text-slate-700'
@@ -31,7 +31,7 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
         <p className="self-stretch text-sm font-normal text-tertiary">{cardMeta}</p>
         <p className={cardTitleClass}>{cardTitle}</p>
         <p className="self-stretch text-base font-normal text-black">{cardDescription}</p>
-        <p className="self-stretch text-sm font-normal text-tertiary">{cardMetric}</p>
+        <p className="self-stretch text-base font-normal text-tertiary">{cardMetric}</p>
       </div>
       <div className="h-80 w-full flex-1 overflow-hidden bg-zinc-300">
         {isVideo ? (

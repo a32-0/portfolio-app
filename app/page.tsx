@@ -4,7 +4,7 @@ import Snapshots from '@/components/Work/Snapshots'
 import SelectedWork from '@/components/Work/SelectedWork'
 import DesignPrinciples from '@/components/About/DesignPrinciples'
 import Certificates from '@/components/About/Certificates'
-import Capabilities from '@/components/About/Capabilities'
+import Strengths from '@/components/About/Strengths'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       </Container>
       <Certificates />
       <Container className="flex flex-col gap-25">
-        <Capabilities />
+        <Strengths />
         <Snapshots />
       </Container>
     </main>
