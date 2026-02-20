@@ -5,7 +5,6 @@ export type ProjectHighlight = {
   cardTitle: string
   cardDescription: string
   cardMetric: string
-  cardTitleUnderline?: boolean
 }
 
 const highlightMap: Record<string, ProjectHighlight> = {
@@ -29,7 +28,6 @@ const highlightMap: Record<string, ProjectHighlight> = {
     cardDescription:
       'Built a reusable conversation framework to reduce agent dependency and scale self-service.',
     cardMetric: 'Serving ~29k customers per day.',
-    cardTitleUnderline: true,
   },
   'salesforce-liverpool': {
     cardMeta: 'Salesforce',

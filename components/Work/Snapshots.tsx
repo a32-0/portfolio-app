@@ -1,24 +1,27 @@
-import Image from 'next/image'
 import { projects } from '@/data/projects'
+import { selectedWork } from '@/data/selectedWork'
 import { snapshotsSection } from '@/data/snapshots'
-import AutoPlayVideo from './AutoPlayVideo'
 import CardSnapshots from './CardSnapshots'
 
 type Props = {
   limit?: number
 }
 
-type ProjectLike = (typeof projects)[number]
-
-function getProjectBySlug(slug: string): ProjectLike | null {
-  return projects.find((project) => project.slug === slug) ?? null
-}
-
 export default function Snapshots({ limit }: Props) {
-  const columns =
+  const selectedWorkSlugs = new Set(selectedWork.projectSlugs)
+  const availableProjects = projects.filter((project) => !selectedWorkSlugs.has(project.slug))
+  const projectList =
     typeof limit === 'number'
-      ? snapshotsSection.columns.map((column) => column.slice(0, Math.max(limit, 0)))
-      : snapshotsSection.columns
+      ? availableProjects.slice(0, Math.max(limit, 0))
+      : availableProjects
+
+  const columns = projectList.reduce<[typeof projectList, typeof projectList]>(
+    (acc, project, index) => {
+      acc[index % 2].push(project)
+      return acc
+    },
+    [[], []]
+  )
 
   return (
     <section
@@ -40,55 +43,14 @@ export default function Snapshots({ limit }: Props) {
             key={`grid-hero-column-${columnIndex + 1}`}
             className="inline-flex w-full flex-1 flex-col items-start justify-start gap-8"
           >
-            {column.map((item) => {
-              const project = getProjectBySlug(item.slug)
-              if (!project) return null
-
-              if (item.variant === 'card') {
-                return (
-                  <CardSnapshots
-                    key={item.id}
-                    product={project.title}
-                    src={project.cover}
-                    coverType={project.coverType}
-                  />
-                )
-              }
-
-              const isVideo =
-                project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
-              const cardLabel = project.title
-
-              return (
-                <div
-                  key={item.id}
-                  className="inline-flex w-full flex-col items-start justify-start gap-2"
-                >
-                  <div className="w-full">
-                    {isVideo ? (
-                      <AutoPlayVideo
-                        src={project.cover}
-                        title={project.title}
-                        alt={project.title}
-                        className="h-auto w-full"
-                      />
-                    ) : (
-                      <Image
-                        src={project.cover}
-                        alt={project.title}
-                        width={1200}
-                        height={900}
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="h-auto w-full"
-                      />
-                    )}
-                  </div>
-                  <div className="inline-flex w-full items-center justify-start">
-                    <p className="text-sm font-normal text-neutral-600">{cardLabel}</p>
-                  </div>
-                </div>
-              )
-            })}
+            {column.map((project) => (
+              <CardSnapshots
+                key={project.slug}
+                product={project.title}
+                src={project.cover}
+                coverType={project.coverType}
+              />
+            ))}
           </div>
         ))}
       </div>

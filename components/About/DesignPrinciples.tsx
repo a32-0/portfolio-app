@@ -8,7 +8,9 @@ export default function DesignPrinciples() {
     >
       <div className="flex w-full flex-col items-start justify-start gap-2">
         <h2 className="text-2xl font-medium text-black">{designPrinciples.title}</h2>
-        <p className="w-full text-3xl font-medium text-primary">{designPrinciples.intro}</p>
+        <p className="w-full text-3xl max-w-200 font-medium text-primary">
+          {designPrinciples.intro}
+        </p>
       </div>
 
       {designPrinciples.principles.map((principle) => (
