@@ -29,7 +29,9 @@ export default function Certificates() {
                 rel="noreferrer"
                 className={cellClass}
               >
-                <p className="self-stretch text-sm font-normal text-black underline">{content}</p>
+                <p className="link-hover-underline self-stretch text-sm font-normal text-black">
+                  {content}
+                </p>
               </Link>
             )
           }

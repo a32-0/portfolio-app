@@ -28,7 +28,7 @@ export default function FooterSocial() {
             href={link.href}
             target={link.href.startsWith('http') ? '_blank' : undefined}
             rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-            className="transition hover:opacity-70"
+            className="link-hover-underline transition hover:opacity-70"
           >
             {link.label} ↗
           </a>
@@ -39,7 +39,7 @@ export default function FooterSocial() {
         <button
           type="button"
           onClick={handleScrollTop}
-          className="cursor-pointer text-base font-normal text-white transition hover:opacity-70"
+          className="link-hover-underline cursor-pointer text-base font-normal text-white transition hover:opacity-70"
         >
           {footerContent.scrollTopLabel}
         </button>

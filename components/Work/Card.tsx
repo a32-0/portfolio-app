@@ -16,14 +16,12 @@ type Props = {
 export default function Card({ slug, href, title, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const highlight = getProjectHighlight(slug)
-  const wrapperClass = 'group block w-full transition-colors'
+  const wrapperClass = `${disabled ? 'block' : 'group block'} w-full transition-colors`
   const cardMeta = highlight.cardMeta
   const cardTitle = highlight.cardTitle
   const cardDescription = highlight.cardDescription
   const cardMetric = highlight.cardMetric
-  const cardTitleClass = highlight.cardTitleUnderline
-    ? 'self-stretch text-3xl font-medium text-slate-700 underline decoration-1 underline-offset-2'
-    : 'self-stretch text-3xl font-medium text-slate-700'
+  const cardTitleClass = `self-stretch text-3xl font-medium text-slate-700 ${disabled ? '' : 'group-link-hover-underline'}`
 
   const content = (
     <div className="inline-flex w-full flex-col items-start justify-start gap-4 lg:flex-row">
@@ -33,9 +31,9 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
         <p className="self-stretch text-base font-normal text-black">{cardDescription}</p>
         <p className="self-stretch text-base font-normal text-tertiary">{cardMetric}</p>
       </div>
-      <div className="h-80 w-full flex-1 overflow-hidden bg-zinc-300">
+      <div className="w-full flex-1">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={alt} title={title} className="h-full w-full object-cover" />
+          <AutoPlayVideo src={src} alt={alt} title={title} className="h-auto w-full" />
         ) : (
           <Image
             src={src}
@@ -43,7 +41,7 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
             width={1200}
             height={800}
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="h-full w-full object-cover"
+            className="h-auto w-full"
           />
         )}
       </div>
