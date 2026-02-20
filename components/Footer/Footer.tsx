@@ -1,5 +1,13 @@
-export default function FooterBackground() {
+import type { ReactNode } from 'react'
+
+type Props = {
+  children: ReactNode
+}
+
+export default function FooterLayout({ children }: Props) {
   return (
-    <div className="absolute inset-0 h-full w-full bg-primary" aria-hidden="true" />
+    <div className="mx-auto inline-flex h-full w-full flex-col items-center justify-start gap-12 overflow-hidden pt-12">
+      {children}
+    </div>
   )
 }

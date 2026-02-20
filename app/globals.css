@@ -6,13 +6,15 @@ html {
 
 @theme {
   /* Color Palette */
-  --color-primary: #0001f7;
-  --color-secondary: #0f1215;
-  --color-tertiary: #292b28;
-  --color-quaternary: #ff1b2d;
-  --color-quinary: #cfcfcf;
-  --color-black: #0d0d0d;
+  --color-primary: #2e3561;
   --color-white: #fff;
+  --color-quaternary: #f6f6f6;
+  --color-secondary: #dcdcdc;
+  --color-tertiary: #4e4e4e;
+
+  --color-black: #000;
+
+  --color-quinary: #cfcfcf;
 
   /* Custom fonts */
   --font-sans:
@@ -72,4 +74,27 @@ html {
   .columns-2000-4 {
     columns: 4;
   }
+}
+
+.link-hover-underline {
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+}
+
+.link-hover-underline:hover,
+.link-hover-underline:focus-visible {
+  text-decoration: underline;
+}
+
+.group-link-hover-underline {
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.group:hover .group-link-hover-underline,
+.group:focus-within .group-link-hover-underline {
+  text-decoration: underline;
 }

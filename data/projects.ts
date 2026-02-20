@@ -32,19 +32,19 @@ export const projects: ProjectData[] = [
     year: '2025',
   },
   /*   {
-    slug: 'salesforce1-liverpool',
+    slug: 'salesforce-liverpool',
     title: 'Salesforce',
     subtitle: 'Web App Redesign',
     cover: '/images/projects/ox-logistics/cover.png',
     year: '2025',
+  },
+  {
+    slug: 'little-lemon',
+    title: 'Little Lemon',
+    subtitle: 'Mobile App Design',
+    cover: '/images/projects/little-lemon/cover.png',
+    year: '2025',
   }, */
-  /* {
-  slug: "little-lemon",
-  title: "Little Lemon",
-  subtitle: "Mobile App Design",
-  cover: "/images/projects/little-lemon/cover.png",
-  year: "2025",
-}, */
   {
     slug: 'immersio',
     title: 'Immersio',
@@ -55,7 +55,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: 'toma1',
-    title: 'Toma1',
+    title: 'TOMA1',
     subtitle: 'Web App Concepts',
     cover: '/images/projects/toma1/cover.png',
     year: '2024',
