@@ -6,8 +6,10 @@ export default function FooterSection() {
   return (
     <section className="footer-color-cycle relative isolate h-screen overflow-hidden text-black">
       <FooterLayout>
-        <FooterMark />
-        <FooterSocial />
+        <div className="mt-auto w-full">
+          <FooterMark />
+          <FooterSocial />
+        </div>
       </FooterLayout>
     </section>
   )
