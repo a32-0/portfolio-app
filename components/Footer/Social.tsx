@@ -13,7 +13,7 @@ export default function FooterSocial() {
   return (
     <div
       className="flex w-full flex-wrap items-center justify-between gap-x-8 gap-y-4 border-t border-black
-     pt-4 text-base font-normal tracking-tight"
+     pt-4 text-base font-normal tracking-tight px-3"
     >
       <p>
         {footerContent.yearPrefix} <span className="tabular-nums">{year}</span>
