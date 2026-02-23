@@ -21,7 +21,7 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
   const cardTitle = highlight.cardTitle
   const cardDescription = highlight.cardDescription
   const cardMetric = highlight.cardMetric
-  const cardTitleClass = `self-stretch text-3xl font-medium text-slate-700 ${disabled ? '' : 'group-link-hover-underline'}`
+  const cardTitleClass = `self-stretch text-3xl font-medium text-black ${disabled ? '' : 'group-link-hover-underline'}`
 
   const content = (
     <div className="inline-flex w-full flex-col items-start justify-start gap-4 lg:flex-row">

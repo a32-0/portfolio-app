@@ -8,7 +8,7 @@ import Strengths from '@/components/About/Strengths'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-30">
+    <main>
       <Container className="flex flex-col gap-25">
         <Hero />
         <SelectedWork />

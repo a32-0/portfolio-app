@@ -6,7 +6,7 @@ html {
 
 @theme {
   /* Color Palette */
-  --color-primary: #2e3561;
+  --color-primary: #0001f7;
   --color-white: #fff;
   --color-quaternary: #f6f6f6;
   --color-secondary: #dcdcdc;
@@ -80,7 +80,9 @@ html {
   text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+  transition:
+    text-decoration-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .link-hover-underline:hover,
