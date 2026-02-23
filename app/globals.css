@@ -49,6 +49,35 @@ html {
   animation: radarPulse 2s infinite ease-out;
 }
 
+/* Footer color cycle */
+@keyframes footerColorCycle {
+  0% {
+    background-color: #a442ff;
+  }
+  16.66% {
+    background-color: #f351ff;
+  }
+  33.33% {
+    background-color: #ff90c4;
+  }
+  50% {
+    background-color: #ff0033;
+  }
+  66.66% {
+    background-color: #e5ff00;
+  }
+  83.33% {
+    background-color: #00ff27;
+  }
+  100% {
+    background-color: #a442ff;
+  }
+}
+
+.footer-color-cycle {
+  animation: footerColorCycle 18s linear infinite;
+}
+
 /* Marquee animation */
 @keyframes marquee {
   from {
@@ -66,6 +95,11 @@ html {
 @media (prefers-reduced-motion: reduce) {
   [data-marquee-track] {
     animation: none;
+  }
+
+  .footer-color-cycle {
+    animation: none;
+    background-color: #a442ff;
   }
 }
 

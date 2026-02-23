@@ -58,12 +58,12 @@ export default function Navigation() {
         <Link
           href="/docs/UX-Designer_Armando-Rojano.pdf"
           target="_blank"
-          className="link-hover-underline text-tertiary"
+          className="link-hover-underline"
         >
           Resume ↗
         </Link>
 
-        <Link href="mailto:armandorour@outlook.com" className="link-hover-underline text-primary">
+        <Link href="mailto:armandorour@outlook.com" className="link-hover-underline">
           Contact ↗
         </Link>
       </div>
