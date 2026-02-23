@@ -5,7 +5,7 @@ export default function Strengths() {
 
   return (
     <section className="inline-flex w-full flex-col items-center justify-center gap-4 tracking-tight">
-      <h2 className="w-full text-center text-2xl font-medium text-slate-700">
+      <h2 className="w-full text-center text-2xl font-medium text-primary">
         {strengthsSection.title}
       </h2>
       <p className="w-full max-w-200 text-center text-base font-normal text-neutral-600">
