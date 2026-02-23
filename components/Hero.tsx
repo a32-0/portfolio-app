@@ -2,7 +2,7 @@ import { hero } from '@/data/hero'
 
 export default function Hero() {
   return (
-    <section className="inline-flex w-full flex-col items-center tracking-tight justify-center">
+    <section className="inline-flex min-h-[calc(100svh-4rem)] w-full flex-col items-center justify-center tracking-tight">
       {hero.map((text) => (
         <div
           key={text.titleMain}
