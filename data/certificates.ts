@@ -1,8 +1,6 @@
 export type CertificatesData = {
   id: string
   title: string
-  href?: string
-  ongoing?: boolean
 }
 
 export type CertificatesSection = {
@@ -12,33 +10,32 @@ export type CertificatesSection = {
 }
 
 export const certificatesSection: CertificatesSection = {
-  title: 'Continuous learning',
+  title: 'Core capabilities in complex environments',
   intro: '',
   items: [
     {
-      id: 'certificate-meta',
-      title: 'Meta Front-End Developer Specialization',
-      href: 'https://www.coursera.org/account/accomplishments/specialization/PP36AF1CLIQL',
+      id: 'service-lifecycle-modeling',
+      title: 'Service lifecycle modeling',
     },
     {
-      id: 'certificate-google',
-      title: 'Google UX Design Certificate',
-      href: 'https://www.coursera.org/account/accomplishments/specialization/9ZF83F88L79P',
+      id: 'workflow-optimization',
+      title: 'Workflow optimization',
     },
     {
-      id: 'certificate-design-thinking',
-      title: 'Design Thinking Certification',
-      href: 'https://www.credly.com/badges/c45179d7-b68f-4841-90ec-2e69fd456ff3/public_url',
+      id: 'conversational-architecture',
+      title: 'Conversational architecture',
     },
     {
-      id: 'certificate-scrum',
-      title: 'Scrum Professional Certification',
-      href: 'https://www.credly.com/badges/def86223-ec15-4b8b-9fb8-c6908ce22fc8/public_url',
+      id: 'design-system-governance',
+      title: 'Design system governance',
     },
     {
-      id: 'certificate-ongoing-hci',
-      title: 'Ongoing: Perception and Memory in HCI and UX...',
-      ongoing: true,
+      id: 'design-to-development-alignment',
+      title: 'Design-to-development alignment',
+    },
+    {
+      id: 'documentation-standards',
+      title: 'Documentation standards for scalability',
     },
   ],
 }

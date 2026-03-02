@@ -3,38 +3,48 @@ import { projects } from './projects'
 export type ProjectHighlight = {
   cardMeta: string
   cardTitle: string
-  cardDescription: string
-  cardMetric: string
+  cardLead: string
+  cardPoints: string[]
+  cardMetric?: string
 }
 
 const highlightMap: Record<string, ProjectHighlight> = {
   'invoice-liverpool': {
-    cardMeta: 'Invoicing',
+    cardMeta: 'Invoicing Flow',
     cardTitle: 'Reducing complexity for 184k+ monthly users',
-    cardDescription:
-      'Redesigned the end-to-end invoicing experience across channels to make a critical flow clearer, faster, and less error-prone.',
+    cardLead:
+      'Redesigned a critical invoicing journey across web and mobile surfaces to reduce friction and operational errors.',
+    cardPoints: [
+      'Simplified multi-step validation logic.',
+      'Improved clarity of fiscal requirements and edge cases.',
+      'Reduced cognitive overload through structured hierarchy.',
+    ],
     cardMetric: 'Used by 184k+ users each month.',
   },
   'connect-liverpool': {
-    cardMeta: 'Contact Center',
-    cardTitle: 'Streamlining sales workflows for 40+ agents',
-    cardDescription:
-      'Reworked core operational journeys and UI patterns to reduce friction and improve efficiency in a revenue-critical sales channel.',
-    cardMetric: 'Supports 40+ agents and ~600k-3.7M MXN daily revenue workflows.',
+    cardMeta: 'Contact Center Platform',
+    cardTitle: 'Streamlining revenue-critical workflows for 40+ agents',
+    cardLead:
+      'Reworked core operational journeys within a high-volume sales platform processing ~600k-3.7M MXN daily.',
+    cardPoints: [
+      'Optimized agent workflows.',
+      'Reduced friction across service states.',
+      'Improved consistency across internal interface patterns.',
+    ],
+    cardMetric: 'Supports 40+ agents across Mexico.',
   },
   'whatsapp-liverpool': {
-    cardMeta: 'WhatsApp',
+    cardMeta: 'WhatsApp Services',
     cardTitle: 'From assisted support to a scalable conversational product',
-    cardDescription:
-      'Built a reusable conversation framework to reduce agent dependency and scale self-service.',
+    cardLead:
+      'Led the transformation of WhatsApp from a manual support extension into a structured conversational product.',
+    cardPoints: [
+      'Modeled service lifecycle states.',
+      'Designed reusable message patterns and tone system.',
+      'Structured outbound and inbound orchestration logic.',
+      'Migrated improvised flows into a scalable design framework.',
+    ],
     cardMetric: 'Serving ~29k customers per day.',
-  },
-  'salesforce-liverpool': {
-    cardMeta: 'Salesforce',
-    cardTitle: 'Improving internal tools with scalable patterns',
-    cardDescription:
-      'Optimized Lightning modules used by contact center and store teams, aligning usability, consistency, and design-system governance.',
-    cardMetric: 'Used by contact center + store agents across Mexico.',
   },
 }
 
@@ -44,13 +54,12 @@ export function getProjectHighlight(slug: string): ProjectHighlight {
 
   const project = projects.find((p) => p.slug === slug)
   const title = project?.title ?? slug
-  const subtitle = project?.subtitle ?? 'Case study'
-  const year = project?.year ? ` · ${project.year}` : ''
 
   return {
-    cardMeta: `${subtitle}${year}`,
+    cardMeta: 'Selected project',
     cardTitle: title,
-    cardDescription: subtitle,
-    cardMetric: project?.year ? `Year: ${project.year}` : 'Additional details coming soon.',
+    cardLead: 'Additional project details coming soon.',
+    cardPoints: [],
+    cardMetric: '',
   }
 }

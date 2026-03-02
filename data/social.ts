@@ -4,8 +4,7 @@ export type SocialLink = {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Email', href: 'mailto:armandorour@outlook.com' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/armandorour/' },
-  { label: 'Sixelf', href: 'https://sixelf.com/rour' },
-  { label: 'GitHub', href: 'https://github.com/a32-0' },
+  { label: 'Resume', href: '/docs/Product-Designer_Armando-Rojano.pdf' },
+  { label: 'Catalog', href: '/catalog' },
 ]

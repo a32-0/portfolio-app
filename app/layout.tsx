@@ -2,12 +2,12 @@ import './globals.css'
 import type { Metadata, Viewport } from 'next'
 import Header from '@/components/Header'
 import FooterSection from '@/components/FooterSection'
-import { Inter, Roboto_Mono, Lora } from 'next/font/google'
+import { Schibsted_Grotesk, Roboto_Mono, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
-const inter = Inter({
+const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-schibsted-grotesk',
 })
 
 const robotoMono = Roboto_Mono({
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: '%s | Armando Rojano',
   },
   description:
-    'Product Designer focused on clarity, impact, and collaboration across design, research, and code.',
+    'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
   applicationName: 'Armando Rojano Portfolio',
   authors: [{ name: 'Armando Rojano', url: 'https://www.linkedin.com/in/armandorour/' }],
   creator: 'Armando Rojano',
@@ -34,9 +34,12 @@ export const metadata: Metadata = {
   keywords: [
     'Armando Rojano',
     'Product Designer',
+    'Operational Systems',
+    'Conversational Design',
+    'Service Design',
     'UX',
-    'UI',
     'Design Systems',
+    'Enterprise UX',
     'Portfolio',
     'Mexico City',
   ],
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
     siteName: 'Armando Rojano | Product Designer',
     title: 'Armando Rojano | Product Designer',
     description:
-      'Product Designer focused on clarity, impact, and collaboration across design, research, and code.',
+      'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
     images: [
       {
         url: '/icons/catarsis.svg',
@@ -70,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Armando Rojano | Product Designer',
     description:
-      'Product Designer focused on clarity, impact, and collaboration across design, research, and code.',
+      'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
     images: ['/icons/catarsis.svg'],
   },
   icons: {
@@ -96,12 +99,15 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#0d0d0d',
+  themeColor: '#0001f7',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}>
+    <html
+      lang="en"
+      className={`${schibstedGrotesk.variable} ${robotoMono.variable} ${lora.variable}`}
+    >
       <body>
         <Header />
         <main>{children}</main>

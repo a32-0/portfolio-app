@@ -1,11 +1,11 @@
 export type FooterContent = {
   contactEmail: string
   yearPrefix: string
-  scrollTopLabel: string
+  year: string
 }
 
 export const footerContent: FooterContent = {
-  contactEmail: 'armandorour@outlook.com',
+  contactEmail: 'hello@armando.com',
   yearPrefix: '©',
-  scrollTopLabel: 'Scroll to top ↑',
+  year: '2026',
 }
