@@ -4,12 +4,10 @@ import FooterSocial from '@/components/Footer/Social'
 
 export default function FooterSection() {
   return (
-    <section className="footer-color-cycle relative isolate h-screen overflow-hidden text-black">
+    <section className="relative isolate h-screen overflow-hidden bg-primary text-white">
       <FooterLayout>
-        <div className="mt-auto w-full">
-          <FooterMark />
-          <FooterSocial />
-        </div>
+        <FooterMark />
+        <FooterSocial />
       </FooterLayout>
     </section>
   )

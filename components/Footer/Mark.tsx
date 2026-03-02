@@ -2,15 +2,10 @@ import { footerContent } from '@/data/footer'
 
 export default function FooterMark() {
   return (
-    <div className="w-full overflow-hidden pb-6" aria-label="Contact marquee">
-      <div
-        data-marquee-track
-        className="inline-flex min-w-max items-center gap-20 whitespace-nowrap text-[clamp(2.5rem,8vw,30rem)] leading-none font-medium tracking-tight [--marquee-speed:20s]"
-      >
-        <span>{footerContent.contactEmail}</span>
-        <span>{footerContent.contactEmail}</span>
-        <span>{footerContent.contactEmail}</span>
-      </div>
+    <div className="w-full text-center leading-none" aria-label="Contact email">
+      <h2 className="text-[clamp(4.5rem,10.7vw,200px)] font-medium font-sans tracking-tight text-white">
+        {footerContent.contactEmail}
+      </h2>
     </div>
   )
 }

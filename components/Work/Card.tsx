@@ -19,19 +19,29 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
   const wrapperClass = `${disabled ? 'block' : 'group block'} w-full transition-colors`
   const cardMeta = highlight.cardMeta
   const cardTitle = highlight.cardTitle
-  const cardDescription = highlight.cardDescription
+  const cardLead = highlight.cardLead
+  const cardPoints = highlight.cardPoints
   const cardMetric = highlight.cardMetric
-  const cardTitleClass = `self-stretch text-3xl font-medium text-black ${disabled ? '' : 'group-link-hover-underline'}`
+  const cardTitleClass = `text-[40px] leading-[1.04] font-medium text-black ${disabled ? '' : 'group-link-hover-underline'}`
 
   const content = (
     <div className="inline-flex w-full flex-col items-start justify-start gap-4 lg:flex-row">
-      <div className="inline-flex flex-1 flex-col items-start justify-start gap-2 pl-3">
-        <p className="self-stretch text-sm font-normal text-tertiary">{cardMeta}</p>
+      <div className="inline-flex flex-1 flex-col items-start justify-start gap-5">
+        <p className=" text-lg font-normal text-tertiary">{cardMeta}</p>
         <p className={cardTitleClass}>{cardTitle}</p>
-        <p className="self-stretch text-base font-normal text-black">{cardDescription}</p>
-        <p className="self-stretch text-base font-normal text-tertiary">{cardMetric}</p>
+        <div className=" flex flex-col gap-6 text-xl leading-[1.08] font-normal text-black">
+          <p>{cardLead}</p>
+          {cardPoints.length > 0 && (
+            <ul className="list-disc pl-8">
+              {cardPoints.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        {cardMetric ? <p className="text-lg font-normal text-tertiary">{cardMetric}</p> : null}
       </div>
-      <div className="w-full flex-1">
+      <div className="w-full flex-1 overflow-hidden rounded-[28px] bg-zinc-300">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} className="h-auto w-full" />
         ) : (

@@ -29,7 +29,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="py-4 font-sans text-base font-normal tracking-tight">
+    <nav className="py-4 font-sans text-xl font-medium tracking-tight">
       <div
         className={`inline-flex w-full flex-wrap items-center justify-between gap-x-6 gap-y-6 text-black transition-all duration-200 md:flex-nowrap ${
           isScrolled ? 'rounded-lg bg-white/0 p-2 backdrop-blur-[0px]' : ''
@@ -42,30 +42,17 @@ export default function Navigation() {
             className="rounded-full transition hover:opacity-50 flex items-center gap-2"
             onClick={handleLogoClick}
           >
-            <Image src="/icons/catarsis.svg" width={32} height={32} alt="Catarsis" priority />
-            <span>Armando Rojano</span>
+            <Image src="/icons/catarsis.svg" width={40} height={40} alt="Catarsis" priority />
           </Link>
         </div>
-
-        <Link href="/#work" className="link-hover-underline transition-colors">
-          Work
-        </Link>
-
-        <Link href="/#design-principles" className="link-hover-underline transition-colors">
-          About
-        </Link>
-
-        <Link
-          href="/docs/UX-Designer_Armando-Rojano.pdf"
-          target="_blank"
-          className="link-hover-underline"
-        >
-          Resume ↗
-        </Link>
-
-        <Link href="mailto:armandorour@outlook.com" className="link-hover-underline">
-          Contact ↗
-        </Link>
+        <div className="flex items-center gap-8">
+          <Link href="/#work" className="link-hover-underline transition-colors">
+            Work
+          </Link>
+          <Link href="/#design-principles" className="link-hover-underline transition-colors">
+            About
+          </Link>
+        </div>
       </div>
     </nav>
   )
