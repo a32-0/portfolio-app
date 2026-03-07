@@ -56,7 +56,7 @@ export default function Navigation() {
         </Link>
 
         <Link
-          href="/docs/UX-Designer_Armando-Rojano.pdf"
+          href="/docs/Product%20Designer_Armando%20Rojano.pdf"
           target="_blank"
           className="link-hover-underline text-tertiary"
         >
