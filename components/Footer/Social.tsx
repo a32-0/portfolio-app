@@ -11,17 +11,12 @@ export default function FooterSocial() {
   }
 
   return (
-    <div className="inline-flex w-full flex-1 flex-col border-t border-secondary text-base font-normal tracking-tight text-white lg:flex-row">
-      <div className="flex flex-1 items-start justify-start gap-2.5 border-b border-r border-secondary pl-3 pt-3 lg:self-stretch lg:border-b-0">
-        <p>
-          {footerContent.yearPrefix} <span className="tabular-nums">{year}</span>
-        </p>
-      </div>
+    <div className="inline-flex h-auto w-full flex-col items-start justify-between gap-8 px-6 py-6 text-base font-normal text-white md:h-16 md:flex-row md:items-center md:px-28 md:py-0">
+      <p>
+        {footerContent.yearPrefix} <span className="tabular-nums">{year}</span>
+      </p>
 
-      <nav
-        className="flex flex-1 flex-wrap items-start justify-center gap-x-12 gap-y-4 border-b border-r border-secondary px-3 pt-3 lg:self-stretch lg:border-b-0"
-        aria-label="Social media"
-      >
+      <nav className="flex flex-wrap items-center gap-6 md:gap-12" aria-label="Social media">
         {socialLinks.map((link) => (
           <a
             key={link.label}
@@ -35,15 +30,13 @@ export default function FooterSocial() {
         ))}
       </nav>
 
-      <div className="flex flex-1 items-start justify-end gap-2.5 px-3 pt-3 lg:self-stretch">
-        <button
-          type="button"
-          onClick={handleScrollTop}
-          className="link-hover-underline cursor-pointer text-base font-normal text-white transition hover:opacity-70"
-        >
-          {footerContent.scrollTopLabel}
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={handleScrollTop}
+        className="link-hover-underline cursor-pointer text-secondary transition hover:text-white"
+      >
+        {footerContent.scrollTopLabel}
+      </button>
     </div>
   )
 }

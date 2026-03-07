@@ -9,13 +9,13 @@ import Strengths from '@/components/About/Strengths'
 export default function Home() {
   return (
     <main className="flex flex-col gap-30">
-      <Container className="flex flex-col gap-25">
+      <Container className="flex flex-col gap-30">
         <Hero />
         <SelectedWork />
         <DesignPrinciples />
       </Container>
       <Certificates />
-      <Container className="flex flex-col gap-25">
+      <Container className="flex flex-col gap-30">
         <Strengths />
         <Snapshots />
       </Container>
