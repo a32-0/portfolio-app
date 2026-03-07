@@ -15,7 +15,7 @@ export default function Hero() {
           <p className="w-full max-w-200 text-center text-2xl font-normal text-black">
             {text.subtitle}
           </p>
-          <div className="h-100 w-75 bg-secondary" />
+          {/*           <div className="h-100 w-75 bg-secondary" /> */}
         </div>
       ))}
     </section>

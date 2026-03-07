@@ -5,7 +5,7 @@ export type FooterContent = {
 }
 
 export const footerContent: FooterContent = {
-  contactEmail: 'hello@armando.com',
+  contactEmail: 'armandorour@outlook.com',
   yearPrefix: '©',
   scrollTopLabel: 'Scroll to top ↑',
 }
