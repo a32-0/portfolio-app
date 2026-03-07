@@ -1,6 +1,6 @@
 import { projects } from './projects'
 
-export type ProjectHighlight = {
+export type SelectedWorkHighlight = {
   cardMeta: string
   cardTitle: string
   cardLead: string
@@ -8,7 +8,7 @@ export type ProjectHighlight = {
   cardMetric?: string
 }
 
-const highlightMap: Record<string, ProjectHighlight> = {
+const selectedWorkHighlightsMap: Record<string, SelectedWorkHighlight> = {
   'invoice-liverpool': {
     cardMeta: 'Invoicing Flow',
     cardTitle: 'Reducing complexity for 184k+ monthly users',
@@ -48,8 +48,8 @@ const highlightMap: Record<string, ProjectHighlight> = {
   },
 }
 
-export function getProjectHighlight(slug: string): ProjectHighlight {
-  const custom = highlightMap[slug]
+export function getSelectedWorkHighlight(slug: string): SelectedWorkHighlight {
+  const custom = selectedWorkHighlightsMap[slug]
   if (custom) return custom
 
   const project = projects.find((p) => p.slug === slug)

@@ -1,12 +1,12 @@
-import { certificatesSection } from '@/data/certificates'
+import { coreCapabilitiesSection } from '@/data/coreCapabilities'
 
-export default function Certificates() {
-  const marqueeItems = [...certificatesSection.items, ...certificatesSection.items]
+export default function CoreCapabilities() {
+  const marqueeItems = [...coreCapabilitiesSection.items, ...coreCapabilitiesSection.items]
 
   return (
     <section className="inline-flex w-full flex-col items-center justify-center gap-4 tracking-tight">
       <h2 className="text-center text-2xl font-normal text-black">
-        {certificatesSection.title}
+        {coreCapabilitiesSection.title}
       </h2>
 
       <div className="w-full overflow-hidden">

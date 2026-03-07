@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getProjectHighlight } from '@/data/projectHighlights'
+import { getSelectedWorkHighlight } from '@/data/selectedWorkHighlights'
 import AutoPlayVideo from './AutoPlayVideo'
 
 type Props = {
@@ -13,9 +13,9 @@ type Props = {
   disabled?: boolean
 }
 
-export default function Card({ slug, href, title, src, alt, coverType, disabled }: Props) {
+export default function SelectedWorkCard({ slug, href, title, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
-  const highlight = getProjectHighlight(slug)
+  const highlight = getSelectedWorkHighlight(slug)
   const wrapperClass = `${disabled ? 'block' : 'group block'} w-full transition-colors`
   const cardMeta = highlight.cardMeta
   const cardTitle = highlight.cardTitle
@@ -41,7 +41,7 @@ export default function Card({ slug, href, title, src, alt, coverType, disabled 
         </div>
         {cardMetric ? <p className="text-lg font-normal text-tertiary">{cardMetric}</p> : null}
       </div>
-      <div className="w-full flex-1 overflow-hidden rounded-[28px] bg-zinc-300">
+      <div className="w-full flex-1 overflow-hidden rounded-3xl bg-tertiary">
         {isVideo ? (
           <AutoPlayVideo src={src} alt={alt} title={title} className="h-auto w-full" />
         ) : (

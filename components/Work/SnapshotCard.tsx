@@ -8,7 +8,7 @@ type Props = {
   alt?: string
 }
 
-export default function CardSnapshots({ product, src, alt, coverType }: Props) {
+export default function SnapshotCard({ product, src, alt, coverType }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const mediaAlt = alt ?? product
 

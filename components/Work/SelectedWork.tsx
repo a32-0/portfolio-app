@@ -1,7 +1,7 @@
 import { projects } from '@/data/projects'
+import { hasPublishedCaseStudy } from '@/data/caseStudies'
 import { selectedWork } from '@/data/selectedWork'
-import { getCaseStudyImage } from '@/lib/caseStudy'
-import Card from './Card'
+import SelectedWorkCard from './SelectedWorkCard'
 
 type Props = {
   limit?: number
@@ -21,13 +21,12 @@ export default function SelectedWork({ limit }: Props) {
       </h2>
       <div className="h-px w-full bg-zinc-300" />
       {projectList.map((p, index) => {
-        const hasCaseStudy = !!getCaseStudyImage(p.slug)
-        const disabled = !hasCaseStudy
+        const disabled = !hasPublishedCaseStudy(p.slug)
         const isLast = index === projectList.length - 1
 
         return (
           <div key={p.slug} className="w-full">
-            <Card
+            <SelectedWorkCard
               slug={p.slug}
               href={`${selectedWork.projectHrefBase}/${p.slug}`}
               title={p.title}

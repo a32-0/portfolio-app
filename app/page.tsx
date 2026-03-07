@@ -3,20 +3,20 @@ import Hero from '@/components/Hero'
 import WhatIBuild from '@/components/About/WhatIBuild'
 import SelectedWork from '@/components/Work/SelectedWork'
 import DesignPrinciples from '@/components/About/DesignPrinciples'
-import Certificates from '@/components/About/Certificates'
+import CoreCapabilities from '@/components/About/CoreCapabilities'
 import About from '@/components/About/About'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-30">
-      <Container className="flex flex-col gap-30">
+    <main className="flex flex-col gap-50">
+      <Container className="flex flex-col gap-50">
         <Hero />
         <WhatIBuild />
         <SelectedWork />
         <DesignPrinciples />
       </Container>
-      <Certificates />
-      <Container className="flex flex-col gap-30">
+      <CoreCapabilities />
+      <Container className="flex flex-col gap-50">
         <About />
       </Container>
     </main>

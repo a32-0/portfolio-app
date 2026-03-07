@@ -1,0 +1,270 @@
+import {
+  ChallengeSection,
+  ClosingSection,
+  ContextSection,
+  FindingsSection,
+  HeroSection,
+  ObjectivesSection,
+  OverviewSection,
+  ResearchSection,
+  ResultsSection,
+} from '@/components/CaseStudy'
+
+export const caseStudy = {
+  title: 'Facturacion',
+  eyebrow: 'Caso de estudio',
+  metadata: {
+    title: 'Facturacion',
+    description:
+      'Case study del rediseño del portal de facturacion de Liverpool, enfocado en claridad, consistencia multicanal y reduccion de friccion operativa.',
+  },
+  navigation: [
+    { id: 'overview', label: 'Overview' },
+    { id: 'contexto', label: 'Contexto' },
+    { id: 'objetivos', label: 'Objetivos' },
+    { id: 'desafio', label: 'Desafio' },
+    { id: 'investigacion', label: 'Investigacion' },
+    { id: 'diseno', label: 'Diseño' },
+    { id: 'resultados', label: 'Resultados' },
+  ],
+}
+
+<HeroSection
+  badge="Caso de estudio"
+  title="Facturacion"
+  intro="El portal de Facturacion es la plataforma central de Liverpool para que los clientes generen facturas de todas sus compras, sin importar el canal: tiendas fisicas, e-commerce o ventas telefonicas. Al tratarse de una experiencia post-compra, regulada y legalmente sensible, cualquier friccion impacta directamente en la confianza del cliente, en los costos operativos y en la percepcion de marca."
+  media={{
+    src: '/images/projects/invoice-liverpool/cover.mp4',
+    alt: 'Vista del rediseño del portal de facturacion de Liverpool',
+    type: 'video',
+  }}
+/>
+
+<OverviewSection
+  id="overview"
+  groups={[
+    {
+      title: 'Mi rol',
+      display: 'chips',
+      items: ['Product Designer', 'UX, UI, Research', 'Content Designer'],
+    },
+    {
+      title: 'Diseñadores',
+      display: 'list',
+      items: ['1 diseñador', '(Armando Rojano)'],
+    },
+    {
+      title: 'Herramientas',
+      display: 'list',
+      items: ['Figma', 'Maze', 'Jira', 'Confluence', 'ChatGPT', 'Google Workspace'],
+    },
+    {
+      title: 'Metodos',
+      display: 'dots',
+      items: [
+        'Planeacion y ejecucion de investigacion.',
+        'Evaluaciones heuristicas y pruebas de usabilidad.',
+        'Rediseño de flujos y contenido.',
+        'Diseño visual e interacciones alineadas al DS.',
+        'Validacion con stakeholders legales, funcionales y QA.',
+        'Handoff de diseño y acompañamiento cercano a desarrollo.',
+      ],
+    },
+    {
+      title: 'Comunicacion',
+      display: 'dots',
+      items: ['Sesiones', 'Chats', 'Workshops', 'Comentarios en Figma', 'Correos electronicos'],
+    },
+    {
+      title: 'Plataformas',
+      display: 'dots',
+      items: ['WEB', 'WAP', 'APP'],
+    },
+    {
+      title: 'Equipo',
+      display: 'dots',
+      items: ['Project Manager', 'Business Analysts', 'Developers web y mobile', 'Stakeholders', 'Quality Assurance'],
+    },
+    {
+      title: 'Duracion',
+      display: 'list',
+      items: ['~6 meses', '2025'],
+    },
+  ]}
+/>
+
+<ContextSection
+  id="contexto"
+  label="Contexto"
+  paragraphs={[
+    'El portal de Facturacion es la plataforma central de Liverpool para que los clientes generen facturas de todas sus compras, sin importar el canal: tiendas fisicas, e-commerce o ventas telefonicas. Cualquier cliente que necesite facturar una compra debe completar este flujo.',
+    'Al tratarse de una experiencia post-compra, regulada y legalmente sensible, cualquier friccion impacta directamente en la confianza del cliente, en los costos operativos y en la percepcion de marca.',
+  ]}
+/>
+
+<ObjectivesSection
+  id="objetivos"
+  label="Objetivos"
+  title="En este proyecto nos enfocamos en..."
+  items={[
+    {
+      title: 'Identificar friccion real',
+      description: 'Detectar los puntos de confusion, friccion y error que enfrentaban los clientes al facturar.',
+    },
+    {
+      title: 'Consistencia multicanal',
+      description:
+        'Garantizar una experiencia coherente en WEB, WAP y APP, manteniendo el look and feel de Liverpool y sus multisitios.',
+    },
+    {
+      title: 'Portal unificado',
+      description: 'Eliminar la separacion entre portales de facturacion para mercancia interna y externa.',
+    },
+  ]}
+/>
+
+<ChallengeSection
+  id="desafio"
+  label="Desafio"
+  title="El reto no era unicamente visual, sino estructural y comunicacional. La experiencia existente afectaba tanto a los clientes como a la operacion interna."
+  problem="Experiencia confusa, extensa y poco confiable en un momento critico postcompra. La falta de retroalimentacion del sistema, los errores sin contexto y la existencia de dos portales distintos segun el tipo de mercancia obligaban al usuario a tomar decisiones que no correspondian a su modelo mental."
+  solution="Una experiencia de facturacion unificada, clara y orientada a la tarea, que elimina la distincion entre tipos de mercancia y guia al usuario con retroalimentacion visible y predecible en cada paso."
+/>
+
+<ResearchSection
+  id="investigacion"
+  label="Investigacion"
+  title="La investigacion se enfoco en entender donde se perdia tiempo, claridad y confianza."
+  items={[
+    {
+      step: '1',
+      title: 'Pruebas de usabilidad no moderadas',
+      description:
+        'Se evaluo que tan facil era completar la facturacion y en que pasos los usuarios se detenian, dudaban o se equivocaban.',
+    },
+    {
+      step: '2',
+      title: 'Evaluacion heuristica',
+      description:
+        'Se analizo el flujo con base en principios de usabilidad para identificar friccion estructural y patrones de retroalimentacion ausentes.',
+    },
+    {
+      step: '3',
+      title: 'Benchmarking con competidores',
+      description:
+        'Se comparo la experiencia de Liverpool contra estandares del mercado para identificar brechas en accesibilidad, guia y apoyo visual.',
+    },
+    {
+      step: '4',
+      title: 'Analisis de trafico web',
+      description:
+        'Se revisaron indicadores de comportamiento para cuantificar friccion, como duracion de sesion, paginas por sesion y preferencia de dispositivo.',
+    },
+  ]}
+/>
+
+<FindingsSection
+  id="diseno"
+  label="Diseño"
+  title="Unificamos la facturacion en un solo flujo, reduciendo confusion, errores y retrabajo."
+  items={[
+    {
+      findingLabel: 'Hallazgo 1',
+      findingTitle: 'Confusion por dos portales de facturacion',
+      findingBody:
+        'Los usuarios no piensan en mercancia interna y externa; solo conocen su codigo de facturacion. Tener dos portales obligaba al cliente a elegir algo que no corresponde a su modelo mental, generando entradas incorrectas, errores y abandono.',
+      recommendationLabel: 'Recomendacion 1',
+      recommendationTitle: 'Unificar la experiencia en un solo portal',
+      recommendationBody:
+        'Unificar la experiencia en un solo portal que permita facturar con cualquier codigo, eliminando la decision de a cual sitio entrar.',
+      impact:
+        'Se reducen un 40% los abandonos tempranos por confusion de portal y un 30% los reintentos por entrada incorrecta, reduciendo navegacion innecesaria desde el primer paso.',
+    },
+    {
+      findingLabel: 'Hallazgo 2',
+      findingTitle: 'El sistema no daba retroalimentacion',
+      findingBody:
+        'Despues de acciones clave, el usuario no recibia confirmaciones claras ni señales de progreso, lo que generaba incertidumbre, reintentos y desconfianza.',
+      recommendationLabel: 'Recomendacion 2',
+      recommendationTitle: 'Estados y confirmaciones visibles en cada paso critico',
+      recommendationBody:
+        'Incorporar mensajes de estado, confirmaciones de accion y señales de progreso para que el usuario siempre sepa que paso y que sigue.',
+      impact:
+        'Se reducen un 25% los reintentos por acciones sin confirmacion y un 20% la duracion promedio de sesion al hacer el progreso visible en cada paso.',
+    },
+    {
+      findingLabel: 'Hallazgo 3',
+      findingTitle: 'Errores sin contexto rompen la confianza',
+      findingBody:
+        'Cuando el usuario se equivocaba, el sistema no explicaba el motivo ni como solucionarlo, dejando al usuario sin ruta clara para continuar.',
+      recommendationLabel: 'Recomendacion 3',
+      recommendationTitle: 'Errores contextuales y accionables',
+      recommendationBody:
+        'Diseñar mensajes de error que expliquen el problema en lenguaje claro y orienten al usuario con una accion concreta para recuperarse.',
+      impact: 'Se incrementa un 35% el error recovery rate y se reducen un 30% los abandonos despues de un error.',
+    },
+    {
+      findingLabel: 'Hallazgo 4',
+      findingTitle: 'Friccion excesiva para una tarea transaccional',
+      findingBody:
+        'El comportamiento de uso reflejaba un flujo largo y pesado: 35:10 min de duracion promedio y 10.63 paginas por sesion, lo cual indica pasos innecesarios y baja eficiencia.',
+      recommendationLabel: 'Recomendacion 4',
+      recommendationTitle: 'Simplificacion del recorrido',
+      recommendationBody: 'Optimizar el flujo para hacerlo mas directo, reduciendo pasos y mejorando la progresion del proceso.',
+      impact: 'Se reduce un 40% el baseline de tiempo y un 50% el baseline de paginas por sesion.',
+    },
+    {
+      findingLabel: 'Hallazgo 5',
+      findingTitle: 'Falta de consistencia visual y confianza percibida',
+      findingBody:
+        'En un proceso fiscal sensible, la consistencia visual y la claridad ayudan a transmitir confianza. La experiencia anterior no estaba alineada al ecosistema Liverpool.',
+      recommendationLabel: 'Recomendacion 5',
+      recommendationTitle: 'Homologacion visual con el Design System',
+      recommendationBody:
+        'Alinear el portal con la marca y reforzar jerarquia, legibilidad y consistencia para reducir carga cognitiva.',
+      impact: 'Aumenta un 20% el score de claridad percibida en validacion y disminuyen las dudas en pasos fiscales.',
+    },
+    {
+      findingLabel: 'Hallazgo 6',
+      findingTitle: 'Consistencia en todos los canales',
+      findingBody:
+        'La preferencia de uso era clara, pero el flujo debia funcionar de forma coherente en WAP y en Liverpool Pocket para evitar experiencias inconsistentes segun el canal.',
+      recommendationLabel: 'Recomendacion 6',
+      recommendationTitle: 'Optimizacion desktop-first con consistencia mobile',
+      recommendationBody:
+        'Priorizar la experiencia WEB sin descuidar mobile, manteniendo patrones consistentes y evitando divergencias entre plataformas.',
+      impact: 'Se mantiene la tasa de exito en desktop y aumenta el exito en mobile sin introducir divergencias.',
+    },
+  ]}
+/>
+
+<ResultsSection
+  id="resultados"
+  label="Resultados"
+  title="Estos fueron algunos de los resultados mas destacados al cierre del proyecto..."
+  items={[
+    {
+      value: '1 portal',
+      description: 'Se unificaron los 2 portales en una sola experiencia: el usuario solo necesita su codigo.',
+    },
+    {
+      value: '3 plataformas',
+      description: 'Entrega consistente en todos los canales, evitando experiencias fragmentadas.',
+    },
+    {
+      value: 'QA end-to-end',
+      description: 'Validacion completa del flujo y escenarios con feedback positivo de stakeholders funcionales y directivos.',
+    },
+    {
+      value: 'Mejoras clave',
+      description:
+        'Portal unificado, feedback del sistema, errores contextuales, homologacion con DS y consistencia cross-platform.',
+    },
+  ]}
+/>
+
+<ClosingSection
+  title="Gracias por leer"
+  contacts={['Armando Rojano', 'armandorour@outlook.com']}
+  disclaimer="Todos los visuales y la informacion mostrada en esta pagina son propiedad de El Puerto de Liverpool 2025. Todos los derechos reservados."
+/>

@@ -3,7 +3,7 @@ import { hero } from '@/data/hero'
 
 export default function Hero() {
   return (
-    <section className="inline-flex min-h-[calc(100svh-4rem)] w-full flex-col items-center justify-center tracking-tight">
+    <section className="inline-flex min-h-[calc(100svh-4rem)] w-full flex-col items-center justify-center">
       <div className="inline-flex w-full tracking-tighter flex-col items-center justify-center gap-6">
         <h1 className="text-center text-6xl font-medium text-black">{hero.title}</h1>
         <p className="w-full max-w-200 text-center text-2xl font-normal text-tertiary">
@@ -16,7 +16,7 @@ export default function Hero() {
               href={cta.href}
               target={cta.external ? '_blank' : undefined}
               rel={cta.external ? 'noreferrer' : undefined}
-              className="link-hover-underline inline-flex items-center justify-center rounded-3xl outline -outline-offset-1 outline-black px-8 py-3 text-xl font-medium text-black transition hover:bg-black hover:text-white"
+              className="inline-flex items-center justify-center rounded-3xl outline -outline-offset-1 outline-black px-8 py-3 text-xl font-medium text-black transition hover:bg-primary hover:text-white"
             >
               {cta.label}
             </Link>

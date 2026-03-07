@@ -1,17 +1,15 @@
-export type CertificatesData = {
+export type CoreCapabilityItem = {
   id: string
   title: string
 }
 
-export type CertificatesSection = {
+export type CoreCapabilitiesSection = {
   title: string
-  intro: string
-  items: CertificatesData[]
+  items: CoreCapabilityItem[]
 }
 
-export const certificatesSection: CertificatesSection = {
+export const coreCapabilitiesSection: CoreCapabilitiesSection = {
   title: 'Core capabilities in complex environments',
-  intro: '',
   items: [
     {
       id: 'service-lifecycle-modeling',
