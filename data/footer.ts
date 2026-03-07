@@ -1,11 +1,9 @@
 export type FooterContent = {
   contactEmail: string
   yearPrefix: string
-  year: string
 }
 
 export const footerContent: FooterContent = {
-  contactEmail: 'hello@armando.com',
+  contactEmail: 'armandorour@outlook.com',
   yearPrefix: '©',
-  year: '2026',
 }

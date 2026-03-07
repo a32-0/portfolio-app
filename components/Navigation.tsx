@@ -29,7 +29,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="py-4 font-sans text-xl font-medium tracking-tight">
+    <nav className="py-4 font-sans text-xl font-normal tracking-tight">
       <div
         className={`inline-flex w-full flex-wrap items-center justify-between gap-x-6 gap-y-6 text-black transition-all duration-200 md:flex-nowrap ${
           isScrolled ? 'rounded-lg bg-white/0 p-2 backdrop-blur-[0px]' : ''

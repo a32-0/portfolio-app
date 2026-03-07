@@ -2,10 +2,12 @@ import { footerContent } from '@/data/footer'
 import { socialLinks } from '@/data/social'
 
 export default function FooterSocial() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <div className="inline-flex w-full max-w-300 items-center justify-between px-6 py-3 text-xl font-medium tracking-tight text-white">
+    <div className="inline-flex w-full max-w-300 items-center justify-between px-6 py-3 text-xl font-normal tracking-tight text-white">
       <p>
-        {footerContent.yearPrefix} <span className="tabular-nums">{footerContent.year}</span>
+        {footerContent.yearPrefix} <span className="tabular-nums">{currentYear}</span>
       </p>
 
       <nav className="flex items-center justify-center gap-8" aria-label="Social media">
