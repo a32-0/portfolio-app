@@ -21,7 +21,7 @@ export default function FooterSection() {
         </a>
 
         <div className="self-stretch inline-flex items-center justify-between py-4 font-sans text-xl font-normal text-white">
-          <p>
+          <p className="text-secondary">
             {footerContent.yearPrefix} {currentYear}
           </p>
           <nav className="flex items-center gap-8" aria-label="Footer links">

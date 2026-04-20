@@ -17,7 +17,7 @@ export default function DesignPrinciples() {
               <span className="text-base font-normal tracking-tight text-primary">
                 {principle.id}
               </span>
-              <h3 className="flex-1 text-2xl tracking-tight font-medium font-serif text-black">
+              <h3 className="flex-1 text-4xl tracking-tight font-medium font-serif text-black">
                 {principle.title}
               </h3>
             </div>

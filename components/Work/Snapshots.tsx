@@ -1,5 +1,4 @@
-import { projects } from '@/data/projects'
-import { selectedWork } from '@/data/selectedWork'
+import { archiveProjects } from '@/data/projects'
 import { snapshotsSection } from '@/data/snapshots'
 import SnapshotCard from './SnapshotCard'
 
@@ -8,10 +7,8 @@ type Props = {
 }
 
 export default function Snapshots({ limit }: Props) {
-  const selectedWorkSlugs = new Set(selectedWork.projectSlugs)
-  const availableProjects = projects.filter((project) => !selectedWorkSlugs.has(project.slug))
   const projectList =
-    typeof limit === 'number' ? availableProjects.slice(0, Math.max(limit, 0)) : availableProjects
+    typeof limit === 'number' ? archiveProjects.slice(0, Math.max(limit, 0)) : archiveProjects
 
   const columns = projectList.reduce<[typeof projectList, typeof projectList]>(
     (acc, project, index) => {

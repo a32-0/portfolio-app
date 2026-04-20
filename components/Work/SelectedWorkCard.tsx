@@ -1,21 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getSelectedWorkHighlight } from '@/data/selectedWorkHighlights'
+import type { Project } from '@/data/projects'
 import AutoPlayVideo from './AutoPlayVideo'
 
 type Props = {
-  slug: string
-  href: string
-  title: string
-  src: string
-  coverType?: 'image' | 'video'
-  alt?: string
-  disabled?: boolean
+  project: Project
 }
 
-export default function SelectedWorkCard({ slug, href, title, src, alt, coverType, disabled }: Props) {
-  const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
-  const { cardCategory, cardTitle, cardTags } = getSelectedWorkHighlight(slug)
+export default function SelectedWorkCard({ project }: Props) {
+  const { slug, title, cover, coverType, caseStudy, cardCategory, cardTitle, cardTags } = project
+  const isVideo = coverType === 'video' || cover.toLowerCase().endsWith('.mp4')
+  const href = `/work/${slug}`
 
   const content = (
     <div className="inline-flex w-full items-start justify-end gap-6 tracking-tight">
@@ -23,20 +18,20 @@ export default function SelectedWorkCard({ slug, href, title, src, alt, coverTyp
         <p className="w-full text-right text-lg font-normal font-sans text-primary">
           {cardCategory}
         </p>
-        <h3 className={`w-full text-right text-3xl font-medium font-serif text-black ${disabled ? '' : 'group-link-hover-underline'}`}>
+        <h3 className={`w-full text-right text-3xl font-medium font-serif text-black ${caseStudy ? 'group-link-hover-underline' : ''}`}>
           {cardTitle}
         </h3>
         <p className="w-full text-right text-xl font-normal font-sans text-black">
-          {cardTags.join(' · ')}
+          {cardTags?.join(' · ')}
         </p>
       </div>
       <div className="w-150 shrink-0 overflow-hidden bg-secondary aspect-6/5">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={alt} title={title} className="h-full w-full object-cover" />
+          <AutoPlayVideo src={cover} title={title} className="h-full w-full object-cover" />
         ) : (
           <Image
-            src={src}
-            alt={alt ?? title}
+            src={cover}
+            alt={title}
             width={1200}
             height={1000}
             sizes="600px"
@@ -47,7 +42,7 @@ export default function SelectedWorkCard({ slug, href, title, src, alt, coverTyp
     </div>
   )
 
-  if (disabled) {
+  if (!caseStudy) {
     return <div className="w-full">{content}</div>
   }
 
