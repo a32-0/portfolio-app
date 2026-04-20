@@ -4,31 +4,29 @@ export default function DesignPrinciples() {
   return (
     <section
       id="design-principles"
-      className="inline-flex w-full flex-col items-center justify-center gap-8 tracking-tight"
+      className="inline-flex w-full items-center justify-center gap-12 tracking-tight"
     >
-      <div className="flex w-full flex-col items-center justify-center gap-2">
-        <h2 className="text-center text-3xl font-medium text-black">{designPrinciples.title}</h2>
-        <p className="w-full max-w-200 text-center text-2xl font-normal text-tertiary">
-          {designPrinciples.intro}
-        </p>
-      </div>
+      <h2 className="w-64 shrink-0 tracking-tight text-5xl font-medium font-sans text-black">
+        {designPrinciples.heading}
+      </h2>
 
-      {designPrinciples.principles.map((principle) => (
-        <article
-          key={principle.id}
-          className="inline-flex w-full flex-col items-start justify-start gap-4 md:flex-row"
-        >
-          <div className="flex flex-1 items-start justify-start gap-2">
-            <p className="text-xl font-normal text-tertiary">{principle.id}</p>
-            <h3 className="flex-1 text-3xl leading-[1.05] font-medium text-black">
-              {principle.title}
-            </h3>
-          </div>
-          <div className="flex flex-1 items-start justify-start">
-            <p className="text-xl font-normal text-tertiary">{principle.description}</p>
-          </div>
-        </article>
-      ))}
+      <div className="flex flex-1 flex-col">
+        {designPrinciples.principles.map((principle) => (
+          <article key={principle.id} className="flex flex-col gap-4 py-10 font-sans">
+            <div className="inline-flex items-start gap-2">
+              <span className="text-base font-normal tracking-tight text-primary">
+                {principle.id}
+              </span>
+              <h3 className="flex-1 text-2xl tracking-tight font-medium font-serif text-black">
+                {principle.title}
+              </h3>
+            </div>
+            <p className="text-xl font-normal tracking-tight text-tertiary">
+              {principle.description}
+            </p>
+          </article>
+        ))}
+      </div>
     </section>
   )
 }

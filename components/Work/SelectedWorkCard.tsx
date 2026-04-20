@@ -15,43 +15,32 @@ type Props = {
 
 export default function SelectedWorkCard({ slug, href, title, src, alt, coverType, disabled }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
-  const highlight = getSelectedWorkHighlight(slug)
-  const wrapperClass = `${disabled ? 'block' : 'group block'} w-full transition-colors`
-  const cardMeta = highlight.cardMeta
-  const cardTitle = highlight.cardTitle
-  const cardLead = highlight.cardLead
-  const cardPoints = highlight.cardPoints
-  const cardMetric = highlight.cardMetric
-  const cardTitleClass = `text-[40px] leading-[1.04] font-medium text-black ${disabled ? '' : 'group-link-hover-underline'}`
+  const { cardCategory, cardTitle, cardTags } = getSelectedWorkHighlight(slug)
 
   const content = (
-    <div className="inline-flex w-full flex-col items-start justify-start gap-4 lg:flex-row">
-      <div className="inline-flex flex-1 flex-col items-start justify-start gap-5">
-        <p className=" text-lg font-normal text-tertiary">{cardMeta}</p>
-        <p className={cardTitleClass}>{cardTitle}</p>
-        <div className=" flex flex-col gap-6 text-xl leading-[1.08] font-normal text-black">
-          <p>{cardLead}</p>
-          {cardPoints.length > 0 && (
-            <ul className="list-disc pl-8">
-              {cardPoints.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-        {cardMetric ? <p className="text-lg font-normal text-tertiary">{cardMetric}</p> : null}
+    <div className="inline-flex w-full items-start justify-end gap-6 tracking-tight">
+      <div className="flex flex-1 flex-col items-end gap-4">
+        <p className="w-full text-right text-lg font-normal font-sans text-primary">
+          {cardCategory}
+        </p>
+        <h3 className={`w-full text-right text-3xl font-medium font-serif text-black ${disabled ? '' : 'group-link-hover-underline'}`}>
+          {cardTitle}
+        </h3>
+        <p className="w-full text-right text-xl font-normal font-sans text-black">
+          {cardTags.join(' · ')}
+        </p>
       </div>
-      <div className="w-full flex-1 overflow-hidden rounded-3xl bg-tertiary">
+      <div className="w-150 shrink-0 overflow-hidden bg-secondary aspect-6/5">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={alt} title={title} className="h-auto w-full" />
+          <AutoPlayVideo src={src} alt={alt} title={title} className="h-full w-full object-cover" />
         ) : (
           <Image
             src={src}
             alt={alt ?? title}
             width={1200}
-            height={800}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="h-auto w-full"
+            height={1000}
+            sizes="600px"
+            className="h-full w-full object-cover"
           />
         )}
       </div>
@@ -59,11 +48,11 @@ export default function SelectedWorkCard({ slug, href, title, src, alt, coverTyp
   )
 
   if (disabled) {
-    return <div className={wrapperClass}>{content}</div>
+    return <div className="w-full">{content}</div>
   }
 
   return (
-    <Link href={href} className={wrapperClass}>
+    <Link href={href} className="group block w-full transition-colors">
       {content}
     </Link>
   )
