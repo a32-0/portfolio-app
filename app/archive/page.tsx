@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ArchivePage() {
   return (
-    <main className="flex flex-col gap-30">
+    <main className="flex flex-col mt-16 gap-30">
       <Container className="flex flex-col gap-30 pt-8">
         <Snapshots />
       </Container>
