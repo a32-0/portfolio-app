@@ -1,50 +1,29 @@
 import { projects } from './projects'
 
 export type SelectedWorkHighlight = {
-  cardMeta: string
+  cardCategory: string
   cardTitle: string
-  cardLead: string
-  cardPoints: string[]
-  cardMetric?: string
+  cardTags: string[]
 }
 
 const selectedWorkHighlightsMap: Record<string, SelectedWorkHighlight> = {
   'invoice-liverpool': {
-    cardMeta: 'Invoicing Flow',
-    cardTitle: 'Reducing complexity for 184k+ monthly users',
-    cardLead:
-      'Redesigned a critical invoicing journey across web and mobile surfaces to reduce friction and operational errors.',
-    cardPoints: [
-      'Simplified multi-step validation logic.',
-      'Improved clarity of fiscal requirements and edge cases.',
-      'Reduced cognitive overload through structured hierarchy.',
-    ],
-    cardMetric: 'Used by 184k+ users each month.',
+    cardCategory: 'Invoicing Platform',
+    cardTitle:
+      'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
+    cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
   },
   'connect-liverpool': {
-    cardMeta: 'Contact Center Platform',
-    cardTitle: 'Streamlining revenue-critical workflows for 40+ agents',
-    cardLead:
-      'Reworked core operational journeys within a high-volume sales platform processing ~600k-3.7M MXN daily.',
-    cardPoints: [
-      'Optimized agent workflows.',
-      'Reduced friction across service states.',
-      'Improved consistency across internal interface patterns.',
-    ],
-    cardMetric: 'Supports 40+ agents across Mexico.',
+    cardCategory: 'Contact Center Sales Platform',
+    cardTitle:
+      "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
+    cardTags: ['Systems Design', 'Enterprise UX', 'Stakeholder Research'],
   },
   'whatsapp-liverpool': {
-    cardMeta: 'WhatsApp Services',
-    cardTitle: 'From assisted support to a scalable conversational product',
-    cardLead:
-      'Led the transformation of WhatsApp from a manual support extension into a structured conversational product.',
-    cardPoints: [
-      'Modeled service lifecycle states.',
-      'Designed reusable message patterns and tone system.',
-      'Structured outbound and inbound orchestration logic.',
-      'Migrated improvised flows into a scalable design framework.',
-    ],
-    cardMetric: 'Serving ~29k customers per day.',
+    cardCategory: 'WhatsApp Business Platform',
+    cardTitle:
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
+    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
   },
 }
 
@@ -56,10 +35,8 @@ export function getSelectedWorkHighlight(slug: string): SelectedWorkHighlight {
   const title = project?.title ?? slug
 
   return {
-    cardMeta: 'Selected project',
+    cardCategory: 'Selected project',
     cardTitle: title,
-    cardLead: 'Additional project details coming soon.',
-    cardPoints: [],
-    cardMetric: '',
+    cardTags: [],
   }
 }

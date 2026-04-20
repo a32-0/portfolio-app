@@ -1,5 +1,8 @@
 export type HeroData = {
-  title: string
+  title: {
+    serif: string
+    sans: string
+  }
   subtitle: string
   ctas: {
     label: string
@@ -9,16 +12,19 @@ export type HeroData = {
 }
 
 export const hero: HeroData = {
-  title: 'Designing operational systems that scale across retail, service, and conversational ecosystems',
+  title: {
+    serif: 'Product Designer',
+    sans: ' building scalable systems across high-traffic retail and conversational platforms',
+  },
   subtitle:
-    'I structure complex service operations into measurable, reusable, and scalable product experiences, supporting 180k+ monthly users, 40+ operational agents, and revenue-critical workflows.',
+    'I design at the intersection of clarity, behavior, and code. Turning complexity into experiences that feel effortless.',
   ctas: [
     {
-      label: 'View selected work',
+      label: 'Selected work',
       href: '/#work',
     },
     {
-      label: 'Download resume',
+      label: 'Resume',
       href: '/docs/Product-Designer_Armando-Rojano.pdf',
       external: true,
     },

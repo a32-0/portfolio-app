@@ -6,6 +6,6 @@ export type SnapshotsSection = {
 
 export const snapshotsSection: SnapshotsSection = {
   id: 'additional-snapshots',
-  title: 'Additional snapshots',
+  title: 'Archive',
   description: 'A curated set of screens from past projects.',
 }

@@ -15,27 +15,24 @@ export default function SelectedWork({ limit }: Props) {
     typeof limit === 'number' ? selectedProjects.slice(0, Math.max(limit, 0)) : selectedProjects
 
   return (
-    <section id={selectedWork.id} className="inline-flex w-full flex-col items-start justify-start gap-8">
-      <h2 className="self-stretch text-3xl font-medium tracking-tight text-black">
-        {selectedWork.title}
-      </h2>
-      <div className="h-px w-full bg-zinc-300" />
-      {projectList.map((p, index) => {
+    <section
+      id={selectedWork.id}
+      className="inline-flex w-full flex-col items-start justify-start gap-20 tracking-tight"
+    >
+      <h2 className="text-5xl font-medium font-sans text-black">{selectedWork.title}</h2>
+      {projectList.map((p) => {
         const disabled = !hasPublishedCaseStudy(p.slug)
-        const isLast = index === projectList.length - 1
 
         return (
-          <div key={p.slug} className="w-full">
-            <SelectedWorkCard
-              slug={p.slug}
-              href={`${selectedWork.projectHrefBase}/${p.slug}`}
-              title={p.title}
-              src={p.cover}
-              coverType={p.coverType}
-              disabled={disabled}
-            />
-            {!isLast && <div className="mt-8 h-px w-full bg-zinc-300" />}
-          </div>
+          <SelectedWorkCard
+            key={p.slug}
+            slug={p.slug}
+            href={`${selectedWork.projectHrefBase}/${p.slug}`}
+            title={p.title}
+            src={p.cover}
+            coverType={p.coverType}
+            disabled={disabled}
+          />
         )
       })}
     </section>

@@ -7,7 +7,7 @@ export type SelectedWorkData = {
 
 export const selectedWork: SelectedWorkData = {
   id: 'work',
-  title: 'Selected work',
+  title: 'Stories worth reading',
   projectHrefBase: '/work',
   projectSlugs: ['whatsapp-liverpool', 'invoice-liverpool', 'connect-liverpool'],
 }

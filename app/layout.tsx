@@ -17,6 +17,7 @@ const robotoMono = Roboto_Mono({
 
 const lora = Lora({
   subsets: ['latin'],
+  style: ['normal', 'italic'],
   variable: '--font-lora',
 })
 
