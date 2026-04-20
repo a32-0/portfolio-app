@@ -1,166 +1,177 @@
-export type ProjectData = {
+export type Project = {
   slug: string
   title: string
-  subtitle: string
   cover: string
   coverType?: 'image' | 'video'
-  year?: string
+  featured: boolean
+  caseStudy: boolean
+  cardCategory?: string
+  cardTitle?: string
+  cardTags?: string[]
 }
 
-export const projects: ProjectData[] = [
+export const projects: Project[] = [
+  {
+    slug: 'whatsapp-liverpool',
+    title: 'WhatsApp',
+    cover: '/images/projects/whatsapp-liverpool/cover.png',
+    featured: true,
+    caseStudy: true,
+    cardCategory: 'WhatsApp Business Platform',
+    cardTitle:
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
+    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
+  },
   {
     slug: 'invoice-liverpool',
     title: 'Invoicing',
-    subtitle: 'Web App Redesign',
     cover: '/images/projects/invoice-liverpool/cover.mp4',
     coverType: 'video',
-    year: '2025',
+    featured: true,
+    caseStudy: true,
+    cardCategory: 'Invoicing Platform',
+    cardTitle:
+      'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
+    cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
   },
   {
     slug: 'connect-liverpool',
     title: 'Connect',
-    subtitle: 'Web App Redesign',
     cover: '/images/projects/connect-liverpool/cover.mp4',
     coverType: 'video',
-    year: '2025',
-  },
-  {
-    slug: 'whatsapp-liverpool',
-    title: 'WhatsApp',
-    subtitle: 'Conversation Design',
-    cover: '/images/projects/whatsapp-liverpool/cover.png',
-    year: '2025',
-  },
-  /*   {
-    slug: 'salesforce-liverpool',
-    title: 'Salesforce',
-    subtitle: 'Web App Redesign',
-    cover: '/images/projects/ox-logistics/cover.png',
-    year: '2025',
+    featured: true,
+    caseStudy: true,
+    cardCategory: 'Contact Center Sales Platform',
+    cardTitle:
+      "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
+    cardTags: ['Systems Design', 'Enterprise UX', 'Stakeholder Research'],
   },
   {
     slug: 'little-lemon',
     title: 'Little Lemon',
-    subtitle: 'Mobile App Design',
     cover: '/images/projects/little-lemon/cover.png',
-    year: '2025',
-  }, */
+    featured: false,
+    caseStudy: false,
+  },
   {
     slug: 'immersio',
     title: 'Immersio',
-    subtitle: 'Landing Page Design',
     cover: '/images/projects/immersio/cover.mp4',
     coverType: 'video',
-    year: '2024',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'toma1',
     title: 'TOMA1',
-    subtitle: 'Web App Concepts',
     cover: '/images/projects/toma1/cover.png',
-    year: '2024',
+    featured: false,
+    caseStudy: false,
   },
-  /*   {
-    slug: 'bike',
-    title: 'Bike',
-    subtitle: 'Landing Page Design',
-    cover: '/images/projects/bike/cover.png',
-    year: '2024',
-  }, */
   {
     slug: 'cyberpuerta',
     title: 'Cyberpuerta',
-    subtitle: 'Website Redesign',
     cover: '/images/projects/cyberpuerta/cover.mp4',
     coverType: 'video',
-    year: '2024',
+    featured: false,
+    caseStudy: false,
   },
-  /*   {
-    slug: 'lottery',
-    title: 'Lottery',
-    subtitle: 'Website Design',
-    cover: '/images/projects/lottery/cover.png',
-    year: '2024',
-  }, */
   {
     slug: 'ox-bi',
     title: 'OX BI',
-    subtitle: 'Web App Design',
     cover: '/images/projects/ox-bi/cover.mp4',
     coverType: 'video',
-    year: '2024',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'binca',
     title: 'Binca',
-    subtitle: 'Landing Page Design',
     cover: '/images/projects/binca/cover.png',
-    year: '2024',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'disrupto',
     title: 'Disrupto',
-    subtitle: 'Landing Page Concepts',
     cover: '/images/projects/disrupto/cover.png',
-    year: '2023',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'yuni',
     title: 'Yuni',
-    subtitle: 'Landing Page & Mobile App Design',
     cover: '/images/projects/yuni/cover.mp4',
     coverType: 'video',
-    year: '2023',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'nexum',
     title: 'Nexum',
-    subtitle: 'Landing Page Design',
     cover: '/images/projects/nexum/cover.png',
-    year: '2023',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'doia',
     title: 'Doia',
-    subtitle: 'Web App Design',
     cover: '/images/projects/doia/cover.png',
-    year: '2022',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'mait',
     title: 'Mait',
-    subtitle: 'Website & Mobile App Design',
     cover: '/images/projects/mait/cover.mp4',
     coverType: 'video',
-    year: '2022',
+    featured: false,
+    caseStudy: false,
   },
-  /*   {
-    slug: 'zuma',
-    title: 'Zuma Capital',
-    subtitle: 'Landing Page Design',
-    cover: '/images/projects/zuma/cover.png',
-    year: '2022',
-  }, */
   {
     slug: 'ilum',
     title: 'Ilum Prosperity Sherpas',
-    subtitle: 'Website Design',
     cover: '/images/projects/ilum/cover.png',
-    year: '2022',
+    featured: false,
+    caseStudy: false,
+  },
+  {
+    slug: 'zuma',
+    title: 'Zuma Capital',
+    cover: '/images/projects/zuma/cover.png',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'maestro-malta',
     title: 'Maestro Malta',
-    subtitle: 'Mobile App Design',
     cover: '/images/projects/maestro-malta/cover.mp4',
     coverType: 'video',
-    year: '2022',
+    featured: false,
+    caseStudy: false,
   },
   {
     slug: 'ox-logistics',
     title: 'OX Logistics',
-    subtitle: 'Web App Design',
     cover: '/images/projects/ox-logistics/cover.png',
-    year: '2021',
+    featured: false,
+    caseStudy: false,
+  },
+  {
+    slug: 'lottery',
+    title: 'Lottery',
+    cover: '/images/projects/lottery/cover.png',
+    featured: false,
+    caseStudy: false,
+  },
+  {
+    slug: 'bike',
+    title: 'Bike',
+    cover: '/images/projects/bike/cover.png',
+    featured: false,
+    caseStudy: false,
   },
 ]
+
+export const featuredProjects = projects.filter((p) => p.featured)
+export const archiveProjects = projects.filter((p) => !p.featured)

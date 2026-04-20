@@ -1,11 +1,17 @@
 export type FooterContent = {
-  contactEmail: string
+  cta: {
+    sans: string
+    serif: string
+  }
   yearPrefix: string
-  scrollTopLabel: string
+  contactEmail: string
 }
 
 export const footerContent: FooterContent = {
-  contactEmail: 'armandorour@outlook.com',
+  cta: {
+    sans: "Building something that's hard to get right? ",
+    serif: "Let's talk.",
+  },
   yearPrefix: '©',
-  scrollTopLabel: 'Scroll to top ↑',
+  contactEmail: 'armandorour@outlook.com',
 }

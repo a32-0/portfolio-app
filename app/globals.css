@@ -6,11 +6,11 @@ html {
 
 @theme {
   /* Color Palette */
-  --color-primary: #2e3561;
+  --color-primary: #0001f7;
   --color-white: #fff;
-  --color-quaternary: #f6f6f6;
   --color-secondary: #dcdcdc;
   --color-tertiary: #4e4e4e;
+  --color-quaternary: #f6f6f6;
 
   --color-black: #000;
 
@@ -49,6 +49,35 @@ html {
   animation: radarPulse 2s infinite ease-out;
 }
 
+/* Footer color cycle */
+@keyframes footerColorCycle {
+  0% {
+    background-color: #a442ff;
+  }
+  16.66% {
+    background-color: #f351ff;
+  }
+  33.33% {
+    background-color: #ff90c4;
+  }
+  50% {
+    background-color: #ff0033;
+  }
+  66.66% {
+    background-color: #e5ff00;
+  }
+  83.33% {
+    background-color: #00ff27;
+  }
+  100% {
+    background-color: #a442ff;
+  }
+}
+
+.footer-color-cycle {
+  animation: footerColorCycle 18s linear infinite;
+}
+
 /* Marquee animation */
 @keyframes marquee {
   from {
@@ -67,6 +96,11 @@ html {
   [data-marquee-track] {
     animation: none;
   }
+
+  .footer-color-cycle {
+    animation: none;
+    background-color: #a442ff;
+  }
 }
 
 /* Custom breakpoint for very wide screens */
@@ -80,7 +114,9 @@ html {
   text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+  transition:
+    text-decoration-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .link-hover-underline:hover,

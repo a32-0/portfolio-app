@@ -1,47 +1,22 @@
-import { projects } from '@/data/projects'
-import { selectedWork } from '@/data/selectedWork'
-import { getCaseStudyImage } from '@/lib/caseStudy'
-import Card from './Card'
+import { featuredProjects } from '@/data/projects'
+import SelectedWorkCard from './SelectedWorkCard'
 
 type Props = {
   limit?: number
 }
 
+const SECTION_TITLE = 'Stories worth reading'
+
 export default function SelectedWork({ limit }: Props) {
-  const selectedProjects = selectedWork.projectSlugs
-    .map((slug) => projects.find((project) => project.slug === slug))
-    .filter((project): project is (typeof projects)[number] => !!project)
   const projectList =
-    typeof limit === 'number' ? selectedProjects.slice(0, Math.max(limit, 0)) : selectedProjects
+    typeof limit === 'number' ? featuredProjects.slice(0, Math.max(limit, 0)) : featuredProjects
 
   return (
-    <section id={selectedWork.id} className="w-full border-l border-secondary pl-3">
-      <div className="inline-flex w-full flex-col items-start justify-start gap-6 lg:flex-row">
-        <h2 className="w-full text-2xl font-medium text-black lg:max-w-55 tracking-tight">
-          {selectedWork.title}
-        </h2>
-        <div className="inline-flex w-full flex-col items-center justify-start gap-8 border-l border-secondary pl-3">
-          {projectList.map((p, index) => {
-            const hasCaseStudy = !!getCaseStudyImage(p.slug)
-            const disabled = !hasCaseStudy
-            const isLast = index === projectList.length - 1
-
-            return (
-              <div key={p.slug} className="w-full">
-                <Card
-                  slug={p.slug}
-                  href={`${selectedWork.projectHrefBase}/${p.slug}`}
-                  title={p.title}
-                  src={p.cover}
-                  coverType={p.coverType}
-                  disabled={disabled}
-                />
-                {!isLast && <div className="mt-8 h-px w-full bg-zinc-300" />}
-              </div>
-            )
-          })}
-        </div>
-      </div>
+    <section id="work" className="inline-flex w-full flex-col items-start justify-start gap-20 tracking-tight">
+      <h2 className="text-5xl font-medium font-sans text-black">{SECTION_TITLE}</h2>
+      {projectList.map((project) => (
+        <SelectedWorkCard key={project.slug} project={project} />
+      ))}
     </section>
   )
 }
