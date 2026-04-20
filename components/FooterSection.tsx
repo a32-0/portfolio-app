@@ -8,17 +8,17 @@ export default function FooterSection() {
   return (
     <footer className="h-screen overflow-hidden bg-primary text-white">
       <Container className="flex h-full flex-col items-start justify-end gap-20">
-        <a
-          href={`mailto:${footerContent.contactEmail}`}
-          className="max-w-200 transition hover:opacity-80"
-        >
+        <p className="max-w-200">
           <span className="text-8xl font-medium font-sans text-white leading-[1.2]">
             {footerContent.cta.sans}
           </span>
-          <span className="text-8xl font-medium font-serif italic underline text-white leading-[1.2]">
+          <a
+            href={`mailto:${footerContent.contactEmail}`}
+            className="text-8xl font-medium font-serif italic text-white leading-[1.2] underline decoration-transparent hover:decoration-white transition-colors"
+          >
             {footerContent.cta.serif}
-          </span>
-        </a>
+          </a>
+        </p>
 
         <nav
           className="self-stretch inline-flex items-center justify-between py-2 font-sans text-xl font-normal text-white"
