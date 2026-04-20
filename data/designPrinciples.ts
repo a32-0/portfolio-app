@@ -5,44 +5,36 @@ export type DesignPrinciple = {
 }
 
 export type DesignPrinciplesData = {
-  title: string
-  intro: string
+  heading: string
   principles: DesignPrinciple[]
 }
 
 export const designPrinciples: DesignPrinciplesData = {
-  title: 'Design principles',
-  intro:
-    'I design with a systems mindset. Balancing user needs, operational constraints, and business outcomes.',
+  heading: 'How I approach product design',
   principles: [
     {
       id: '01',
       title: 'Systems over screens',
       description:
-        'I begin with the lifecycle, handoffs, and edge cases. Then shape UI around the system.',
+        "I don't design isolated screens. I map how the pieces connect — flows, states, dependencies — before touching high-fidelity.",
     },
     {
       id: '02',
-      title: 'Clarity over volume',
-      description: 'I reduce cognitive load through hierarchy, language, and purposeful defaults.',
+      title: 'Language as a design material',
+      description:
+        'Some of my most demanding work has no visual layer at all. Conversational products taught me that clarity of language is as critical as clarity of layout.',
     },
     {
       id: '03',
-      title: 'Business alignment over aesthetic trends',
+      title: 'Clarity over volume',
       description:
-        'I optimize for measurable outcomes, operational efficiency, and long-term maintainability.',
+        "Less navigation, fewer steps, simpler language. Good design removes what doesn't need to be there, without losing what makes the experience feel considered.",
     },
     {
       id: '04',
-      title: 'Reusable foundations over one-off solutions',
-      description:
-        'I build patterns and standards that help teams move faster with fewer regressions.',
-    },
-    {
-      id: '05',
       title: 'Constraints are inputs, not blockers',
       description:
-        'I collaborate early with engineering and ops to design for feasibility and delivery.',
+        'Technical limitations, operational dependencies, and organizational resistance are all part of the design problem, not obstacles to the design solution.',
     },
   ],
 }

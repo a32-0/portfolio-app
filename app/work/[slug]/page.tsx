@@ -1,28 +1,29 @@
-import { projectPages } from '@/data/projectPages'
-import { getCaseStudyImage } from '@/lib/caseStudy'
-import ProtectedCaseStudyImage from '@/components/Work/ProtectedCaseStudyImage'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getCaseStudy, caseStudies } from '@/data/caseStudies'
+import CaseStudyPage from '@/components/CaseStudy/CaseStudyPage'
 
-export function generateStaticParams() {
-  const activeSlugs = projectPages.map((p) => p.slug).filter((slug) => getCaseStudyImage(slug))
-
-  return activeSlugs.map((slug) => ({ slug }))
+type Props = {
+  params: Promise<{ slug: string }>
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+export function generateStaticParams() {
+  return caseStudies.map((cs) => ({ slug: cs.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const detail = projectPages.find((p) => p.slug === slug)
-  const caseStudyImage = getCaseStudyImage(slug)
+  const cs = getCaseStudy(slug)
+  if (!cs) return {}
+  return {
+    title: cs.title,
+    description: cs.subtitle,
+  }
+}
 
-  if (!detail || !caseStudyImage) notFound()
-
-  const { detailAlt } = detail
-  const image = caseStudyImage
-  const alt = detailAlt ?? slug
-
-  return (
-    <div className="px-8">
-      <ProtectedCaseStudyImage src={image} alt={alt} />
-    </div>
-  )
+export default async function WorkPage({ params }: Props) {
+  const { slug } = await params
+  const cs = getCaseStudy(slug)
+  if (!cs) notFound()
+  return <CaseStudyPage caseStudy={cs} />
 }
