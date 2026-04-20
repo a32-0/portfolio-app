@@ -12,38 +12,40 @@ export default function FooterSection() {
           href={`mailto:${footerContent.contactEmail}`}
           className="max-w-200 transition hover:opacity-80"
         >
-          <span className="text-6xl font-medium font-sans text-white">
+          <span className="text-8xl font-medium font-sans text-white leading-[1.2]">
             {footerContent.cta.sans}
           </span>
-          <span className="text-6xl font-medium font-serif italic underline text-white">
+          <span className="text-8xl font-medium font-serif italic underline text-white leading-[1.2]">
             {footerContent.cta.serif}
           </span>
         </a>
 
-        <div className="self-stretch inline-flex items-center justify-between py-4 font-sans text-xl font-normal text-white">
-          <p className="text-secondary">
+        <nav
+          className="self-stretch inline-flex items-center justify-between py-2 font-sans text-xl font-normal text-white"
+          aria-label="Footer links"
+        >
+          <p>
             {footerContent.yearPrefix} {currentYear}
           </p>
-          <nav className="flex items-center gap-8" aria-label="Footer links">
-            {socialLinks.map((link) => {
-              const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:')
-              const isDownload = link.href.endsWith('.pdf')
-              const suffix = isDownload ? ' ↓' : isExternal ? ' ↗' : ''
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={isExternal || isDownload ? '_blank' : undefined}
-                  rel={isExternal ? 'noreferrer' : undefined}
-                  className="link-hover-underline transition hover:opacity-70"
-                >
-                  {link.label}
-                  {suffix}
-                </a>
-              )
-            })}
-          </nav>
-        </div>
+          {socialLinks.map((link) => {
+            const isExternal =
+              link.href.startsWith('http') ||
+              link.href.startsWith('mailto:') ||
+              link.href.endsWith('.pdf')
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noreferrer' : undefined}
+                className="link-hover-underline transition hover:opacity-70"
+              >
+                {link.label}
+                {isExternal ? ' ↗' : ''}
+              </a>
+            )
+          })}
+        </nav>
       </Container>
     </footer>
   )

@@ -1,0 +1,88 @@
+﻿
+Case Study
+Designing Connect:
+A Sales System for 40+ Contact Center Agents
+El Puerto de Liverpool  ·  Feb 2025 – Present  ·  Enterprise UX, Systems Design, UX Research
+
+OVERVIEW
+Connect is Liverpool's primary sales tool for contact center agents — a system through which 40+ agents process customer orders, manage product catalogs, and handle transactions that generate between 600K and 3.7M MXN in daily revenue. Designing for internal tools at this scale means designing for people whose livelihood depends on the software working efficiently. Every second of friction is a second of customer time lost, a sale at risk, and an agent under pressure.
+This case study is about what happens when you inherit an undefined project, take the time to understand the operation from the inside, and make the case for designing a system — not just a set of screens.
+
+1. Context: An Obsolete System and an Undefined Brief
+The tool I was asked to redesign was called CSC — a legacy Oracle-based platform that agents had been using for years. By the time I arrived, it had accumulated a well-documented list of problems: it crashed frequently, required agents to clear cookies regularly just to log in, displayed different product prices and promotions than the main e-commerce site, and didn't support certain payment methods and purchase scenarios. Agents had developed workarounds as standard practice — opening multiple browser windows, maintaining personal notes in parallel systems, navigating between CSC and the public e-commerce site mid-call to find accurate product information.
+An agent attending to a live customer, unable to trust the prices in their own tool, switching to the public website to verify — that's not a UX problem. That's a systemic failure with a direct cost in every call.
+The project had been owned by my subdirector before I joined. When she transferred it to me, there was minimal context: a completed login screen in high fidelity and a development team waiting on designs. The scope, the requirements, and the full extent of what needed to be built were largely undefined. I had inherited a project at the beginning of its design phase — without a brief.
+
+2. Research: Learning the Operation Before Designing for It
+Before touching the design, I needed to understand the operation. Not from documentation — from observation. I combined three research inputs to build that understanding.
+
+Contextual observation — shadowing
+I spent time with agents as they worked live calls — watching how they navigated CSC, where they got stuck, what workarounds they had developed, and how they managed the cognitive load of attending to a customer in real time while operating an unreliable tool. Shadowing revealed things that no pain point document could capture: the specific sequence of actions that caused crashes, the physical behavior of agents managing multiple windows, and the moments of visible frustration that the system created.
+This is how I learned that the folio system — the feature that saved customer carts between calls — existed but was essentially abandoned. Only two of the most experienced agents used it with any reliability. Everyone else treated each call as a fresh start, regardless of whether the customer had called before.
+
+Inherited research
+My predecessors had conducted a pain point mapping exercise with agents and supervisors. I reviewed and validated this material against what I was observing in the field. The alignment between the documented pain points and what I saw confirmed the core problems: catalog inconsistency, system instability, missing purchase scenarios, and information that didn't travel with the transaction.
+
+Stakeholder workshops
+I facilitated sessions with directors, managers, and operations supervisors — the people who owned the business outcomes that Connect needed to support. These sessions served two purposes: understanding the operational requirements that agents couldn't articulate (revenue visibility, supervisor reporting, team performance metrics) and building organizational alignment around what the new system needed to do.
+
+3. The Folio System: Designing What Already Existed, But Didn't Work
+The most significant design decision in this project was one I didn't invent — I recognized it.
+CSC had a folio system. It was partially built, poorly understood, and nearly unused. Its original purpose was to save customer carts between calls — a meaningful capability in a contact center where customers frequently call back after thinking over a purchase. But it had never been properly designed, documented, or trained. Most agents didn't know it existed. The two who did used it inconsistently.
+When I mapped the operation, the value of a well-designed folio system became immediately clear. Customers call back. Supervisors need visibility into agent activity. Revenue tracking requires a transaction record that persists beyond a single session. All of these needs pointed to the same solution: a structured lifecycle for every customer interaction.
+
+The folio lifecycle
+I designed the folio system around four states that mirror the natural lifecycle of a customer interaction:
+* Created — automatically generated when an agent begins attending to a customer, linked to the customer's identity.
+* Active — while the agent is working the call, adding products, managing the cart.
+* Open/Inactive — if the transaction isn't completed, the folio is saved and accessible to any agent for 48 hours. Searchable by customer data.
+* Closed — the purchase completes. The folio becomes a record.
+The 48-hour window was a deliberate design decision grounded in operational data: the majority of callbacks happen within two days of the original call. After 48 hours, unclosed folios expire automatically — keeping the system clean without requiring manual maintenance from agents or supervisors.
+The searchability across agents was equally important. In a contact center with high staff turnover, a customer should not have to re-explain their situation because their original agent is no longer on shift. Any agent can pick up a folio from where it was left.
+This wasn't new functionality. It was existing functionality, redesigned with a clear mental model, a complete lifecycle, and enough system thinking to make it actually useful.
+
+4. Designing the System Under Real Constraints
+
+Scope management: from full system to functional MVP
+My initial design covered the full scope of what Connect needed to be: folio management, catalog with real-time e-commerce parity, multi-scenario purchase flows, customer identity management, supervisor dashboards, and post-sale actions. When I presented this to the technical team, the response was honest: some of what I had designed required integrations and backend work that had already been scoped out of the current development agreement.
+The scope negotiation was collaborative. I built an impact/effort matrix mapping every feature against its value to agents and the business, and brought it to the table as a shared framework. The technical team contributed their constraints; I contributed the user and business rationale. We negotiated: some features I argued for stayed in, others came out. Some technical constraints I pushed back on, others I accepted. The result was a principled MVP — the features that would make Connect meaningfully better than CSC on day one, without dependencies that would delay the launch indefinitely.
+That kind of negotiation — grounded in evidence, not preference — is what makes scope decisions feel like product decisions rather than compromises.
+
+Designing for a dual user
+Connect serves two distinct users with different needs: agents and supervisors. Agents need speed, clarity, and reliability — a tool that gets out of the way during a live call. Supervisors need visibility — revenue data, agent performance, transaction history.
+Designing for both in the same system required explicit information architecture decisions. What does an agent's home screen show? What does a supervisor's home screen show? How does the folio system serve both users without creating cognitive overhead for either? These questions shaped the structure of the product more than any visual decision.
+
+Solving catalog inconsistency through impersonate mode
+One of the most painful agent experiences in CSC was the price and promotion discrepancy between the internal tool and the public e-commerce site. Agents would quote a price from CSC, only to find the customer's checkout showed something different. This destroyed trust on both ends: customers felt misled, agents felt unsupported.
+The solution — already defined before I joined, and one I inherited and incorporated into the system architecture — was impersonate mode: agents navigate the site from the customer's exact perspective, seeing the same catalog, prices, and promotions in real time. No discrepancy, no workarounds, no switching between windows mid-call. When I arrived and began mapping the full sitemap, integrating impersonate mode as a core part of the agent workflow — not an afterthought — was one of the first structural decisions I made.
+
+5. Validation: Workshop with Directors, Managers, and Operations Supervisors
+Before development entered its final phase, I facilitated a high-fidelity prototype workshop with seven stakeholders across director, manager, and supervisor roles. The session produced structured feedback across UX, functionality, technical concerns, and priorities.
+
+What resonated
+* The interface was described as intuitive, familiar, and visually aligned with Liverpool's existing digital products — a meaningful signal for a tool that agents would use daily.
+* Stakeholders explicitly noted that Connect was expected to accelerate calls and increase sales effectiveness compared to CSC.
+* The folio/cases system prompted detailed discussion — which is the right outcome. Stakeholders engaged seriously with the lifecycle definition, terminology, and business rules. That level of engagement doesn't happen with features people don't find valuable.
+* Impersonate mode — allowing agents to see exactly what the customer sees — was received as a significant improvement over CSC's catalog inconsistency problem, validating its place as a core workflow feature rather than an optional tool.
+
+What the feedback surfaced
+The workshop also produced a clear list of refinements: renaming 'Cases' to 'Folios' to align with existing operational language, adding a total sales amount to the agent's home view, improving the post-sale flow for ticket re-sending and invoice generation, and consolidating the search field. These were all design decisions I incorporated in subsequent iterations.
+The feedback on the Notes feature was more pointed: several stakeholders argued for restricting or eliminating it entirely, citing the risk of unstructured comments with no operational utility. This is the kind of feedback that only comes from people who understand the operation — and it shaped the final design.
+
+6. Status and Expected Impact
+Connect is currently in staging — pre-production, final QA phase. It has not yet launched to the full agent population. What exists at this point is a validated high-fidelity prototype, a structured development build approaching production readiness, and a stakeholder group that has reviewed and endorsed the design direction.
+The impact projections are grounded in the problems the tool was built to solve:
+* Agents currently managing multiple browser windows, external catalogs, and workaround systems will work from a single, reliable interface.
+* The folio system gives every agent visibility into previous customer interactions — reducing the time spent re-establishing context on callback calls.
+* Real-time catalog parity eliminates the price discrepancy problem that currently undermines agent credibility with customers.
+* The supervisor dashboard provides revenue visibility that CSC never offered — enabling better performance management and coaching.
+The workflows supported by Connect currently process between 600K and 3.7M MXN in daily revenue. Even a modest improvement in agent efficiency and call completion rate has material business impact at that scale.
+
+7. What This Project Taught Me
+Connect was the first major project I owned at Liverpool, and it arrived without a brief, without context, and with the expectation that I would figure it out. That turned out to be the best possible condition for learning how to design a system.
+The most important thing I did was not open Figma first. I went to the contact center. I watched agents work. I listened to what they complained about and what they had quietly accepted as normal. That investment of time before any design decision was made is what gave the folio system its logic, what surfaced the catalog inconsistency as a trust problem rather than a technical one, and what made the workshop feedback feel like refinement rather than rework.
+The scope reduction was uncomfortable. I had designed something complete, and I had to cut it down. But the discipline of doing that with an impact/effort matrix — rather than defending every feature on principle — is what makes the difference between a designer who protects their work and a designer who ships work that matters.
+Connect isn't live yet. But the system is sound, the stakeholders are aligned, and the agents who have seen the prototype know it's a different kind of tool than what they've been working with. That's the foundation. The rest is execution.
+
+
+Research conducted via contextual observation (shadowing), inherited pain point documentation, and stakeholder workshops (May 2025). Prototype validated with 7 stakeholders across director, manager, and supervisor roles. Product currently in staging — pre-production QA phase.

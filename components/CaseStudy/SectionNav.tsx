@@ -9,10 +9,9 @@ type NavItem = {
 
 type Props = {
   items: NavItem[]
-  title?: string
 }
 
-export default function SectionNav({ items, title = 'En esta pagina' }: Props) {
+export default function SectionNav({ items }: Props) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? '')
 
   const itemIds = useMemo(() => items.map((item) => item.id), [items])
@@ -49,7 +48,6 @@ export default function SectionNav({ items, title = 'En esta pagina' }: Props) {
 
   return (
     <nav aria-label="Case study sections" className="rounded-2xl border border-black/10 bg-white p-4">
-      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.08em] text-black/70">{title}</p>
       <ul className="space-y-1">
         {items.map((item) => {
           const isActive = item.id === activeId
