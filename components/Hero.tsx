@@ -6,8 +6,8 @@ export default function Hero() {
   return (
     <section className="relative inline-flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
       <HeroWave />
-      <div className="relative z-10 inline-flex w-full tracking-tighter flex-col items-center justify-center gap-6">
-        <h1 className="w-full max-w-300 text-center text-6xl font-medium tracking-tight text-white">
+      <div className="relative z-10 inline-flex w-full tracking-tight flex-col items-center justify-center gap-6">
+        <h1 className="w-full max-w-300 text-center text-6xl font-medium text-white">
           <span className="font-serif italic">{hero.title.serif}</span>
           <span className="font-sans">{hero.title.sans}</span>
         </h1>

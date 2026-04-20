@@ -16,7 +16,7 @@ export const projects: Project[] = [
     title: 'WhatsApp',
     cover: '/images/projects/whatsapp-liverpool/cover.png',
     featured: true,
-    caseStudy: false,
+    caseStudy: true,
     cardCategory: 'WhatsApp Business Platform',
     cardTitle:
       'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     cover: '/images/projects/connect-liverpool/cover.mp4',
     coverType: 'video',
     featured: true,
-    caseStudy: false,
+    caseStudy: true,
     cardCategory: 'Contact Center Sales Platform',
     cardTitle:
       "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
