@@ -13,27 +13,37 @@ type Props = {
 const caseStudyProjects = featuredProjects.filter((p) => p.caseStudy)
 
 export default function CaseStudyPage({ caseStudy }: Props) {
-  const { slug, title, subtitle, client, period, disciplines, overview, metrics, sections, footnote } =
-    caseStudy
+  const {
+    slug,
+    title,
+    subtitle,
+    client,
+    period,
+    disciplines,
+    overview,
+    metrics,
+    sections,
+    footnote,
+  } = caseStudy
 
   const navItems = sections.map((s) => ({ id: s.id, label: s.label }))
   const otherCaseStudies = caseStudyProjects.filter((p) => p.slug !== slug)
 
   return (
     <div className="bg-white pb-32 pt-40">
-      <Container className="px-6 md:px-10">
+      <Container>
         {/* Back button */}
         <div className="mb-12">
           <Link
             href="/#work"
             className="inline-flex items-center gap-1.5 text-sm text-black/40 transition-colors hover:text-black"
           >
-            ← Work
+            ← Back
           </Link>
         </div>
 
         {/* Hero */}
-        <div className="mb-16 max-w-200">
+        <div className="mb-16">
           <p className="mb-6 text-sm text-black/40">
             {client} · {period}
           </p>
@@ -53,7 +63,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
         {/* Overview */}
         <div className="mb-16 border-t border-black/10 pt-12">
-          <p className="max-w-200 text-lg leading-relaxed text-black/85">{overview}</p>
+          <p className="text-lg leading-relaxed text-black/85">{overview}</p>
         </div>
 
         {/* Metrics */}
@@ -155,19 +165,13 @@ export default function CaseStudyPage({ caseStudy }: Props) {
         {/* Bottom case study navigation */}
         {otherCaseStudies.length > 0 && (
           <div className="mt-32 border-t border-black/10 pt-16">
-            <p className="mb-8 text-sm font-medium uppercase tracking-widest text-black/35">
-              More case studies
-            </p>
+            <p className="mb-8 text-sm font-medium text-tertiary">More stories</p>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {otherCaseStudies.map((project) => {
                 const isVideo =
                   project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
                 return (
-                  <Link
-                    key={project.slug}
-                    href={`/work/${project.slug}`}
-                    className="group block"
-                  >
+                  <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
                     <div className="mb-4 aspect-video w-full overflow-hidden rounded-xl bg-secondary">
                       {isVideo ? (
                         <AutoPlayVideo
