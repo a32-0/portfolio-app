@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import FooterSection from '@/components/FooterSection'
 import { Schibsted_Grotesk, Roboto_Mono, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ['latin'],
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <FooterSection />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
