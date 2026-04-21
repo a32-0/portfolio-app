@@ -5,6 +5,7 @@ export type Project = {
   coverType?: 'image' | 'video'
   featured: boolean
   caseStudy: boolean
+  archived: boolean
   cardCategory?: string
   cardTitle?: string
   cardTags?: string[]
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     cover: '/images/projects/whatsapp-liverpool/cover.png',
     featured: true,
     caseStudy: true,
+    archived: false,
     cardCategory: 'WhatsApp Business Platform',
     cardTitle:
       'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: true,
     caseStudy: true,
+    archived: false,
     cardCategory: 'Invoicing Platform',
     cardTitle:
       'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
@@ -41,6 +44,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: true,
     caseStudy: true,
+    archived: false,
     cardCategory: 'Contact Center Sales Platform',
     cardTitle:
       "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
@@ -52,6 +56,7 @@ export const projects: Project[] = [
     cover: '/images/projects/little-lemon/cover.png',
     featured: false,
     caseStudy: false,
+    archived: false,
   },
   {
     slug: 'immersio',
@@ -60,6 +65,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'toma1',
@@ -67,6 +73,7 @@ export const projects: Project[] = [
     cover: '/images/projects/toma1/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'cyberpuerta',
@@ -75,6 +82,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'ox-bi',
@@ -83,6 +91,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'binca',
@@ -90,6 +99,7 @@ export const projects: Project[] = [
     cover: '/images/projects/binca/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'disrupto',
@@ -97,6 +107,7 @@ export const projects: Project[] = [
     cover: '/images/projects/disrupto/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'yuni',
@@ -105,6 +116,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'nexum',
@@ -112,6 +124,7 @@ export const projects: Project[] = [
     cover: '/images/projects/nexum/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'doia',
@@ -119,6 +132,7 @@ export const projects: Project[] = [
     cover: '/images/projects/doia/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'mait',
@@ -127,6 +141,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'ilum',
@@ -134,6 +149,7 @@ export const projects: Project[] = [
     cover: '/images/projects/ilum/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'zuma',
@@ -141,6 +157,7 @@ export const projects: Project[] = [
     cover: '/images/projects/zuma/cover.png',
     featured: false,
     caseStudy: false,
+    archived: false,
   },
   {
     slug: 'maestro-malta',
@@ -149,6 +166,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'ox-logistics',
@@ -156,6 +174,7 @@ export const projects: Project[] = [
     cover: '/images/projects/ox-logistics/cover.png',
     featured: false,
     caseStudy: false,
+    archived: true,
   },
   {
     slug: 'lottery',
@@ -163,6 +182,7 @@ export const projects: Project[] = [
     cover: '/images/projects/lottery/cover.png',
     featured: false,
     caseStudy: false,
+    archived: false,
   },
   {
     slug: 'bike',
@@ -170,8 +190,9 @@ export const projects: Project[] = [
     cover: '/images/projects/bike/cover.png',
     featured: false,
     caseStudy: false,
+    archived: false,
   },
 ]
 
 export const featuredProjects = projects.filter((p) => p.featured)
-export const archiveProjects = projects.filter((p) => !p.featured)
+export const archiveProjects = projects.filter((p) => p.archived)
