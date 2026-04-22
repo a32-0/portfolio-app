@@ -23,9 +23,6 @@ export type CaseStudy = {
   slug: string
   title: string
   subtitle: string
-  client: string
-  period: string
-  disciplines: string[]
   overview: string
   metrics: CaseStudyMetric[]
   sections: CaseStudySection[]

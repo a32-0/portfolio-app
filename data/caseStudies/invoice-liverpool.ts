@@ -4,9 +4,6 @@ export const invoiceLiverpool: CaseStudy = {
   slug: 'invoice-liverpool',
   title: "Redesigning Liverpool's Invoicing Portal: From 35 Minutes to 3 Minutes",
   subtitle: "A legally sensitive, high-traffic flow that averaged 35 minutes per session. The fix wasn't just the UI.",
-  client: 'El Puerto de Liverpool',
-  period: 'Feb 2025 – Dec 2025',
-  disciplines: ['UX Research', 'Interaction Design', 'UX Writing'],
   overview:
     "Liverpool's invoicing portal serves 184,000+ users per month — people who need to generate a legal fiscal receipt after a purchase. In Mexico, invoicing is a legally sensitive process: customers submit their RFC tax ID, fiscal regime, and personal data to receive a CFDI — a document with real legal and financial implications. Getting it wrong means calling support. Getting it very wrong means missing a tax deadline. When the redesign project landed on my plate, the portal averaged 35 minutes per session and required over 10 page navigations to complete a task that should take under 3.",
   metrics: [

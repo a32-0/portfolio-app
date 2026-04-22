@@ -13,18 +13,7 @@ type Props = {
 const caseStudyProjects = featuredProjects.filter((p) => p.caseStudy)
 
 export default function CaseStudyPage({ caseStudy }: Props) {
-  const {
-    slug,
-    title,
-    subtitle,
-    client,
-    period,
-    disciplines,
-    overview,
-    metrics,
-    sections,
-    footnote,
-  } = caseStudy
+  const { slug, title, subtitle, overview, metrics, sections, footnote } = caseStudy
 
   const navItems = sections.map((s) => ({ id: s.id, label: s.label }))
   const otherCaseStudies = caseStudyProjects.filter((p) => p.slug !== slug)
@@ -36,7 +25,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
         <div className="mb-12">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-1.5 text-sm text-black/40 transition-colors hover:text-black"
+            className="inline-flex items-center gap-1.5 text-tertiary transition-colors hover:text-black"
           >
             ← Back
           </Link>
@@ -44,35 +33,22 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
         {/* Hero */}
         <div className="mb-16">
-          <p className="mb-6 text-sm text-black/40">
-            {client} · {period}
-          </p>
           <h1 className="mb-4 font-serif text-5xl italic leading-tight text-black">{title}</h1>
-          <p className="mb-8 text-xl text-black/60">{subtitle}</p>
-          <div className="flex flex-wrap gap-2">
-            {disciplines.map((d) => (
-              <span
-                key={d}
-                className="rounded-full border border-black/15 px-3 py-1 text-sm text-black/60"
-              >
-                {d}
-              </span>
-            ))}
-          </div>
+          <p className="text-xl text-tertiary">{subtitle}</p>
         </div>
 
         {/* Overview */}
-        <div className="mb-16 border-t border-black/10 pt-12">
-          <p className="text-lg leading-relaxed text-black/85">{overview}</p>
+        <div className="mb-16 border-t border-secondary pt-12">
+          <p className="text-lg leading-loose tracking-normal text-black">{overview}</p>
         </div>
 
         {/* Metrics */}
-        <div className="mb-20 grid grid-cols-2 gap-8 border-t border-black/10 pt-12 md:grid-cols-4">
+        <div className="mb-20 grid grid-cols-2 gap-8 border-t border-secondary pt-12 md:grid-cols-4">
           {metrics.map((m) => (
             <div key={m.label}>
               <p className="mb-1 font-sans text-4xl font-bold text-primary">{m.value}</p>
-              <p className="text-sm font-medium text-black">{m.label}</p>
-              {m.delta && <p className="mt-0.5 text-xs text-black/40">{m.delta}</p>}
+              <p className="font-medium text-black">{m.label}</p>
+              {m.delta && <p className="mt-0.5 text-tertiary">{m.delta}</p>}
             </div>
           ))}
         </div>
@@ -88,21 +64,16 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
           {/* Sections */}
           <div className="space-y-24">
-            {sections.map((section, index) => (
+            {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-32">
-                <div className="mb-8">
-                  <span className="mb-3 block font-mono text-xs font-medium tracking-widest text-primary">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h2 className="font-serif text-4xl italic leading-tight text-black">
-                    {section.title}
-                  </h2>
-                </div>
+                <h2 className="mb-8 font-serif text-4xl italic leading-tight text-black">
+                  {section.title}
+                </h2>
 
                 {section.body && (
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     {section.body.map((p, i) => (
-                      <p key={i} className="leading-relaxed text-black/85">
+                      <p key={i} className="text-lg leading-loose text-black">
                         {p}
                       </p>
                     ))}
@@ -110,7 +81,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                 )}
 
                 {section.image && (
-                  <div className="my-10 flex aspect-video w-full items-center justify-center rounded-xl bg-black/5">
+                  <div className="my-10 flex aspect-video w-full items-center justify-center rounded-xl bg-quaternary">
                     {section.image !== 'placeholder' ? (
                       <Image
                         src={section.image}
@@ -120,7 +91,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                         className="h-full w-full rounded-xl object-cover"
                       />
                     ) : (
-                      <span className="text-sm text-black/20">—</span>
+                      <span className="text-sm text-secondary">—</span>
                     )}
                   </div>
                 )}
@@ -129,20 +100,20 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                   <div className="mt-10 space-y-10">
                     {section.subsections.map((sub) => (
                       <div key={sub.title}>
-                        <h3 className="mb-4 text-base font-semibold text-black">{sub.title}</h3>
-                        <div className="space-y-4">
+                        <h3 className="mb-4 text-xl font-semibold text-black">{sub.title}</h3>
+                        <div className="space-y-5">
                           {sub.body.map((p, i) => (
-                            <p key={i} className="leading-relaxed text-black/85">
+                            <p key={i} className="text-lg leading-loose text-black">
                               {p}
                             </p>
                           ))}
                         </div>
                         {sub.items && (
-                          <ul className="mt-6 space-y-3">
+                          <ul className="mt-6 space-y-3" role="list">
                             {sub.items.map((item, i) => (
-                              <li key={i} className="flex gap-3 text-black/85">
-                                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                <span className="leading-relaxed">{item}</span>
+                              <li key={i} className="flex gap-3 text-lg text-black">
+                                <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                                <span className="leading-loose">{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -155,7 +126,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
             ))}
 
             {footnote && (
-              <p className="border-t border-black/10 pt-8 text-sm leading-relaxed text-black/35">
+              <p className="border-t border-secondary pt-8 text-sm leading-relaxed text-tertiary">
                 {footnote}
               </p>
             )}
@@ -164,7 +135,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
         {/* Bottom case study navigation */}
         {otherCaseStudies.length > 0 && (
-          <div className="mt-32 border-t border-black/10 pt-16">
+          <div className="mt-32 border-t border-secondary pt-16">
             <p className="mb-8 text-sm font-medium text-tertiary">More stories</p>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {otherCaseStudies.map((project) => {
@@ -172,7 +143,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                   project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
                 return (
                   <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
-                    <div className="mb-4 aspect-video w-full overflow-hidden rounded-xl bg-secondary">
+                    <div className="mb-4 aspect-video w-full overflow-hidden bg-secondary">
                       {isVideo ? (
                         <AutoPlayVideo
                           src={project.cover}
@@ -195,7 +166,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                       {project.cardTitle}
                     </h3>
                     {project.cardTags && (
-                      <p className="mt-2 text-sm text-black/40">{project.cardTags.join(' · ')}</p>
+                      <p className="mt-2 text-sm text-tertiary">{project.cardTags.join(' · ')}</p>
                     )}
                   </Link>
                 )
