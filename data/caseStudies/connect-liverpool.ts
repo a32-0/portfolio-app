@@ -4,9 +4,6 @@ export const connectLiverpool: CaseStudy = {
   slug: 'connect-liverpool',
   title: 'Designing Connect: A Sales System for 40+ Contact Center Agents',
   subtitle: 'Inheriting an undefined project, designing a system from scratch, and arguing for scope decisions nobody had mapped.',
-  client: 'El Puerto de Liverpool',
-  period: 'Feb 2025 – Present',
-  disciplines: ['Enterprise UX', 'Systems Design', 'UX Research'],
   overview:
     "Connect is Liverpool's primary sales tool for contact center agents — a system through which 40+ agents process customer orders, manage product catalogs, and handle transactions that generate between 600K and 3.7M MXN in daily revenue. Designing for internal tools at this scale means designing for people whose livelihood depends on the software working efficiently. Every second of friction is a second of customer time lost, a sale at risk, and an agent under pressure.",
   metrics: [

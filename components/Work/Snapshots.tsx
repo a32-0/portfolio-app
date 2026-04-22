@@ -24,10 +24,10 @@ export default function Snapshots({ limit }: Props) {
       className="inline-flex w-full flex-col items-start justify-start gap-6 pb-32"
     >
       <div className="flex w-full flex-col items-start justify-start gap-2">
-        <h2 className="w-full text-3xl font-medium font-serif italic tracking-tight text-black">
+        <h2 className="w-full text-3xl font-medium font-serif italic text-black">
           {snapshotsSection.title}
         </h2>
-        <p className="w-full max-w-200 text-xl font-normal font-sans tracking-tight text-tertiary">
+        <p className="w-full max-w-200 text-xl font-normal font-sans text-tertiary">
           {snapshotsSection.description}
         </p>
       </div>
