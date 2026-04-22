@@ -13,7 +13,7 @@ export default function SelectedWorkCard({ project }: Props) {
   const href = `/work/${slug}`
 
   const content = (
-    <div className="inline-flex w-full items-start justify-end gap-6 tracking-tight">
+    <div className="inline-flex w-full items-start justify-end gap-6">
       <div className="flex flex-1 flex-col items-end gap-4">
         <p className="w-full text-right text-lg font-normal font-sans text-primary">
           {cardCategory}

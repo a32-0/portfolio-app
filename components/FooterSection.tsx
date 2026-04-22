@@ -6,7 +6,7 @@ export default function FooterSection() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="h-screen overflow-hidden bg-primary text-white">
+    <footer id="footer" className="h-screen overflow-hidden bg-primary text-white">
       <Container className="flex h-full flex-col items-start justify-end gap-20">
         <p className="max-w-200">
           <span className="text-8xl font-medium font-sans text-white leading-[1.2]">
