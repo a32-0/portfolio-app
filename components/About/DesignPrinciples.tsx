@@ -4,7 +4,7 @@ export default function DesignPrinciples() {
   return (
     <section
       id="design-principles"
-      className="inline-flex w-full items-center justify-center gap-12"
+      className="inline-flex w-full items-center justify-center gap-12 scroll-mt-24"
     >
       <h2 className="w-64 shrink-0 text-5xl font-medium font-sans text-black">
         {designPrinciples.heading}

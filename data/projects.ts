@@ -116,7 +116,7 @@ export const projects: Project[] = [
     coverType: 'video',
     featured: false,
     caseStudy: false,
-    archived: true,
+    archived: false,
   },
   {
     slug: 'nexum',

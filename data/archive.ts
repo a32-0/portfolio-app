@@ -1,11 +1,11 @@
-export type SnapshotsSection = {
+export type ArchiveSection = {
   id: string
   title: string
   description: string
 }
 
-export const snapshotsSection: SnapshotsSection = {
-  id: 'additional-snapshots',
+export const archiveSection: ArchiveSection = {
+  id: 'archive',
   title: 'Archive',
   description: 'A curated set of screens from past projects.',
 }
