@@ -21,7 +21,7 @@ export default function FooterSection() {
         </p>
 
         <nav
-          className="self-stretch inline-flex items-center justify-between py-2 font-sans text-xl font-normal text-white"
+          className="self-stretch inline-flex items-center justify-between py-2 font-sans text-base font-normal text-white"
           aria-label="Footer links"
         >
           <p>

@@ -4,7 +4,6 @@ export type SocialLink = {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'Archive', href: '/archive' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/armandorour/' },
   { label: 'Resume', href: '/docs/Product-Designer_Armando-Rojano.pdf' },
 ]

@@ -1,12 +1,12 @@
 import { archiveProjects } from '@/data/projects'
-import { snapshotsSection } from '@/data/snapshots'
-import SnapshotCard from './SnapshotCard'
+import { archiveSection } from '@/data/archive'
+import ArchiveCard from './ArchiveCard'
 
 type Props = {
   limit?: number
 }
 
-export default function Snapshots({ limit }: Props) {
+export default function ArchiveGrid({ limit }: Props) {
   const projectList =
     typeof limit === 'number' ? archiveProjects.slice(0, Math.max(limit, 0)) : archiveProjects
 
@@ -20,26 +20,24 @@ export default function Snapshots({ limit }: Props) {
 
   return (
     <section
-      id={snapshotsSection.id}
-      className="inline-flex w-full flex-col items-start justify-start gap-6 pb-32"
+      id={archiveSection.id}
+      className="inline-flex w-full flex-col items-start justify-start gap-12 pb-32"
     >
       <div className="flex w-full flex-col items-start justify-start gap-2">
-        <h2 className="w-full text-5xl font-medium font-sans text-white">
-          {snapshotsSection.title}
-        </h2>
+        <h2 className="w-full text-5xl font-medium font-sans text-white">{archiveSection.title}</h2>
         <p className="w-full max-w-200 text-xl font-normal font-serif italic text-secondary">
-          {snapshotsSection.description}
+          {archiveSection.description}
         </p>
       </div>
 
       <div className="inline-flex w-full flex-col items-start justify-start gap-8 lg:flex-row">
         {columns.map((column, columnIndex) => (
           <div
-            key={`snapshots-column-${columnIndex + 1}`}
+            key={`archive-column-${columnIndex + 1}`}
             className="inline-flex w-full flex-1 flex-col items-start justify-start gap-8"
           >
             {column.map((project) => (
-              <SnapshotCard
+              <ArchiveCard
                 key={project.slug}
                 product={project.title}
                 src={project.cover}
