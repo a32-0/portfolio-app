@@ -11,8 +11,8 @@ export default function Home() {
       <Container className="flex flex-col gap-50">
         <SelectedWork />
         <DesignPrinciples />
-        <About />
       </Container>
+      <About />
     </main>
   )
 }

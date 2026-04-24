@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import Container from '@/components/Container'
-import Snapshots from '@/components/Work/Snapshots'
+import ArchiveGrid from '@/components/Work/ArchiveGrid'
 
 export const metadata: Metadata = {
   title: 'Archive',
@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 export default function ArchivePage() {
   return (
-    <main className="flex flex-col mt-16 gap-30">
+    <main className="flex flex-col pt-16 gap-30 min-h-screen bg-black">
       <Container className="flex flex-col gap-30 pt-8">
-        <Snapshots />
+        <ArchiveGrid />
       </Container>
     </main>
   )

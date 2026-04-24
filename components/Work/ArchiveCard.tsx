@@ -8,7 +8,7 @@ type Props = {
   alt?: string
 }
 
-export default function SnapshotCard({ product, src, alt, coverType }: Props) {
+export default function ArchiveCard({ product, src, alt, coverType }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const mediaAlt = alt ?? product
 
@@ -34,7 +34,7 @@ export default function SnapshotCard({ product, src, alt, coverType }: Props) {
         )}
       </div>
       <div className="inline-flex w-full items-center justify-start">
-        <p className="text-sm font-normal text-neutral-600">{product}</p>
+        <p className="text-sm font-normal text-secondary">{product}</p>
       </div>
     </div>
   )
