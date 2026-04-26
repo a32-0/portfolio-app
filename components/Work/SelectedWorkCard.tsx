@@ -18,7 +18,9 @@ export default function SelectedWorkCard({ project }: Props) {
         <p className="w-full text-right text-lg font-normal font-sans text-primary">
           {cardCategory}
         </p>
-        <h3 className={`w-full text-right text-3xl font-medium font-serif text-black ${caseStudy ? 'group-link-hover-underline' : ''}`}>
+        <h3
+          className={`w-full text-right text-3xl font-medium font-sans text-black ${caseStudy ? 'group-link-hover-underline' : ''}`}
+        >
           {cardTitle}
         </h3>
         <p className="w-full text-right text-xl font-normal font-sans text-black">
