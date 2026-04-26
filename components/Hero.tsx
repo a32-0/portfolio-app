@@ -10,7 +10,7 @@ export default function Hero() {
           <span className="font-serif italic">{hero.title.serif}</span>
           <span className="font-sans">{hero.title.sans}</span>
         </h1>
-        <p className="w-full max-w-200 text-center text-3xl font-normal font-serif text-secondary">
+        <p className="w-full max-w-200 text-center text-3xl font-normal font-sans text-white">
           {hero.subtitle}
         </p>
       </div>
