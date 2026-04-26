@@ -9,12 +9,12 @@ export default function FooterSection() {
     <footer id="footer" className="h-screen overflow-hidden bg-primary text-white">
       <Container className="flex h-full flex-col items-start justify-end gap-20">
         <p className="max-w-200">
-          <span className="text-8xl font-medium font-sans text-white leading-[1.2]">
+          <span className="text-8xl font-medium font-sans text-white">
             {footerContent.cta.sans}
           </span>
           <a
             href={`mailto:${footerContent.contactEmail}`}
-            className="text-8xl font-medium font-serif italic text-white leading-[1.2] underline decoration-transparent hover:decoration-white transition-colors"
+            className="text-8xl font-medium font-serif italic text-white underline decoration-transparent hover:decoration-white transition-colors"
           >
             {footerContent.cta.serif}
           </a>
