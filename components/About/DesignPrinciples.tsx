@@ -12,7 +12,7 @@ export default function DesignPrinciples() {
 
       <div className="flex w-full flex-col items-start">
         {designPrinciples.principles.map((principle) => (
-          <article key={principle.id} className="flex w-full flex-col items-start gap-2 py-10">
+          <article key={principle.id} className="flex w-200 flex-col items-start gap-2 py-10">
             <div className="inline-flex w-full items-start gap-2">
               <span className="text-base font-normal text-primary">{principle.id}</span>
               <h3 className="flex-1 text-3xl font-medium font-sans text-black">
