@@ -5,7 +5,7 @@ type Props = {
   limit?: number
 }
 
-const SECTION_TITLE = 'Stories worth reading'
+const SECTION_TITLE = 'Case studies'
 
 export default function SelectedWork({ limit }: Props) {
   const projectList =
@@ -14,9 +14,9 @@ export default function SelectedWork({ limit }: Props) {
   return (
     <section
       id="work"
-      className="inline-flex w-full flex-col items-end justify-start gap-20 scroll-mt-24"
+      className="inline-flex w-full flex-col items-start justify-start gap-8 scroll-mt-24"
     >
-      <h2 className="text-5xl font-medium font-serif italic text-black">{SECTION_TITLE}</h2>
+      <h2 className="text-5xl font-medium font-serif italic text-primary">{SECTION_TITLE}</h2>
       {projectList.map((project) => (
         <SelectedWorkCard key={project.slug} project={project} />
       ))}

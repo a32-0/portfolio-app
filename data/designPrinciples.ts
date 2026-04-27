@@ -10,7 +10,7 @@ export type DesignPrinciplesData = {
 }
 
 export const designPrinciples: DesignPrinciplesData = {
-  heading: 'How I approach product design',
+  heading: 'My approach',
   principles: [
     {
       id: '01',
