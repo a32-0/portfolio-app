@@ -33,13 +33,13 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
         {/* Hero */}
         <div className="mb-16">
-          <h1 className="mb-4 font-serif text-5xl italic leading-tight text-black">{title}</h1>
+          <h1 className="mb-4 font-serif text-5xl italic text-black">{title}</h1>
           <p className="text-xl text-tertiary">{subtitle}</p>
         </div>
 
         {/* Overview */}
         <div className="mb-16 border-t border-secondary pt-12">
-          <p className="text-lg leading-loose tracking-normal text-black">{overview}</p>
+          <p className="text-lg tracking-normal text-black">{overview}</p>
         </div>
 
         {/* Metrics */}
@@ -66,14 +66,12 @@ export default function CaseStudyPage({ caseStudy }: Props) {
           <div className="space-y-24">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-32">
-                <h2 className="mb-8 font-serif text-4xl italic leading-tight text-black">
-                  {section.title}
-                </h2>
+                <h2 className="mb-8 font-serif text-4xl italic text-black">{section.title}</h2>
 
                 {section.body && (
                   <div className="space-y-5">
                     {section.body.map((p, i) => (
-                      <p key={i} className="text-lg leading-loose text-black">
+                      <p key={i} className="text-lg text-black">
                         {p}
                       </p>
                     ))}
@@ -103,7 +101,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                         <h3 className="mb-4 text-xl font-semibold text-black">{sub.title}</h3>
                         <div className="space-y-5">
                           {sub.body.map((p, i) => (
-                            <p key={i} className="text-lg leading-loose text-black">
+                            <p key={i} className="text-lg text-black">
                               {p}
                             </p>
                           ))}
@@ -112,8 +110,11 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                           <ul className="mt-6 space-y-3" role="list">
                             {sub.items.map((item, i) => (
                               <li key={i} className="flex gap-3 text-lg text-black">
-                                <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                <span className="leading-loose">{item}</span>
+                                <span
+                                  aria-hidden
+                                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                                />
+                                <span className="">{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -126,9 +127,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
             ))}
 
             {footnote && (
-              <p className="border-t border-secondary pt-8 text-sm leading-relaxed text-tertiary">
-                {footnote}
-              </p>
+              <p className="border-t border-secondary pt-8 text-sm text-tertiary">{footnote}</p>
             )}
           </div>
         </div>
@@ -143,7 +142,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                   project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
                 return (
                   <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
-                    <div className="mb-4 aspect-video w-full overflow-hidden bg-secondary">
+                    <div className="relative mb-4 aspect-video w-full overflow-hidden bg-secondary">
                       {isVideo ? (
                         <AutoPlayVideo
                           src={project.cover}
@@ -154,15 +153,14 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                         <Image
                           src={project.cover}
                           alt={project.title}
-                          width={800}
-                          height={450}
+                          fill
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="h-full w-full object-cover"
+                          className="object-cover"
                         />
                       )}
                     </div>
                     <p className="mb-1.5 text-sm font-sans text-primary">{project.cardCategory}</p>
-                    <h3 className="font-serif text-xl leading-snug text-black group-hover:underline">
+                    <h3 className="font-serif text-xl text-black group-hover:underline">
                       {project.cardTitle}
                     </h3>
                     {project.cardTags && (

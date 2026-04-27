@@ -43,39 +43,43 @@ export default function Navigation() {
           ? 'bg-white'
           : 'bg-transparent'
 
-  const textClass =
-    (isCaseStudy || (isScrolled && !isArchive)) && !isFooterVisible ? 'text-black' : 'text-white'
+  const isLight = (isCaseStudy || (isScrolled && !isArchive)) && !isFooterVisible
+  const textClass = isLight ? 'text-black' : 'text-white'
+  const outlineClass = isLight ? 'outline-black' : 'outline-white'
+
+  const regularLinks = navLinks.filter((link) => !link.external)
+  const contactLink = navLinks.find((link) => link.external)
 
   return (
     <nav
-      className={`relative py-2 font-sans text-base font-normal transition-colors duration-300 ${textClass}`}
+      className={`w-full rounded-b-2xl font-sans text-base font-normal transition-colors duration-300 ${bgClass} ${textClass}`}
     >
-      <div
-        aria-hidden
-        className={`absolute top-0 left-1/2 h-full w-screen -translate-x-1/2 -z-10 transition-all duration-300 ${bgClass}`}
-      />
-      <div className="inline-flex w-full items-center justify-between">
+      <div className="mx-auto w-full max-w-300 py-2 flex justify-between items-center">
         <Link
           href="/"
           aria-label="Back to home"
           className="transition hover:opacity-50"
           onClick={handleLogoClick}
         >
-          <Image src="/icons/catarsis.svg" width={40} height={40} alt="Catarsis" priority />
+          <Image src="/icons/catarsis.svg" width={24} height={24} alt="Catarsis" priority />
         </Link>
 
-        {navLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            target={link.external ? '_blank' : undefined}
-            rel={link.external ? 'noreferrer' : undefined}
-            className="link-hover-underline transition hover:opacity-70"
-          >
+        {regularLinks.map((link) => (
+          <Link key={link.label} href={link.href} className="link-hover-underline hover:opacity-70">
             {link.label}
-            {link.external ? ' ↗' : ''}
           </Link>
         ))}
+
+        {contactLink && (
+          <Link
+            href={contactLink.href}
+            target="_blank"
+            rel="noreferrer"
+            className={`px-5 py-2 rounded-2xl outline-1 -outline-offset-1 ${outlineClass} hover:opacity-70`}
+          >
+            {contactLink.label} ↗
+          </Link>
+        )}
       </div>
     </nav>
   )
