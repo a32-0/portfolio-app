@@ -142,7 +142,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                   project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
                 return (
                   <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
-                    <div className="mb-4 aspect-video w-full overflow-hidden bg-secondary">
+                    <div className="relative mb-4 aspect-video w-full overflow-hidden bg-secondary">
                       {isVideo ? (
                         <AutoPlayVideo
                           src={project.cover}
@@ -153,10 +153,9 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                         <Image
                           src={project.cover}
                           alt={project.title}
-                          width={800}
-                          height={450}
+                          fill
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          className="h-full w-full object-cover"
+                          className="object-cover"
                         />
                       )}
                     </div>

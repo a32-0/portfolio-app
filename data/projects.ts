@@ -27,8 +27,7 @@ export const projects: Project[] = [
   {
     slug: 'invoice-liverpool',
     title: 'Invoicing',
-    cover: '/images/projects/invoice-liverpool/cover.mp4',
-    coverType: 'video',
+    cover: '/images/projects/invoice-liverpool/cover.png',
     featured: true,
     caseStudy: true,
     archived: false,
@@ -40,15 +39,14 @@ export const projects: Project[] = [
   {
     slug: 'connect-liverpool',
     title: 'Connect',
-    cover: '/images/projects/connect-liverpool/cover.mp4',
-    coverType: 'video',
+    cover: '/images/projects/connect-liverpool/cover.png',
     featured: true,
     caseStudy: true,
     archived: false,
     cardCategory: 'Contact Center Sales Platform',
     cardTitle:
       "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
-    cardTags: ['Systems Design', 'Enterprise UX', 'Stakeholder Research'],
+    cardTags: ['Systems Design', 'Enterprise', 'UX Research'],
   },
   {
     slug: 'little-lemon',

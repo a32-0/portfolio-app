@@ -24,12 +24,10 @@ export default function ArchiveGrid({ limit }: Props) {
       className="inline-flex w-full flex-col items-start justify-start gap-12 pb-32"
     >
       <div className="flex w-full flex-col items-start justify-start gap-2">
-        <h2 className="w-full text-5xl font-medium font-serif italic text-white">
+        <h2 className="text-5xl font-medium font-serif italic text-white">
           {archiveSection.title}
         </h2>
-        <p className="w-full max-w-200 text-xl font-normal font-sans text-white">
-          {archiveSection.description}
-        </p>
+        <p className="text-xl font-normal font-sans text-white">{archiveSection.description}</p>
       </div>
 
       <div className="inline-flex w-full flex-col items-start justify-start gap-8 lg:flex-row">
