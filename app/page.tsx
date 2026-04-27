@@ -6,13 +6,13 @@ import About from '@/components/About/About'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-50">
+    <main className="flex flex-col gap-20">
       <Hero />
-      <Container className="flex flex-col gap-50">
+      <Container className="flex flex-col gap-20 pb-32">
         <SelectedWork />
         <DesignPrinciples />
+        <About />
       </Container>
-      <About />
     </main>
   )
 }
