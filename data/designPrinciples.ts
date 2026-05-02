@@ -16,19 +16,19 @@ export const designPrinciples: DesignPrinciplesData = {
       id: '01',
       title: 'Systems over screens',
       description:
-        "I don't design isolated screens. I map how the pieces connect — flows, states, dependencies — before touching high-fidelity.",
+        "I don't design isolated screens.\nI map how the pieces connect — flows, states, dependencies — before touching high-fidelity.",
     },
     {
       id: '02',
       title: 'Language as a design material',
       description:
-        'Some of my most demanding work has no visual layer at all. Conversational products taught me that clarity of language is as critical as clarity of layout.',
+        'Some of my most demanding work has no visual layer at all.\nConversational products taught me that clarity of language is as critical as clarity of layout.',
     },
     {
       id: '03',
       title: 'Clarity over volume',
       description:
-        "Less navigation, fewer steps, simpler language. Good design removes what doesn't need to be there, without losing what makes the experience feel considered.",
+        "Less navigation, fewer steps, simpler language.\nGood design removes what doesn't need to be there, without losing what makes the experience feel considered.",
     },
     {
       id: '04',
