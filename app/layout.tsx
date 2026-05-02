@@ -101,15 +101,12 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#0001f7',
+  themeColor: '#0001e9',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}>
       <body>
         <Header />
         {children}

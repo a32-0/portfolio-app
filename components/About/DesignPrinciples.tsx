@@ -32,7 +32,7 @@ export default function DesignPrinciples() {
                   {principle.title}
                 </h3>
               </div>
-              <p className="w-full text-xl font-normal font-sans text-tertiary">
+              <p className="w-200 text-xl font-normal font-sans text-tertiary whitespace-pre-line">
                 {principle.description}
               </p>
             </article>
