@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type { CaseStudy } from '@/data/caseStudies/types'
 import { featuredProjects } from '@/data/projects'
 import Container from '@/components/Container'
 import AutoPlayVideo from '@/components/Work/AutoPlayVideo'
+import Button from '@/components/ui/Button'
+import NextCaseStudyCard from './NextCaseStudyCard'
 import SectionNav from './SectionNav'
 
 type Props = {
@@ -16,19 +17,15 @@ export default function CaseStudyPage({ caseStudy }: Props) {
   const { slug, title, subtitle, overview, metrics, sections, footnote } = caseStudy
 
   const navItems = sections.map((s) => ({ id: s.id, label: s.label }))
-  const otherCaseStudies = caseStudyProjects.filter((p) => p.slug !== slug)
+  const currentIndex = caseStudyProjects.findIndex((p) => p.slug === slug)
+  const nextProject = caseStudyProjects[(currentIndex + 1) % caseStudyProjects.length]
 
   return (
     <div className="bg-white pb-32 pt-40">
       <Container>
         {/* Back button */}
         <div className="mb-12">
-          <Link
-            href="/#work"
-            className="inline-flex items-center gap-1.5 text-tertiary transition-colors hover:text-black"
-          >
-            ← Back
-          </Link>
+          <Button href="/#work">← Back</Button>
         </div>
 
         {/* Hero */}
@@ -79,14 +76,14 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                 )}
 
                 {section.image && (
-                  <div className="my-10 flex aspect-video w-full items-center justify-center rounded-xl bg-quaternary">
+                  <div className="my-10 flex aspect-video w-full items-center justify-center rounded-2xl bg-quaternary">
                     {section.image !== 'placeholder' ? (
                       <Image
                         src={section.image}
                         alt=""
                         width={1200}
                         height={675}
-                        className="h-full w-full rounded-xl object-cover"
+                        className="h-full w-full rounded-2xl object-cover"
                       />
                     ) : (
                       <span className="text-sm text-secondary">—</span>
@@ -132,44 +129,13 @@ export default function CaseStudyPage({ caseStudy }: Props) {
           </div>
         </div>
 
-        {/* Bottom case study navigation */}
-        {otherCaseStudies.length > 0 && (
+        {/* Next case study */}
+        {nextProject && (
           <div className="mt-32 border-t border-secondary pt-16">
-            <p className="mb-8 text-sm font-medium text-tertiary">More stories</p>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {otherCaseStudies.map((project) => {
-                const isVideo =
-                  project.coverType === 'video' || project.cover.toLowerCase().endsWith('.mp4')
-                return (
-                  <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
-                    <div className="relative mb-4 aspect-video w-full overflow-hidden bg-secondary">
-                      {isVideo ? (
-                        <AutoPlayVideo
-                          src={project.cover}
-                          title={project.title}
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <Image
-                          src={project.cover}
-                          alt={project.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-cover"
-                        />
-                      )}
-                    </div>
-                    <p className="mb-1.5 text-sm font-sans text-primary">{project.cardCategory}</p>
-                    <h3 className="font-serif text-xl text-black group-hover:underline">
-                      {project.cardTitle}
-                    </h3>
-                    {project.cardTags && (
-                      <p className="mt-2 text-sm text-tertiary">{project.cardTags.join(' · ')}</p>
-                    )}
-                  </Link>
-                )
-              })}
-            </div>
+            <p className="mb-8 text-xl font-serif italic font-medium text-tertiary">
+              Next case study
+            </p>
+            <NextCaseStudyCard project={nextProject} />
           </div>
         )}
       </Container>
