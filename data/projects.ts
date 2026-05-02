@@ -74,8 +74,8 @@ export const projects: Project[] = [
     archived: true,
   },
   {
-    slug: 'cyberpuerta',
-    title: 'Cyberpuerta',
+    slug: 'cyberPuerta',
+    title: 'CyberPuerta',
     cover: '/images/projects/cyberpuerta/cover.mp4',
     coverType: 'video',
     featured: false,

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navLinks } from '@/data/navigation'
+import Button from '@/components/ui/Button'
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -45,7 +46,6 @@ export default function Navigation() {
 
   const isLight = (isCaseStudy || (isScrolled && !isArchive)) && !isFooterVisible
   const textClass = isLight ? 'text-black' : 'text-white'
-  const outlineClass = isLight ? 'outline-black' : 'outline-white'
 
   const regularLinks = navLinks.filter((link) => !link.external)
   const contactLink = navLinks.find((link) => link.external)
@@ -71,14 +71,14 @@ export default function Navigation() {
         ))}
 
         {contactLink && (
-          <Link
+          <Button
             href={contactLink.href}
+            outlineColor={isLight ? 'black' : 'white'}
             target="_blank"
             rel="noreferrer"
-            className={`px-5 py-2 rounded-2xl outline-1 -outline-offset-1 ${outlineClass} hover:opacity-70`}
           >
             {contactLink.label} ↗
-          </Link>
+          </Button>
         )}
       </div>
     </nav>
