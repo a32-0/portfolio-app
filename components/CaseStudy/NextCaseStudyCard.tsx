@@ -25,7 +25,7 @@ export default function NextCaseStudyCard({ project }: Props) {
             {cardTags?.join(' · ')}
           </p>
         </div>
-        <div className="relative w-100 shrink-0 overflow-hidden rounded-2xl bg-secondary aspect-6/5">
+        <div className="relative w-100 shrink-0 overflow-hidden bg-secondary aspect-6/5">
           {isVideo ? (
             <AutoPlayVideo
               src={cover}
@@ -37,7 +37,7 @@ export default function NextCaseStudyCard({ project }: Props) {
               src={cover}
               alt={title}
               fill
-              sizes="400px"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
           )}

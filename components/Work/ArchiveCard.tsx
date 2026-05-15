@@ -14,14 +14,9 @@ export default function ArchiveCard({ product, src, alt, coverType }: Props) {
 
   return (
     <div className="inline-flex w-full flex-col items-start justify-start gap-2">
-      <div className="w-full rounded-2xl overflow-hidden">
+      <div className="w-full overflow-hidden">
         {isVideo ? (
-          <AutoPlayVideo
-            src={src}
-            alt={mediaAlt}
-            title={product}
-            className="h-auto w-full"
-          />
+          <AutoPlayVideo src={src} alt={mediaAlt} title={product} className="h-auto w-full" />
         ) : (
           <Image
             src={src}
