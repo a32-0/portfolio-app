@@ -76,14 +76,14 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                 )}
 
                 {section.image && (
-                  <div className="my-10 flex aspect-video w-full items-center justify-center rounded-2xl bg-quaternary">
+                  <div className="my-10 flex aspect-video w-full items-center justify-center bg-quaternary">
                     {section.image !== 'placeholder' ? (
                       <Image
                         src={section.image}
                         alt=""
                         width={1200}
                         height={675}
-                        className="h-full w-full rounded-2xl object-cover"
+                        className="h-full w-full object-cover"
                       />
                     ) : (
                       <span className="text-sm text-secondary">—</span>
