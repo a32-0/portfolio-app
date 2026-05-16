@@ -17,7 +17,7 @@ export const invoiceLiverpool: CaseStudy = {
     {
       id: 'context',
       label: 'Context',
-      title: 'A High-Stakes, Broken Flow',
+      title: 'A high-stakes, broken flow',
       image: '/images/projects/invoice-liverpool/case-1.png',
       body: [
         "The invoicing portal existed as a separate subdomain from Liverpool's main e-commerce site — users would be routed there from their purchase history or by searching directly. What they found when they arrived was a fragmented experience: two separate portals depending on the type of purchase, inconsistent UI, poor error messaging, and no clear progress indicators.",
@@ -35,7 +35,7 @@ export const invoiceLiverpool: CaseStudy = {
     {
       id: 'research',
       label: 'Research',
-      title: 'Multi-Method, Multi-Source',
+      title: 'Multi-method, multi-source',
       body: [
         'Before touching the design, I ran a research sprint combining four methods to understand the problem from different angles.',
       ],
@@ -75,9 +75,9 @@ export const invoiceLiverpool: CaseStudy = {
     },
     {
       id: 'decision',
-      label: 'The Key Decision',
-      title: 'The Decision Nobody Had Mapped',
-      image: 'placeholder',
+      label: 'The key decision',
+      title: 'The decision nobody had mapped',
+      image: '/images/projects/invoice-liverpool/case-2.png',
       body: [
         'The original project scope was clear: redesign the invoicing portal for internal merchandise purchases. What nobody had documented — or apparently noticed — was that Liverpool actually had two separate invoicing portals serving different purchase types, and that users were regularly landing on the wrong one.',
         "A customer who bought from a Liverpool marketplace seller would arrive at the internal portal, enter their data, and get an error — with no explanation of why or where to go instead. The system knew. It just didn't tell them. When I mapped the full user journey, this fragmentation was the single largest source of confusion in the flow.",
@@ -96,8 +96,8 @@ export const invoiceLiverpool: CaseStudy = {
     {
       id: 'design',
       label: 'Design',
-      title: 'Reducing Cognitive Load in a Legally Complex Flow',
-      image: 'placeholder',
+      title: 'Reducing cognitive load in a legally complex flow',
+      image: '/images/projects/invoice-liverpool/case-3.png',
       body: ['With the structural decision made, the design work focused on four areas.'],
       subsections: [
         {
@@ -130,7 +130,7 @@ export const invoiceLiverpool: CaseStudy = {
       id: 'impact',
       label: 'Impact',
       title: 'Impact',
-      image: 'placeholder',
+      image: '/images/projects/invoice-liverpool/case-4.png',
       body: [
         'The results measured via SimilarWeb approximately one year post-launch show a fundamental change in how users interact with the portal.',
         'Average session duration dropped from 35:10 to 2:56 — a 92% reduction. Pages per visit dropped from 10.63 to 2.93 — a 72% reduction. Bounce rate remained stable at ~37–38%, confirming that the reduction in session time reflects task completion, not earlier abandonment.',
@@ -148,7 +148,7 @@ export const invoiceLiverpool: CaseStudy = {
     {
       id: 'learnings',
       label: 'Learnings',
-      title: 'What This Project Taught Me',
+      title: 'What this project taught me',
       body: [
         "The most valuable design decision in this project wasn't in the original brief. It came from looking at the problem at a system level rather than accepting the scope as defined. A designer who only redesigns what they're asked to redesign will produce better screens. A designer who questions whether the screens are the right problem will occasionally produce something that actually changes the outcome.",
         'The resistance from the development team was real, and it required sustained argument over multiple conversations. What made the argument winnable was that it was grounded in user behavior data, not design preference — and that the counterargument had a clear and measurable human cost.',

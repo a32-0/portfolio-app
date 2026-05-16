@@ -17,7 +17,7 @@ export const hero: HeroData = {
     sans: ' building scalable systems across high-traffic retail and conversational platforms',
   },
   subtitle:
-    'I design at the intersection of clarity, behavior, and code. Turning complexity into experiences that feel effortless.',
+    'I design at the intersection of clarity, behavior, and code. Turning complexity into experiences that just work.',
   ctas: [
     {
       label: 'Selected work',
