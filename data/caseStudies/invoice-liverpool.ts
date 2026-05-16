@@ -19,6 +19,8 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'Context',
       title: 'A high-stakes, broken flow',
       image: '/images/projects/invoice-liverpool/case-1.png',
+      imageWidth: 1832,
+      imageHeight: 2772,
       body: [
         "The invoicing portal existed as a separate subdomain from Liverpool's main e-commerce site — users would be routed there from their purchase history or by searching directly. What they found when they arrived was a fragmented experience: two separate portals depending on the type of purchase, inconsistent UI, poor error messaging, and no clear progress indicators.",
         "A 35-minute average session on a form that should take 3 minutes is not a UX problem — it's a signal of structural failure. Users were navigating dead ends, retrying failed submissions without understanding why they failed, and in many cases giving up entirely.",
@@ -78,6 +80,8 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'The key decision',
       title: 'The decision nobody had mapped',
       image: '/images/projects/invoice-liverpool/case-2.png',
+      imageWidth: 1832,
+      imageHeight: 1548,
       body: [
         'The original project scope was clear: redesign the invoicing portal for internal merchandise purchases. What nobody had documented — or apparently noticed — was that Liverpool actually had two separate invoicing portals serving different purchase types, and that users were regularly landing on the wrong one.',
         "A customer who bought from a Liverpool marketplace seller would arrive at the internal portal, enter their data, and get an error — with no explanation of why or where to go instead. The system knew. It just didn't tell them. When I mapped the full user journey, this fragmentation was the single largest source of confusion in the flow.",
@@ -98,6 +102,8 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'Design',
       title: 'Reducing cognitive load in a legally complex flow',
       image: '/images/projects/invoice-liverpool/case-3.png',
+      imageWidth: 1832,
+      imageHeight: 1412,
       body: ['With the structural decision made, the design work focused on four areas.'],
       subsections: [
         {
@@ -131,6 +137,8 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'Impact',
       title: 'Impact',
       image: '/images/projects/invoice-liverpool/case-4.png',
+      imageWidth: 1832,
+      imageHeight: 1412,
       body: [
         'The results measured via SimilarWeb approximately one year post-launch show a fundamental change in how users interact with the portal.',
         'Average session duration dropped from 35:10 to 2:56 — a 92% reduction. Pages per visit dropped from 10.63 to 2.93 — a 72% reduction. Bounce rate remained stable at ~37–38%, confirming that the reduction in session time reflects task completion, not earlier abandonment.',
