@@ -18,8 +18,8 @@ export default function DesignPrinciples() {
           const isLast = index === total - 1
 
           const borderClass = isLast
-            ? 'outline-1 -outline-offset-1 outline-tertiary rounded-bl-2xl rounded-br-2xl'
-            : `border-l border-r border-t border-tertiary ${isFirst ? 'rounded-tl-2xl rounded-tr-2xl' : ''}`
+            ? 'outline-1 -outline-offset-1 outline-tertiary rounded-bl-xl rounded-br-xl'
+            : `border-l border-r border-t border-tertiary ${isFirst ? 'rounded-tl-xl rounded-tr-xl' : ''}`
 
           return (
             <article
