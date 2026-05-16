@@ -19,7 +19,7 @@ export default function Button({
   className,
 }: Props) {
   const outline = outlineColor === 'white' ? 'outline-white' : 'outline-black'
-  const base = `btn-pill px-5 py-2 rounded-2xl outline-1 -outline-offset-1 ${outline}${className ? ` ${className}` : ''}`
+  const base = `btn-pill px-5 py-2 rounded-xl outline-1 -outline-offset-1 ${outline}${className ? ` ${className}` : ''}`
   const isExternal = /^(https?:|mailto:|tel:)/.test(href)
 
   if (isExternal) {

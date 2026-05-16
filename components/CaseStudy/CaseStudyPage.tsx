@@ -2,7 +2,6 @@ import Image from 'next/image'
 import type { CaseStudy } from '@/data/caseStudies/types'
 import { featuredProjects } from '@/data/projects'
 import Container from '@/components/Container'
-import AutoPlayVideo from '@/components/Work/AutoPlayVideo'
 import Button from '@/components/ui/Button'
 import NextCaseStudyCard from './NextCaseStudyCard'
 import SectionNav from './SectionNav'
@@ -21,8 +20,8 @@ export default function CaseStudyPage({ caseStudy }: Props) {
   const nextProject = caseStudyProjects[(currentIndex + 1) % caseStudyProjects.length]
 
   return (
-    <div className="bg-white pb-32 pt-40">
-      <Container>
+    <div className="bg-white pb-32">
+      <Container className="pt-24">
         {/* Back button */}
         <div className="mb-12">
           <Button href="/#work">← Back</Button>
@@ -76,17 +75,20 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                 )}
 
                 {section.image && (
-                  <div className="my-10 flex aspect-video w-full items-center justify-center bg-quaternary">
+                  <div className="my-10 w-full rounded-xl overflow-hidden bg-quaternary">
                     {section.image !== 'placeholder' ? (
                       <Image
                         src={section.image}
                         alt=""
-                        width={1200}
-                        height={675}
-                        className="h-full w-full object-cover"
+                        width={0}
+                        height={0}
+                        sizes="(max-width: 768px) 100vw, 75vw"
+                        className="w-full h-auto"
                       />
                     ) : (
-                      <span className="text-sm text-secondary">—</span>
+                      <div className="flex aspect-video items-center justify-center">
+                        <span className="text-sm text-secondary">—</span>
+                      </div>
                     )}
                   </div>
                 )}
