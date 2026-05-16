@@ -3,6 +3,8 @@ export type Project = {
   title: string
   cover: string
   coverType?: 'image' | 'video'
+  coverWidth?: number
+  coverHeight?: number
   featured: boolean
   caseStudy: boolean
   archived: boolean
@@ -69,6 +71,8 @@ export const projects: Project[] = [
     slug: 'toma1',
     title: 'TOMA1',
     cover: '/images/projects/toma1/cover.png',
+    coverWidth: 2880,
+    coverHeight: 6086,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -111,6 +115,8 @@ export const projects: Project[] = [
     slug: 'binca',
     title: 'Binca',
     cover: '/images/projects/binca/cover.png',
+    coverWidth: 2880,
+    coverHeight: 4112,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -119,6 +125,8 @@ export const projects: Project[] = [
     slug: 'disrupto',
     title: 'Disrupto',
     cover: '/images/projects/disrupto/cover.png',
+    coverWidth: 2880,
+    coverHeight: 4218,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -136,6 +144,8 @@ export const projects: Project[] = [
     slug: 'nexum',
     title: 'Nexum',
     cover: '/images/projects/nexum/cover.png',
+    coverWidth: 2880,
+    coverHeight: 2250,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -144,6 +154,8 @@ export const projects: Project[] = [
     slug: 'doia',
     title: 'Doia',
     cover: '/images/projects/doia/cover.png',
+    coverWidth: 2880,
+    coverHeight: 5562,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -161,6 +173,8 @@ export const projects: Project[] = [
     slug: 'ilum',
     title: 'Ilum Prosperity Sherpas',
     cover: '/images/projects/ilum/cover.png',
+    coverWidth: 2880,
+    coverHeight: 2354,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -186,6 +200,8 @@ export const projects: Project[] = [
     slug: 'ox-logistics',
     title: 'OX Logistics',
     cover: '/images/projects/ox-logistics/cover.png',
+    coverWidth: 1600,
+    coverHeight: 1138,
     featured: false,
     caseStudy: false,
     archived: true,

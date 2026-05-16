@@ -75,22 +75,24 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                 )}
 
                 {section.image && (
-                  <div className="my-10 w-full rounded-xl overflow-hidden bg-quaternary">
-                    {section.image !== 'placeholder' ? (
+                  section.image !== 'placeholder' ? (
+                    <div className="my-10 w-full rounded-xl overflow-hidden bg-quaternary">
                       <Image
                         src={section.image}
                         alt=""
-                        width={0}
-                        height={0}
+                        width={section.imageWidth ?? 1200}
+                        height={section.imageHeight ?? 800}
                         sizes="(max-width: 768px) 100vw, 75vw"
                         className="w-full h-auto"
                       />
-                    ) : (
+                    </div>
+                  ) : (
+                    <div className="my-10 w-full rounded-xl overflow-hidden bg-quaternary">
                       <div className="flex aspect-video items-center justify-center">
                         <span className="text-sm text-secondary">—</span>
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )
                 )}
 
                 {section.subsections && (
