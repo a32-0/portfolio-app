@@ -16,6 +16,8 @@ export type CaseStudySection = {
   title: string
   body?: string[]
   image?: string
+  imageWidth?: number
+  imageHeight?: number
   subsections?: CaseStudySubsection[]
 }
 

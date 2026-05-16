@@ -42,6 +42,8 @@ export default function ArchiveGrid({ limit }: Props) {
                 product={project.title}
                 src={project.cover}
                 coverType={project.coverType}
+                coverWidth={project.coverWidth}
+                coverHeight={project.coverHeight}
               />
             ))}
           </div>
