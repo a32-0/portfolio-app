@@ -3,7 +3,8 @@ import type { CaseStudy } from './types'
 export const connectLiverpool: CaseStudy = {
   slug: 'connect-liverpool',
   title: 'Designing Connect: A Sales System for 40+ Contact Center Agents',
-  subtitle: 'Inheriting an undefined project, designing a system from scratch, and arguing for scope decisions nobody had mapped.',
+  subtitle:
+    'Inheriting an undefined project, designing a system from scratch, and arguing for scope decisions nobody had mapped.',
   overview:
     "Connect is Liverpool's primary sales tool for contact center agents — a system through which 40+ agents process customer orders, manage product catalogs, and handle transactions that generate between 600K and 3.7M MXN in daily revenue. Designing for internal tools at this scale means designing for people whose livelihood depends on the software working efficiently. Every second of friction is a second of customer time lost, a sale at risk, and an agent under pressure.",
   metrics: [
@@ -16,18 +17,18 @@ export const connectLiverpool: CaseStudy = {
     {
       id: 'context',
       label: 'Context',
-      title: 'An Obsolete System and an Undefined Brief',
+      title: 'An obsolete system and an undefined brief',
       image: 'placeholder',
       body: [
         "The tool I was asked to redesign was called CSC — a legacy Oracle-based platform that agents had been using for years. By the time I arrived, it had accumulated a well-documented list of problems: it crashed frequently, required agents to clear cookies regularly just to log in, displayed different product prices and promotions than the main e-commerce site, and didn't support certain payment methods and purchase scenarios.",
         "Agents had developed workarounds as standard practice — opening multiple browser windows, maintaining personal notes in parallel systems, navigating between CSC and the public e-commerce site mid-call to find accurate product information. An agent attending to a live customer, unable to trust the prices in their own tool, switching to the public website to verify — that's not a UX problem. That's a systemic failure with a direct cost in every call.",
-        "The project had been owned by my subdirector before I joined. When she transferred it to me, there was minimal context: a completed login screen in high fidelity and a development team waiting on designs. The scope, the requirements, and the full extent of what needed to be built were largely undefined. I had inherited a project at the beginning of its design phase — without a brief.",
+        'The project had been owned by my subdirector before I joined. When she transferred it to me, there was minimal context: a completed login screen in high fidelity and a development team waiting on designs. The scope, the requirements, and the full extent of what needed to be built were largely undefined. I had inherited a project at the beginning of its design phase — without a brief.',
       ],
     },
     {
       id: 'research',
       label: 'Research',
-      title: 'Learning the Operation Before Designing for It',
+      title: 'Learning the operation before designing for it',
       body: [
         'Before touching the design, I needed to understand the operation. Not from documentation — from observation. I combined three research inputs to build that understanding.',
       ],
@@ -35,8 +36,8 @@ export const connectLiverpool: CaseStudy = {
         {
           title: 'Contextual observation — shadowing',
           body: [
-            "I spent time with agents as they worked live calls — watching how they navigated CSC, where they got stuck, what workarounds they had developed, and how they managed the cognitive load of attending to a customer in real time while operating an unreliable tool.",
-            "Shadowing revealed things that no pain point document could capture: the specific sequence of actions that caused crashes, the physical behavior of agents managing multiple windows, and the moments of visible frustration that the system created. This is how I learned that the folio system — the feature that saved customer carts between calls — existed but was essentially abandoned. Only two of the most experienced agents used it with any reliability.",
+            'I spent time with agents as they worked live calls — watching how they navigated CSC, where they got stuck, what workarounds they had developed, and how they managed the cognitive load of attending to a customer in real time while operating an unreliable tool.',
+            'Shadowing revealed things that no pain point document could capture: the specific sequence of actions that caused crashes, the physical behavior of agents managing multiple windows, and the moments of visible frustration that the system created. This is how I learned that the folio system — the feature that saved customer carts between calls — existed but was essentially abandoned. Only two of the most experienced agents used it with any reliability.',
           ],
         },
         {
@@ -55,8 +56,8 @@ export const connectLiverpool: CaseStudy = {
     },
     {
       id: 'folio',
-      label: 'The Folio System',
-      title: "Designing What Already Existed, But Didn't Work",
+      label: 'The folio system',
+      title: "Designing what already existed, but didn't work",
       image: 'placeholder',
       body: [
         "The most significant design decision in this project was one I didn't invent — I recognized it.",
@@ -88,20 +89,20 @@ export const connectLiverpool: CaseStudy = {
     {
       id: 'design',
       label: 'Design',
-      title: 'Designing the System Under Real Constraints',
+      title: 'Designing the system under real constraints',
       image: 'placeholder',
       subsections: [
         {
           title: 'Scope management: from full system to functional MVP',
           body: [
             'My initial design covered the full scope of what Connect needed to be: folio management, catalog with real-time e-commerce parity, multi-scenario purchase flows, customer identity management, supervisor dashboards, and post-sale actions. When I presented this to the technical team, the response was honest: some of what I had designed required integrations and backend work that had already been scoped out.',
-            "I built an impact/effort matrix mapping every feature against its value to agents and the business, and brought it to the table as a shared framework. The technical team contributed their constraints; I contributed the user and business rationale. We negotiated a principled MVP — the features that would make Connect meaningfully better than CSC on day one, without dependencies that would delay launch indefinitely.",
+            'I built an impact/effort matrix mapping every feature against its value to agents and the business, and brought it to the table as a shared framework. The technical team contributed their constraints; I contributed the user and business rationale. We negotiated a principled MVP — the features that would make Connect meaningfully better than CSC on day one, without dependencies that would delay launch indefinitely.',
           ],
         },
         {
           title: 'Designing for a dual user',
           body: [
-            "Connect serves two distinct users with different needs: agents and supervisors. Agents need speed, clarity, and reliability — a tool that gets out of the way during a live call. Supervisors need visibility — revenue data, agent performance, transaction history.",
+            'Connect serves two distinct users with different needs: agents and supervisors. Agents need speed, clarity, and reliability — a tool that gets out of the way during a live call. Supervisors need visibility — revenue data, agent performance, transaction history.',
             "Designing for both in the same system required explicit information architecture decisions. What does an agent's home screen show? What does a supervisor's home screen show? How does the folio system serve both users without creating cognitive overhead for either? These questions shaped the structure of the product more than any visual decision.",
           ],
         },
@@ -117,7 +118,7 @@ export const connectLiverpool: CaseStudy = {
     {
       id: 'validation',
       label: 'Validation',
-      title: 'Workshop with Directors, Managers, and Operations Supervisors',
+      title: 'Workshop with directors, managers, and operations supervisors',
       image: 'placeholder',
       body: [
         'Before development entered its final phase, I facilitated a high-fidelity prototype workshop with seven stakeholders across director, manager, and supervisor roles. The session produced structured feedback across UX, functionality, technical concerns, and priorities.',
@@ -143,7 +144,7 @@ export const connectLiverpool: CaseStudy = {
     {
       id: 'impact',
       label: 'Status & Impact',
-      title: 'Status and Expected Impact',
+      title: 'Status and expected impact',
       body: [
         'Connect is currently in staging — pre-production, final QA phase. What exists at this point is a validated high-fidelity prototype, a structured development build approaching production readiness, and a stakeholder group that has reviewed and endorsed the design direction.',
       ],
@@ -161,7 +162,7 @@ export const connectLiverpool: CaseStudy = {
     {
       id: 'learnings',
       label: 'Learnings',
-      title: 'What This Project Taught Me',
+      title: 'What this project taught me',
       body: [
         'Connect was the first major project I owned at Liverpool, and it arrived without a brief, without context, and with the expectation that I would figure it out. That turned out to be the best possible condition for learning how to design a system.',
         'The most important thing I did was not open Figma first. I went to the contact center. I watched agents work. I listened to what they complained about and what they had quietly accepted as normal. That investment of time before any design decision was made is what gave the folio system its logic, what surfaced the catalog inconsistency as a trust problem rather than a technical one.',

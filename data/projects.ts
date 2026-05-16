@@ -13,18 +13,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'whatsapp-liverpool',
-    title: 'WhatsApp',
-    cover: '/images/projects/whatsapp-liverpool/cover.png',
-    featured: true,
-    caseStudy: true,
-    archived: false,
-    cardCategory: 'WhatsApp Business Platform',
-    cardTitle:
-      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
-    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
-  },
-  {
     slug: 'invoice-liverpool',
     title: 'Invoicing',
     cover: '/images/projects/invoice-liverpool/cover.png',
@@ -35,6 +23,18 @@ export const projects: Project[] = [
     cardTitle:
       'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
     cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
+  },
+  {
+    slug: 'whatsapp-liverpool',
+    title: 'WhatsApp',
+    cover: '/images/projects/whatsapp-liverpool/cover.png',
+    featured: true,
+    caseStudy: true,
+    archived: false,
+    cardCategory: 'WhatsApp Business Platform',
+    cardTitle:
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
+    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
   },
   {
     slug: 'connect-liverpool',
@@ -72,6 +72,22 @@ export const projects: Project[] = [
     featured: false,
     caseStudy: false,
     archived: true,
+  },
+  {
+    slug: 'borgatta',
+    title: 'Borgatta',
+    cover: '/images/projects/borgatta/cover.png',
+    featured: false,
+    caseStudy: false,
+    archived: false,
+  },
+  {
+    slug: 'salesforce-liverpool',
+    title: 'Salesforce',
+    cover: '/images/projects/salesforce-liverpool/cover.png',
+    featured: false,
+    caseStudy: false,
+    archived: false,
   },
   {
     slug: 'cyberPuerta',

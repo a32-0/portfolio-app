@@ -52,7 +52,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`w-full rounded-b-2xl font-sans text-base font-normal transition-colors duration-300 ${bgClass} ${textClass}`}
+      className={`w-full rounded-b-xl font-sans text-base font-normal transition-colors duration-300 ${bgClass} ${textClass}`}
     >
       <div className="mx-auto w-full max-w-300 py-2 flex justify-between items-center">
         <Link
