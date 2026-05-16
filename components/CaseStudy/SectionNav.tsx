@@ -47,7 +47,7 @@ export default function SectionNav({ items }: Props) {
   }, [itemIds])
 
   return (
-    <nav aria-label="Case study sections" className="border border-black/10 bg-white p-4 rounded-2xl">
+    <nav aria-label="Case study sections" className="border border-black/10 bg-white p-4 rounded-xl">
       <ul className="space-y-1">
         {items.map((item) => {
           const isActive = item.id === activeId

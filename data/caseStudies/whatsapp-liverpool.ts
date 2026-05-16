@@ -17,7 +17,7 @@ export const whatsappLiverpool: CaseStudy = {
     {
       id: 'context',
       label: 'Context',
-      title: 'A Channel Built for the Wrong Person',
+      title: 'A channel built for the wrong person',
       image: 'placeholder',
       body: [
         "El Puerto de Liverpool is one of Mexico's largest retailers, with a significant digital commerce operation and a growing base of departmental credit card holders. WhatsApp has become the primary digital support channel — the place where customers go when they have a problem with an order, a question about their credit account, or need to reach a human.",
@@ -35,8 +35,8 @@ export const whatsappLiverpool: CaseStudy = {
     },
     {
       id: 'origin',
-      label: 'How I Got Here',
-      title: 'From Copywriter to Cell Member',
+      label: 'How I got here',
+      title: 'From copywriter to cell member',
       body: [
         "I didn't start as a product designer on this channel. I was asked by the Customer Experience team to review their messages — something closer to content editing than UX design. A narrow ask, with what seemed like limited scope.",
         'I could have done exactly what was asked. Instead, I started reading the flows as a designer. The more I read, the more I saw: messages written without structure, flows built around operational logic, interactions that created friction for no user benefit. I started flagging patterns, not just fixing copy.',
@@ -45,8 +45,8 @@ export const whatsappLiverpool: CaseStudy = {
     },
     {
       id: 'tension',
-      label: 'Core Tension',
-      title: 'User-First vs. Operation-First',
+      label: 'Core tension',
+      title: 'User-first vs. operation-first',
       image: 'placeholder',
       body: [
         "The most important design problem on this channel wasn't visual. It was ideological.",
@@ -73,8 +73,8 @@ export const whatsappLiverpool: CaseStudy = {
     },
     {
       id: 'work',
-      label: 'The Work',
-      title: 'Designing Conversations at Scale',
+      label: 'The work',
+      title: 'Designing conversations at scale',
       image: 'placeholder',
       body: [
         'Over five sprints and multiple epics, the cell redesigned and automated flows that previously required live agent intervention. The work was continuous improvement, not big-bang redesign — which meant each decision had to be justified against sprint priorities, business constraints, and technical dependencies.',
@@ -105,7 +105,7 @@ export const whatsappLiverpool: CaseStudy = {
     {
       id: 'ai',
       label: 'Conversational AI',
-      title: 'The Next Layer: Conversational AI with Google',
+      title: 'The next layer: conversational AI with Google',
       image: 'placeholder',
       body: [
         'While the cell was iterating on the existing flow-based architecture, Liverpool began exploring a larger shift: replacing the rule-based chatbot with a Gemini-powered conversational agent. Google brought the technology. I was the only designer in the room.',
@@ -126,8 +126,8 @@ export const whatsappLiverpool: CaseStudy = {
     },
     {
       id: 'next',
-      label: 'What Comes Next',
-      title: 'What Comes Next',
+      label: 'What comes next',
+      title: 'What comes next',
       body: [
         "The Gemini migration changes the design problem fundamentally. Flow-based thinking — if the customer says X, show Y — gives way to intent-based thinking: what is the customer trying to accomplish, and how does the agent help them get there regardless of how they phrase it? That's a harder design problem. It's also a more interesting one.",
         "Liverpool's WhatsApp channel is also positioned to become a proactive communication layer — not just a support destination, but a channel that reaches customers at key moments in their service journey: installation updates, warranty reminders, order milestones. Designing those touchpoints means thinking about the channel less as a helpdesk and more as a relationship surface.",
