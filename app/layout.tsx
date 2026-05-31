@@ -52,19 +52,19 @@ export const metadata: Metadata = {
     address: false,
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://armando-rojano.vercel.app/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: '/',
+    url: 'https://armando-rojano.vercel.app/',
     siteName: 'Armando Rojano | Product Designer',
     title: 'Armando Rojano | Product Designer',
     description:
       'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
     images: [
       {
-        url: '/icons/catarsis.svg',
+        url: 'https://armando-rojano.vercel.app/icons/catarsis.svg',
         width: 1200,
         height: 630,
         alt: 'Armando Rojano portfolio',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: 'Armando Rojano | Product Designer',
     description:
       'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
-    images: ['/icons/catarsis.svg'],
+    images: ['https://armando-rojano.vercel.app/icons/catarsis.svg'],
   },
   icons: {
     icon: '/icons/catarsis.svg',
