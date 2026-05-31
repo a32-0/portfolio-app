@@ -61,7 +61,7 @@ export default function Navigation() {
           className="transition hover:opacity-50"
           onClick={handleLogoClick}
         >
-          <Image src="/icons/catarsis.svg" width={24} height={24} alt="Catarsis" priority />
+          <Image src="/icons/catarsis.svg" width={32} height={32} alt="Catarsis" priority />
         </Link>
 
         {regularLinks.map((link) => (
