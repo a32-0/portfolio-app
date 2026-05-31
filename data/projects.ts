@@ -27,6 +27,18 @@ export const projects: Project[] = [
     cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
   },
   {
+    slug: 'connect-liverpool',
+    title: 'Connect',
+    cover: '/images/projects/connect-liverpool/cover.png',
+    featured: true,
+    caseStudy: true,
+    archived: false,
+    cardCategory: 'Contact Center Sales Platform',
+    cardTitle:
+      "Designing Liverpool's next-generation sales tool for 40+ agents processing up to ~$3M MXN in daily revenue — from an undefined brief to a validated, production-ready system.",
+    cardTags: ['Systems Design', 'Enterprise', 'UX Research'],
+  },
+    {
     slug: 'whatsapp-liverpool',
     title: 'WhatsApp',
     cover: '/images/projects/whatsapp-liverpool/cover.png',
@@ -37,18 +49,6 @@ export const projects: Project[] = [
     cardTitle:
       'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
     cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
-  },
-  {
-    slug: 'connect-liverpool',
-    title: 'Connect',
-    cover: '/images/projects/connect-liverpool/cover.png',
-    featured: true,
-    caseStudy: true,
-    archived: false,
-    cardCategory: 'Contact Center Sales Platform',
-    cardTitle:
-      "Designing Liverpool's next-generation sales tool for 40+ agents processing millions in daily revenue — from an undefined brief to a validated, production-ready system.",
-    cardTags: ['Systems Design', 'Enterprise', 'UX Research'],
   },
   {
     slug: 'little-lemon',
