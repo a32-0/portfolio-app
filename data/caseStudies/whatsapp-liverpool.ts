@@ -10,24 +10,24 @@ export const whatsappLiverpool: CaseStudy = {
   metrics: [
     { value: '30,103', label: 'Daily sessions', delta: 'Average' },
     { value: '77%', label: 'Containment rate', delta: 'Resolved without live agent' },
-    { value: '86%', label: 'Query success rate', delta: 'Virtual agent' },
-    { value: '2:04', label: 'Avg. resolution time', delta: 'Min:sec — virtual agent' },
+    { value: '0.0%', label: 'Abandonment rate', delta: 'Target: 0.5%' },
+    { value: '90.4%', label: 'First contact resolution', delta: '9 in 10 without follow-up' },
   ],
   sections: [
     {
       id: 'context',
       label: 'Context',
       title: 'A channel built for the wrong person',
-      image: 'placeholder',
+      image: '/images/projects/whatsapp-liverpool/case-1.png',
       body: [
         "El Puerto de Liverpool is one of Mexico's largest retailers, with a significant digital commerce operation and a growing base of departmental credit card holders. WhatsApp has become the primary digital support channel — the place where customers go when they have a problem with an order, a question about their credit account, or need to reach a human.",
-        'The channel offered a range of self-service capabilities: order tracking, credit account information, invoicing, and FAQs. But most of these flows had been designed by the operations team to reduce load on live agents — not to help customers resolve their actual problems. The distinction matters more than it might seem. When a customer searches for help with an order, their job-to-be-done is not "navigate a menu structure." It\'s "fix my problem, quickly."',
+        "The channel offered a range of self-service capabilities: order tracking, credit account information, invoicing, and FAQs. But most of these flows had been designed by the operations team to reduce load on live agents — not to help customers resolve their actual problems. The distinction matters more than it might seem. When a customer searches for help with an order, their job-to-be-done is not 'navigate a menu structure.' It's 'fix my problem, quickly.' The channel, as it existed, was optimized for the former.",
       ],
       subsections: [
         {
           title: 'What the data said',
           body: [
-            'The most-visited flows were Mis Compras (order tracking) and Mi Crédito (credit information) — both high-intent, problem-driven use cases. Yet NO_MATCH was both the most frequent entry intent and the most frequent exit intent, with nearly 29K sessions entering without a recognized intent and over 37K exiting the same way.',
+            'The most-visited flows were order tracking and credit information — both high-intent, problem-driven use cases. Yet NO_MATCH was both the most frequent entry intent and the most frequent exit intent, with nearly 29K sessions entering without a recognized intent and over 37K exiting the same way.',
             "This wasn't just a technical gap. It was a signal that the channel's language and the customer's language weren't aligned.",
           ],
         },
@@ -47,11 +47,12 @@ export const whatsappLiverpool: CaseStudy = {
       id: 'tension',
       label: 'Core tension',
       title: 'User-first vs. operation-first',
-      image: 'placeholder',
+      image: '/images/projects/whatsapp-liverpool/case-2.png',
       body: [
         "The most important design problem on this channel wasn't visual. It was ideological.",
         "Every flow I inherited had been built with the same underlying logic: make it easier for the operation. Reduce agent load, minimize handling time, filter customer queries into predictable buckets. These are legitimate goals — but they had become the only goals. The customer's actual experience was a secondary consideration at best.",
-        "The moment this crystallized for me was while redesigning a flow for customers to report a logistics complaint. The business requirement was essentially a multi-step form — name, order number, type of issue, description — before a customer could even connect with an agent. For a customer whose package hasn't arrived, this is not a form-filling moment. It's an urgent, emotional moment. The form was designed to help the operations team categorize complaints. It was not designed to help the customer feel heard.",
+        "The moment this crystallized for me was while redesigning a flow for customers to report a logistics complaint. The business requirement was essentially a multi-step form before a customer could even connect with an agent. For a customer whose package hasn't arrived, this is not a form-filling moment. It's an urgent, emotional moment. The form was designed to help the operations team categorize complaints. It was not designed to help the customer feel heard.",
+        "That observation became a lens I applied to everything. I started documenting flows that were broken in the same way, bringing the pattern to my product owner and team lead. The framing wasn't 'this is wrong' — it was 'here's what the customer is actually trying to do, and here's how the current design gets in the way.' JTBD gave me the language to make that argument clearly.",
       ],
       subsections: [
         {
@@ -65,8 +66,7 @@ export const whatsappLiverpool: CaseStudy = {
           title: 'A missed opportunity: contextual help buttons',
           body: [
             'Within the app\'s order detail and credit movement views, there were contextual buttons — "Help with my order" and "Help with my unrecognized charge." Both launched a generic WhatsApp greeting with no context passed through.',
-            "My proposal was straightforward: if the button already lives in the order detail view, the system already knows which order, which customer, and what state they're in. Pass that context into the conversation. When the customer arrives in WhatsApp, an agent would have everything they need — no form, no re-identification, no repeated questions.",
-            "The resistance was real: this would require coordination across multiple product cells, and the timeline didn't allow for it. The idea was shelved. I document it here not as a failure, but as an example of how systemic thinking sometimes runs ahead of organizational bandwidth.",
+            "My proposal was straightforward: if the button already lives in the order detail view, the system already knows which order, which customer, and what state they're in. Pass that context into the conversation. The resistance was real — this would require coordination across multiple product cells, and the timeline didn't allow for it. The idea was shelved. I document it here not as a failure, but as an example of how systemic thinking sometimes runs ahead of organizational bandwidth.",
           ],
         },
       ],
@@ -75,7 +75,7 @@ export const whatsappLiverpool: CaseStudy = {
       id: 'work',
       label: 'The work',
       title: 'Designing conversations at scale',
-      image: 'placeholder',
+      image: '/images/projects/whatsapp-liverpool/case-3.png',
       body: [
         'Over five sprints and multiple epics, the cell redesigned and automated flows that previously required live agent intervention. The work was continuous improvement, not big-bang redesign — which meant each decision had to be justified against sprint priorities, business constraints, and technical dependencies.',
       ],
@@ -88,7 +88,7 @@ export const whatsappLiverpool: CaseStudy = {
           items: [
             'Start with the functional brief, then immediately separate the business requirement from the user need. They are rarely the same thing.',
             'Map the conversation at a high level before going to high fidelity. Diagramming saves time and surfaces edge cases before they become expensive.',
-            'Use JTBD as an analytical lens — not as a rigid methodology, but as a way of asking "what is this person actually trying to accomplish right now?"',
+            "Use JTBD as an analytical lens — asking 'what is this person actually trying to accomplish right now, and what would make this moment feel resolved?'",
             'Validate with Maze for structured testing. Maintain ongoing dialogue with agents, who have unfiltered insight into where customers get stuck.',
             'Calibrate research depth to impact. Not every flow warrants a full research cycle — but the decision to skip research should be explicit, not default.',
           ],
@@ -96,8 +96,8 @@ export const whatsappLiverpool: CaseStudy = {
         {
           title: 'Constraints I worked within honestly',
           body: [
-            "The channel lacked a dedicated analytics setup — Quantum Metric covered the broader e-commerce ecosystem, but WhatsApp operated with a separate measurement stack that wasn't consistently monitored. This made it difficult to measure the impact of specific flow changes with precision.",
-            "The design system for the channel, the message pattern library, the conversational guidelines — all of these exist in early form, but none are as complete as I'd want them to be. In a continuous-improvement environment with tight sprint cycles, some craft debt accumulates. I've been deliberate about identifying it, even when I couldn't address it immediately.",
+            "The channel lacked a dedicated analytics setup — Quantum Metric covered the broader e-commerce ecosystem, but WhatsApp operated separately. This made it difficult to measure the impact of specific flow changes with precision.",
+            "I also had to make tradeoffs on my own process: the design system for the channel, the message pattern library, the conversational guidelines — all exist in early form, but none are as complete as I'd want them to be. In a continuous-improvement environment with tight sprint cycles, some craft debt accumulates.",
           ],
         },
       ],
@@ -106,11 +106,10 @@ export const whatsappLiverpool: CaseStudy = {
       id: 'ai',
       label: 'Conversational AI',
       title: 'The next layer: conversational AI with Google',
-      image: 'placeholder',
+      image: '/images/projects/whatsapp-liverpool/case-4.png',
       body: [
         'While the cell was iterating on the existing flow-based architecture, Liverpool began exploring a larger shift: replacing the rule-based chatbot with a Gemini-powered conversational agent. Google brought the technology. I was the only designer in the room.',
-        "The proof-of-concept work I contributed included a content guide defining the agent's voice, tone, and response principles; prompt design to shape the agent's behavior across different customer intents and emotional states; scenario-based message examples covering the most critical flows; and UX recommendations on conversation structure, fallback handling, and the transition between automated and live agent experiences.",
-        "The outcome is still in progress. What's clear is the direction: the channel is moving from structured menus to open conversation. Everything we've built in terms of flow logic, content patterns, and user understanding becomes the foundation for what gets layered on top.",
+        "The proof-of-concept work I contributed included: a content guide defining the agent's voice, tone, and response principles; prompt design to shape the agent's behavior across different customer intents and emotional states; scenario-based message examples covering the most critical flows — order issues, credit inquiries, escalation paths; and UX recommendations on conversation structure, fallback handling, and the transition between automated and live agent experiences.",
       ],
     },
     {
@@ -119,9 +118,29 @@ export const whatsappLiverpool: CaseStudy = {
       title: 'Impact',
       body: [
         "Measuring the impact of design work in a continuous-improvement environment — without a dedicated analytics stack — requires honesty about what can and can't be attributed.",
-        'Flows that previously terminated in live agent transfers were redesigned as self-service experiences. The 77% containment rate reflects a channel where the large majority of customer needs are resolved without human intervention.',
-        "For the first time, the channel's messages and interaction patterns were designed by a designer — with attention to language clarity, cognitive load, and emotional tone. The operations team's perspective on customer experience has measurably shifted. The introduction of JTBD as a design frame, the pattern documentation, and the ongoing design reviews have contributed to a broader awareness that designing for the user and designing for the operation are not the same goal.",
-        "The cell itself was formalized as a direct result of the work that preceded its existence. That's an organizational outcome, not just a design one.",
+      ],
+      subsections: [
+        {
+          title: 'Channel metrics, April 2026',
+          body: [
+            'The channel metrics measured in April 2026 tell a coherent story about what happens when conversational design is treated as a first-class discipline:',
+          ],
+          items: [
+            '77% containment rate — 3 in 4 sessions resolved without a live agent. Automation working at scale.',
+            '90.3% first response rate against a 90% target — the channel is meeting its responsiveness commitment.',
+            "0.0% abandonment rate against a 0.5% target. Effectively zero customers leaving before receiving a response. This is the most direct signal that the conversational flows are working — users aren't dropping off because the experience is holding them.",
+            '90.4% first contact resolution — 9 in 10 interactions resolved without needing follow-up contact.',
+            'Average resolution time of 2:04 minutes — fast enough to compete with, and in many cases outperform, live agent handling time.',
+          ],
+        },
+        {
+          title: 'What the numbers reflect',
+          body: [
+            "The 0.0% abandonment rate is the number I find most meaningful. It's not a metric that was being tracked or optimized before this team existed. The fact that it's essentially zero is a direct reflection of flows that don't frustrate users into leaving.",
+            "For the first time, the channel's messages and interaction patterns were designed by a designer — with attention to language clarity, cognitive load, and emotional tone. The operations team's perspective on customer experience has measurably shifted. The introduction of JTBD as a design frame, the pattern documentation, and the ongoing design reviews have contributed to a broader awareness that designing for the user and designing for the operation are not the same goal.",
+            "The cell itself was formalized as a direct result of the work that preceded its existence. That's an organizational outcome, not just a design one.",
+          ],
+        },
       ],
     },
     {
@@ -129,11 +148,11 @@ export const whatsappLiverpool: CaseStudy = {
       label: 'What comes next',
       title: 'What comes next',
       body: [
-        "The Gemini migration changes the design problem fundamentally. Flow-based thinking — if the customer says X, show Y — gives way to intent-based thinking: what is the customer trying to accomplish, and how does the agent help them get there regardless of how they phrase it? That's a harder design problem. It's also a more interesting one.",
+        "The Gemini migration changes the design problem fundamentally. Flow-based thinking gives way to intent-based thinking: what is the customer trying to accomplish, and how does the agent help them get there regardless of how they phrase it? The work ahead — carried forward by the cell — is to bring the principles established here into a context where the interaction model is no longer deterministic. Designing for that environment is a harder problem. It's also a more interesting one.",
         "Liverpool's WhatsApp channel is also positioned to become a proactive communication layer — not just a support destination, but a channel that reaches customers at key moments in their service journey: installation updates, warranty reminders, order milestones. Designing those touchpoints means thinking about the channel less as a helpdesk and more as a relationship surface.",
       ],
     },
   ],
   footnote:
-    'Metrics sourced from internal Looker Studio dashboards (Mar 2026). Some figures reflect aggregated channel data across all use cases.',
+    'Metrics sourced from internal Looker Studio dashboards and Liverpool contact center KPI reports (April 2026). Channel performance data reflects the full WhatsApp operation across all use cases.',
 }

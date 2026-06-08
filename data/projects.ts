@@ -26,6 +26,18 @@ export const projects: Project[] = [
       'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
     cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
   },
+      {
+    slug: 'whatsapp-liverpool',
+    title: 'WhatsApp',
+    cover: '/images/projects/whatsapp-liverpool/cover.png',
+    featured: true,
+    caseStudy: true,
+    archived: false,
+    cardCategory: 'WhatsApp Business Platform',
+    cardTitle:
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
+    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
+  },
   {
     slug: 'connect-liverpool',
     title: 'Connect',
@@ -37,18 +49,6 @@ export const projects: Project[] = [
     cardTitle:
       "Designing Liverpool's next-generation sales tool for 40+ agents processing up to ~$3M MXN in daily revenue — from an undefined brief to a validated, production-ready system.",
     cardTags: ['Systems Design', 'Enterprise', 'UX Research'],
-  },
-    {
-    slug: 'whatsapp-liverpool',
-    title: 'WhatsApp',
-    cover: '/images/projects/whatsapp-liverpool/cover.png',
-    featured: true,
-    caseStudy: true,
-    archived: false,
-    cardCategory: 'WhatsApp Business Platform',
-    cardTitle:
-      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
-    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
   },
   {
     slug: 'little-lemon',
