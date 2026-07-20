@@ -8,7 +8,7 @@ export default function DesignPrinciples() {
       id="design-principles"
       className="inline-flex w-full flex-col items-start gap-8 scroll-mt-24"
     >
-      <h2 className="text-5xl font-medium font-serif italic text-primary">
+      <h2 className="text-display-lg font-medium font-serif italic text-primary">
         {designPrinciples.heading}
       </h2>
 
@@ -24,15 +24,15 @@ export default function DesignPrinciples() {
           return (
             <article
               key={principle.id}
-              className={`w-full p-6 flex flex-col items-start gap-2 ${borderClass}`}
+              className={`w-full p-4 md:p-6 flex flex-col items-start gap-2 ${borderClass}`}
             >
               <div className="flex w-full flex-col items-end gap-2">
                 <span className="text-xl font-medium font-sans text-primary">{principle.id}</span>
-                <h3 className="w-full text-3xl font-medium font-sans text-black">
+                <h3 className="w-full text-display-sm font-medium font-sans text-black">
                   {principle.title}
                 </h3>
               </div>
-              <p className="w-200 text-xl font-normal font-sans text-tertiary whitespace-pre-line">
+              <p className="w-full max-w-200 text-lg md:text-xl font-normal font-sans text-tertiary whitespace-pre-line">
                 {principle.description}
               </p>
             </article>

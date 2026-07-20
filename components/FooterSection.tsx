@@ -6,15 +6,18 @@ export default function FooterSection() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="footer" className="h-screen overflow-hidden bg-primary text-white">
-      <Container className="flex h-full flex-col items-start justify-end gap-20">
+    <footer
+      id="footer"
+      className="flex min-h-lvh flex-col bg-primary text-white pb-[env(safe-area-inset-bottom)]"
+    >
+      <Container className="flex flex-1 flex-col items-start justify-end gap-10 md:gap-20">
         <p className="max-w-200">
-          <span className="text-8xl font-medium leading-25 font-sans text-white">
+          <span className="text-display-2xl font-medium font-sans text-white">
             {footerContent.cta.sans}
           </span>
           <a
             href={`mailto:${footerContent.contactEmail}`}
-            className="text-8xl font-medium font-serif leading-30 italic text-white underline decoration-transparent hover:decoration-white transition-colors"
+            className="text-display-2xl font-medium font-serif leading-tight italic text-white underline decoration-transparent hover:decoration-white transition-colors"
           >
             {footerContent.cta.serif}
           </a>
