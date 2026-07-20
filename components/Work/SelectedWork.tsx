@@ -16,7 +16,7 @@ export default function SelectedWork({ limit }: Props) {
       id="work"
       className="inline-flex w-full flex-col items-start justify-start gap-8 scroll-mt-24"
     >
-      <h2 className="text-5xl font-medium font-serif italic text-primary">{SECTION_TITLE}</h2>
+      <h2 className="text-display-lg font-medium font-serif italic text-primary">{SECTION_TITLE}</h2>
       {projectList.map((project) => (
         <SelectedWorkCard key={project.slug} project={project} />
       ))}
