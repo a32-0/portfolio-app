@@ -28,8 +28,20 @@ html {
 
   --font-serif: var(--font-lora), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
-  /* Page max width */
-  --page-max: 1120px;
+  /* Fluid display type — max = desktop size, reached at 1200px viewport */
+  --text-display-2xl: clamp(2.75rem, 1.27rem + 6.31vw, 6rem);
+  --text-display-2xl--line-height: calc(25 / 24);
+  --text-display-xl: clamp(2.5rem, 1.59rem + 3.89vw, 4.5rem);
+  --text-display-xl--line-height: calc(10 / 9);
+  --text-display-lg: clamp(2rem, 1.54rem + 1.95vw, 3rem);
+  --text-display-lg--line-height: 1;
+  --text-display-md: clamp(1.5rem, 1.155rem + 1.46vw, 2.25rem);
+  --text-display-md--line-height: calc(10 / 9);
+  --text-display-sm: clamp(1.25rem, 0.965rem + 1.22vw, 1.875rem);
+  --text-display-sm--line-height: 1.2;
+
+  /* Page container: 75rem content + 2 × 2rem gutter */
+  --container-page: 79rem;
 
   --breakpoint-3xl: 125rem;
 }

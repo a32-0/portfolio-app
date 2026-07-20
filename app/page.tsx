@@ -6,9 +6,9 @@ import About from '@/components/About/About'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-50">
+    <main className="flex flex-col gap-24 md:gap-50">
       <Hero />
-      <Container className="flex flex-col gap-50 pb-50">
+      <Container className="flex flex-col gap-24 pb-24 md:gap-50 md:pb-50">
         <SelectedWork />
         <DesignPrinciples />
         <About />

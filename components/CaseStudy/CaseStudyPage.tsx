@@ -20,29 +20,29 @@ export default function CaseStudyPage({ caseStudy }: Props) {
   const nextProject = caseStudyProjects[(currentIndex + 1) % caseStudyProjects.length]
 
   return (
-    <div className="bg-white pb-32">
+    <div className="bg-white pb-16 md:pb-32">
       <Container className="pt-24">
         {/* Back button */}
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <Button href="/#work">← Back</Button>
         </div>
 
         {/* Hero */}
-        <div className="mb-16">
-          <h1 className="mb-4 font-serif text-5xl italic text-black">{title}</h1>
+        <div className="mb-10 md:mb-16">
+          <h1 className="mb-4 font-serif text-display-lg italic text-black">{title}</h1>
           <p className="text-xl text-tertiary">{subtitle}</p>
         </div>
 
         {/* Overview */}
-        <div className="mb-16 border-t border-secondary pt-12">
+        <div className="mb-10 md:mb-16 border-t border-secondary pt-12">
           <p className="text-lg tracking-normal text-black">{overview}</p>
         </div>
 
         {/* Metrics */}
-        <div className="mb-20 grid grid-cols-2 gap-8 border-t border-secondary pt-12 md:grid-cols-4">
+        <div className="mb-12 md:mb-20 grid grid-cols-2 gap-8 border-t border-secondary pt-12 md:grid-cols-4">
           {metrics.map((m) => (
             <div key={m.label}>
-              <p className="mb-1 font-sans text-4xl font-bold text-primary">{m.value}</p>
+              <p className="mb-1 font-sans text-display-md font-bold text-primary">{m.value}</p>
               <p className="font-medium text-black">{m.label}</p>
               {m.delta && <p className="mt-0.5 text-tertiary">{m.delta}</p>}
             </div>
@@ -59,10 +59,12 @@ export default function CaseStudyPage({ caseStudy }: Props) {
           </aside>
 
           {/* Sections */}
-          <div className="space-y-24">
+          <div className="space-y-16 md:space-y-24">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-32">
-                <h2 className="mb-8 font-serif text-4xl italic text-black">{section.title}</h2>
+                <h2 className="mb-8 font-serif text-display-md italic text-black">
+                  {section.title}
+                </h2>
 
                 {section.body && (
                   <div className="space-y-5">
@@ -135,7 +137,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
 
         {/* Next case study */}
         {nextProject && (
-          <div className="mt-32 border-t border-secondary pt-16">
+          <div className="mt-16 pt-10 md:mt-32 md:pt-16 border-t border-secondary">
             <p className="mb-8 text-xl font-serif italic font-medium text-tertiary">
               Next case study
             </p>
