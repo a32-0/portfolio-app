@@ -7,11 +7,11 @@ function isInlineLink(node: string | InlineLink): node is InlineLink {
 export default function About() {
   return (
     <section className="w-full flex flex-col gap-8">
-      <div className="border-l border-tertiary pl-6 flex flex-col gap-8">
-        <p className="text-5xl font-medium font-serif italic text-primary">
+      <div className="border-l border-tertiary pl-4 md:pl-6 flex flex-col gap-8">
+        <p className="text-display-lg font-medium font-serif italic text-primary">
           {aboutSection.eyebrow}
         </p>
-        <div className="text-4xl font-normal font-sans text-black">
+        <div className="text-display-md font-normal font-sans text-black">
           {aboutSection.body.map((paragraph, index) => (
             <p key={index} className={index > 0 ? 'mt-8' : ''}>
               {typeof paragraph === 'string'
