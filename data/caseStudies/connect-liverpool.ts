@@ -18,7 +18,7 @@ export const connectLiverpool: CaseStudy = {
       id: 'context',
       label: 'Context',
       title: 'An obsolete system and an undefined brief',
-      image: 'placeholder',
+      image: '/images/projects/connect-liverpool/case-1.png',
       body: [
         "The tool I was asked to redesign was called CSC — a legacy Oracle-based platform that agents had been using for years. By the time I arrived, it had accumulated a well-documented list of problems: it crashed frequently, required agents to clear cookies regularly just to log in, displayed different product prices and promotions than the main e-commerce site, and didn't support certain payment methods and purchase scenarios.",
         "Agents had developed workarounds as standard practice — opening multiple browser windows, maintaining personal notes in parallel systems, navigating between CSC and the public e-commerce site mid-call to find accurate product information. An agent attending to a live customer, unable to trust the prices in their own tool, switching to the public website to verify — that's not a UX problem. That's a systemic failure with a direct cost in every call.",
@@ -58,7 +58,7 @@ export const connectLiverpool: CaseStudy = {
       id: 'folio',
       label: 'The folio system',
       title: "Designing what already existed, but didn't work",
-      image: 'placeholder',
+      image: '/images/projects/connect-liverpool/case-2.png',
       body: [
         "The most significant design decision in this project was one I didn't invent — I recognized it.",
         "CSC had a folio system. It was partially built, poorly understood, and nearly unused. Its original purpose was to save customer carts between calls — a meaningful capability in a contact center where customers frequently call back after thinking over a purchase. But it had never been properly designed, documented, or trained. Most agents didn't know it existed.",
@@ -90,7 +90,7 @@ export const connectLiverpool: CaseStudy = {
       id: 'design',
       label: 'Design',
       title: 'Designing the system under real constraints',
-      image: 'placeholder',
+      image: '/images/projects/connect-liverpool/case-4.png',
       subsections: [
         {
           title: 'Scope management: from full system to functional MVP',
@@ -119,7 +119,7 @@ export const connectLiverpool: CaseStudy = {
       id: 'validation',
       label: 'Validation',
       title: 'Workshop with directors, managers, and operations supervisors',
-      image: 'placeholder',
+      image: '/images/projects/connect-liverpool/case-5.png',
       body: [
         'Before development entered its final phase, I facilitated a high-fidelity prototype workshop with seven stakeholders across director, manager, and supervisor roles. The session produced structured feedback across UX, functionality, technical concerns, and priorities.',
       ],
