@@ -25,7 +25,7 @@ export const hero: HeroData = {
     },
     {
       label: 'Resume',
-      href: '/docs/Product-Designer_Armando-Rojano.pdf',
+      href: '/docs/Product Designer_Armando Rojano.pdf',
       external: true,
     },
   ],

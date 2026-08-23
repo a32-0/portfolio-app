@@ -8,5 +8,5 @@ export const navLinks: NavLink[] = [
   { label: 'Work', href: '/#work' },
   { label: 'About', href: '/#design-principles' },
   { label: 'Archive', href: '/archive' },
-  { label: 'Contact', href: 'mailto:armandorour@outlook.com', external: true },
+  { label: 'Contact', href: 'mailto:armando_rour@outlook.com', external: true },
 ]
