@@ -46,7 +46,7 @@ pnpm build && pnpm start
 ```
 
 ## Contact
-- Email: armandorour@outlook.com
+- Email: armando_rour@outlook.com
 - LinkedIn: https://www.linkedin.com/in/armandorour/
 - Sixelf: https://sixelf.com/rour
 - GitHub: https://github.com/r0ur
