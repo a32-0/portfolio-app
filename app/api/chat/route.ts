@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         {
           error: 'rate_limited',
           message:
-            "You've hit the limit of questions for now — please try again in a bit, or email armando_rour@outlook.com directly.",
+            "You've hit the limit of questions for now, please try again in a bit, or email armando_rour@outlook.com directly.",
         },
         { status: 429 },
       )
