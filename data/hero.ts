@@ -14,7 +14,7 @@ export type HeroData = {
 export const hero: HeroData = {
   title: {
     serif: 'Product Designer',
-    sans: ' building scalable systems and conversational platforms',
+    sans: ' building scalable systems across high-traffic retail and conversational platforms',
   },
   subtitle:
     'I design at the intersection of clarity, behavior, and code. Making necessary complexity feel simple to use.',
