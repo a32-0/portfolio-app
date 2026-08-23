@@ -1,0 +1,199 @@
+'use client'
+
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+  type ReactNode,
+} from 'react'
+import Image from 'next/image'
+import {
+  CHAT_NAME,
+  CHAT_WELCOME_MESSAGE,
+  INITIAL_SUGGESTIONS,
+  LOADING_PHRASES,
+} from '@/data/chatbot/ui'
+import IconButton from '@/components/ui/IconButton'
+import { ArrowUpIcon, CloseIcon } from '@/components/ui/icons'
+import type { ChatStream } from './useChatStream'
+
+type Props = {
+  isOpen: boolean
+  onClose: () => void
+  chat: ChatStream
+}
+
+/** Logo + text row. Shared by the greeting, the loading phrase, and every answer, so the
+ * three stay pixel-identical and the layout doesn't shift as one replaces another. */
+function BotRow({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return (
+    <div className="flex items-start">
+      <div className="shrink-0 p-2">
+        <Image src="/icons/catarsis.svg" width={24} height={24} alt="" aria-hidden="true" />
+      </div>
+      <div className={`flex-1 py-2 pr-2 text-base ${className}`}>{children}</div>
+    </div>
+  )
+}
+
+/** Chat drawer, triggered from the nav. Always mounted and animated via `isOpen` — a
+ * conditionally-rendered element unmounts before it can transition out. */
+export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
+  const { messages, suggestions, sendMessage, isLoading, error } = chat
+  const [input, setInput] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // One phrase per turn, not re-rolled on every render.
+  const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0])
+  const wasLoading = useRef(false)
+  useEffect(() => {
+    if (isLoading && !wasLoading.current) {
+      setLoadingPhrase(LOADING_PHRASES[Math.floor(Math.random() * LOADING_PHRASES.length)])
+    }
+    wasLoading.current = isLoading
+  }, [isLoading])
+
+  const hasStarted = messages.length > 0
+  const activeSuggestions = hasStarted ? suggestions : INITIAL_SUGGESTIONS
+
+  // The loading phrase shows only until the answer starts arriving, so the two never stack.
+  const lastMessage = messages[messages.length - 1]
+  const isAwaitingFirstToken = isLoading && !lastMessage?.content
+
+  useEffect(() => {
+    if (isOpen) inputRef.current?.focus()
+  }, [isOpen])
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
+  }, [messages, isLoading])
+
+  const submit = () => {
+    if (!input.trim() || isLoading) return
+    sendMessage(input)
+    setInput('')
+  }
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
+    submit()
+  }
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      submit()
+    }
+  }
+
+  return (
+    <>
+      {/* Scrim — also the click-outside-to-close target. */}
+      <div
+        onClick={onClose}
+        aria-hidden="true"
+        className={`fixed inset-0 z-40 bg-black/60 transition-opacity duration-300 ease-out motion-reduce:transition-none ${
+          isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      />
+
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Chat with ${CHAT_NAME}`}
+        // Untabbable while closed. `visibility` transitions so it flips after the slide-out.
+        inert={!isOpen}
+        className={`bg-chat-bg fixed inset-y-0 right-0 z-50 flex w-full flex-col gap-4 p-4 transition-[translate,opacity,visibility] duration-300 ease-out motion-reduce:transition-none sm:w-120 ${
+          isOpen ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-full opacity-0'
+        }`}
+      >
+        <div className="bg-chat-surface text-chat-text flex items-center justify-between rounded-[30px] p-6">
+          <span className="text-[18px]">{CHAT_NAME}</span>
+          <IconButton onClick={onClose} label="Close chat">
+            <CloseIcon />
+          </IconButton>
+        </div>
+
+        {/* pr-2 keeps the bubbles clear of the scrollbar lane. */}
+        <div
+          ref={scrollRef}
+          className="chat-scroll flex flex-1 flex-col gap-2 overflow-y-auto pr-2"
+        >
+          {!hasStarted && <BotRow className="text-chat-text">{CHAT_WELCOME_MESSAGE}</BotRow>}
+
+          {messages.map((message) =>
+            message.role === 'user' ? (
+              // Squared top-right corner + 300px cap (max-w-75).
+              <div
+                key={message.id}
+                className="bg-chat-accent text-chat-text max-w-75 self-end rounded-[30px] rounded-tr-none px-4 py-3 text-base whitespace-pre-wrap"
+              >
+                {message.content}
+              </div>
+            ) : (
+              // Skipped while empty: the loading row below stands in until the first token.
+              message.content.length > 0 && (
+                <BotRow key={message.id} className="text-chat-text whitespace-pre-wrap">
+                  {message.content}
+                </BotRow>
+              )
+            )
+          )}
+
+          {isAwaitingFirstToken && (
+            <BotRow className="text-chat-text-muted">
+              {loadingPhrase}
+              <span aria-hidden="true">
+                <span className="ellipsis-dot">.</span>
+                <span className="ellipsis-dot">.</span>
+                <span className="ellipsis-dot">.</span>
+              </span>
+            </BotRow>
+          )}
+
+          {error && (
+            <p className="rounded-[30px] bg-red-950 px-4 py-3 text-sm text-red-300">{error}</p>
+          )}
+
+          {/* Skipped when a turn returns no suggestions, so it never dangles. */}
+          {!isLoading && activeSuggestions.length > 0 && (
+            <div className="border-chat-divider my-2 border-t" />
+          )}
+
+          {!isLoading &&
+            activeSuggestions.map((prompt) => (
+              <button
+                key={prompt}
+                type="button"
+                onClick={() => sendMessage(prompt)}
+                className="text-chat-text-muted rounded-[30px] px-4 py-3 text-left text-base transition-colors hover:bg-white/5"
+              >
+                ↳ {prompt}
+              </button>
+            ))}
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="bg-chat-surface flex items-center justify-between gap-2 rounded-[30px] px-6 py-4"
+        >
+          <input
+            ref={inputRef}
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask about Armando..."
+            maxLength={1500}
+            className="text-chat-text placeholder:text-chat-text-dim flex-1 bg-transparent text-base outline-none"
+          />
+          <IconButton type="submit" disabled={isLoading || !input.trim()} label="Send message">
+            <ArrowUpIcon />
+          </IconButton>
+        </form>
+      </div>
+    </>
+  )
+}
