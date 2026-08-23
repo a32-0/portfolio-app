@@ -1,25 +1,51 @@
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import type { MouseEventHandler, ReactNode } from 'react'
 
 type Props = {
-  href: string
+  /** Omit to render a <button> instead of a link. */
+  href?: string
   children: ReactNode
+  /** 'gradient' is the CatarsisLLM treatment and ignores outlineColor. */
+  variant?: 'outline' | 'gradient'
   outlineColor?: 'black' | 'white'
   target?: string
   rel?: string
   className?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
+  type?: 'button' | 'submit'
+  disabled?: boolean
+  'aria-label'?: string
+  'aria-expanded'?: boolean
 }
 
 export default function Button({
   href,
   children,
+  variant = 'outline',
   outlineColor = 'black',
   target,
   rel,
   className,
+  onClick,
+  type = 'button',
+  disabled,
+  ...aria
 }: Props) {
   const outline = outlineColor === 'white' ? 'outline-white' : 'outline-black'
-  const base = `btn-pill px-5 py-2 rounded-xl outline-1 -outline-offset-1 ${outline}${className ? ` ${className}` : ''}`
+  const variantClass =
+    variant === 'gradient'
+      ? 'bg-gradient-catarsis text-black transition-opacity hover:opacity-90'
+      : `btn-pill outline-1 -outline-offset-1 ${outline}`
+  const base = `inline-flex items-center justify-center px-6 py-4 rounded-[30px] text-base leading-none ${variantClass}${className ? ` ${className}` : ''}`
+
+  if (!href) {
+    return (
+      <button type={type} onClick={onClick} disabled={disabled} className={base} {...aria}>
+        {children}
+      </button>
+    )
+  }
+
   const isExternal = /^(https?:|mailto:|tel:)/.test(href)
 
   if (isExternal) {

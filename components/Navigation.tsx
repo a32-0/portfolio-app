@@ -6,14 +6,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navLinks } from '@/data/navigation'
+import { CHAT_NAME } from '@/data/chatbot/ui'
 import Button from '@/components/ui/Button'
+import IconButton from '@/components/ui/IconButton'
+import { CloseIcon, MenuIcon } from '@/components/ui/icons'
 import Container from '@/components/Container'
+import ChatDrawer from '@/components/Chat/ChatDrawer'
+import { useChatStream } from '@/components/Chat/useChatStream'
 
 export default function Navigation() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isFooterVisible, setIsFooterVisible] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isChatOpen, setIsChatOpen] = useState(false)
+  // Owned here, not in ChatDrawer: this stays mounted, so the conversation survives closing
+  // the drawer and only resets on a full page reload.
+  const chat = useChatStream()
 
   useEffect(() => {
     const onScroll = () => {
@@ -35,22 +44,25 @@ export default function Navigation() {
   }
 
   useEffect(() => {
-    if (!isMenuOpen) return
+    if (!isMenuOpen && !isChatOpen) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsMenuOpen(false)
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+        setIsChatOpen(false)
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [isMenuOpen])
+  }, [isMenuOpen, isChatOpen])
 
   useEffect(() => {
-    if (!isMenuOpen) return
+    if (!isMenuOpen && !isChatOpen) return
     const previous = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = previous
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen, isChatOpen])
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     setIsMenuOpen(false)
@@ -86,58 +98,60 @@ export default function Navigation() {
     <nav
       className={`w-full rounded-b-xl font-sans text-base font-normal transition-colors duration-300 ${bgClass} ${textClass}`}
     >
-      <Container className="flex items-center justify-between py-2">
+      <Container className="flex items-center justify-between py-4">
         <Link
           href="/"
           aria-label="Back to home"
           className="transition hover:opacity-50"
           onClick={handleLogoClick}
         >
-          <Image src="/icons/catarsis.svg" width={32} height={32} alt="Catarsis" priority />
+          <Image src="/icons/catarsis.svg" width={40} height={40} alt="Catarsis" priority />
         </Link>
 
-        {regularLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            className="hidden md:inline link-hover-underline hover:opacity-70"
-          >
-            {link.label}
-          </Link>
-        ))}
+        <div className="flex items-center gap-4 md:gap-8">
+          {regularLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="hidden md:inline link-hover-underline hover:opacity-70"
+            >
+              {link.label}
+            </Link>
+          ))}
 
-        {contactLink && (
+          {/* Visibility goes on the wrapper: a `hidden` on Button loses to its own `flex`. */}
+          {contactLink && (
+            <div className="hidden md:block">
+              <Button
+                href={contactLink.href}
+                outlineColor={isLight ? 'black' : 'white'}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {contactLink.label} ↗
+              </Button>
+            </div>
+          )}
+
           <Button
-            href={contactLink.href}
-            outlineColor={isLight ? 'black' : 'white'}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:inline"
+            variant="gradient"
+            onClick={() => setIsChatOpen((open) => !open)}
+            aria-expanded={isChatOpen}
+            aria-label={isChatOpen ? 'Close chat' : `Open ${CHAT_NAME} chat`}
           >
-            {contactLink.label} ↗
+            {CHAT_NAME}
           </Button>
-        )}
 
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          aria-expanded={isMenuOpen}
-          className="md:hidden -mr-3 p-3"
-        >
-          <span className="sr-only">{isMenuOpen ? 'Close menu' : 'Open menu'}</span>
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            {isMenuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
+          <div className="md:hidden">
+            <IconButton
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-expanded={isMenuOpen}
+              label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+            </IconButton>
+          </div>
+        </div>
       </Container>
 
       {isMenuOpen && (
@@ -169,6 +183,8 @@ export default function Navigation() {
           </Container>
         </div>
       )}
+
+      <ChatDrawer isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} chat={chat} />
     </nav>
   )
 }
