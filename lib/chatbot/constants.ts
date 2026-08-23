@@ -24,8 +24,9 @@ export const MAX_HISTORY_MESSAGE_LENGTH = MAX_OUTPUT_TOKENS * 6
 /** Prior turns sent upstream. Truncated server-side, whatever the client sends. */
 export const MAX_HISTORY_MESSAGES = 16
 
-/** Per-IP rate limit. */
-export const RATE_LIMIT_REQUESTS = 20
+/** Per-IP rate limit. Sized against Gemini's 500 requests/day: one IP maxes out at
+ * 8 × 24 = 192/day, well under the shared daily quota. */
+export const RATE_LIMIT_REQUESTS = 8
 export const RATE_LIMIT_WINDOW = '1 h'
 
 /** Separates the answer from the 3 follow-up suggestions. Lives here (not system-prompt.ts)
