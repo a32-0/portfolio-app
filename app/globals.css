@@ -15,7 +15,24 @@ html {
   --color-quaternary: #f6f6f6;
 
   --color-quinary: #cfcfcf;
-  --color-accent: #F97316;
+  --color-accent: #f97316;
+
+  /* Brand spectrum — CatarsisLLM gradient stops, echoing the footer color cycle. */
+  --color-brand-violet: #a442ff; /* 0%   */
+  --color-brand-magenta: #f351ff; /* 20%  */
+  --color-brand-pink: #ff90c4; /* 40%  */
+  --color-brand-sand: #f2c566; /* 60%  */
+  --color-brand-yellow: #e5ff00; /* 80%  */
+  --color-brand-green: #00ff27; /* 100% */
+
+  /* CatarsisLLM (chat) — dark sub-palette, retunable without touching components. */
+  --color-chat-bg: #121212; /* drawer backdrop */
+  --color-chat-surface: #1e1e1e; /* header + input pills */
+  --color-chat-text: #f8f8f8;
+  --color-chat-text-muted: #868686; /* message body */
+  --color-chat-text-dim: #71717a; /* input placeholder */
+  --color-chat-divider: #3f464a; /* answer ↔ suggestions rule */
+  --color-chat-accent: #0001e9; /* user bubble + send button */
 
   /* Custom fonts */
   --font-sans:
@@ -91,6 +108,54 @@ html {
   animation: footerColorCycle 18s linear infinite;
 }
 
+/* Chat message list. `stable` reserves the scrollbar's lane so it can't overlay the message
+ * bubbles, and the thin themed bar keeps that lane narrow instead of an OS-width gutter. */
+.chat-scroll {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-chat-divider) transparent;
+}
+
+/* Older WebKit, which ignores scrollbar-width. */
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-chat-divider);
+  border-radius: 999px;
+}
+
+/* Chat loading ellipsis — dots appear one after another, then reset. */
+@keyframes ellipsisDot {
+  0% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.ellipsis-dot {
+  animation: ellipsisDot 1.5s infinite ease-in-out;
+}
+
+.ellipsis-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.ellipsis-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
 /* Marquee animation */
 @keyframes marquee {
   from {
@@ -114,6 +179,11 @@ html {
     animation: none;
     background-color: #a442ff;
   }
+
+  .ellipsis-dot {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* Custom breakpoint for very wide screens */
@@ -121,6 +191,12 @@ html {
   .columns-2000-4 {
     columns: 4;
   }
+}
+
+/* Tailwind v4's preflight dropped `cursor: pointer` on <button>. Restore it once here. */
+button:not(:disabled),
+[role='button']:not(:disabled) {
+  cursor: pointer;
 }
 
 .btn-pill {
@@ -133,6 +209,39 @@ html {
   background-color: var(--color-accent);
   color: var(--color-black);
   outline-color: transparent;
+}
+
+/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value. */
+.bg-gradient-catarsis {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-brand-violet) 0%,
+    var(--color-brand-magenta) 20%,
+    var(--color-brand-pink) 40%,
+    var(--color-brand-sand) 60%,
+    var(--color-brand-yellow) 80%,
+    var(--color-brand-green) 100%
+  );
+  /* Painted 3× the button, then drifted — the colors move without anything re-rendering. */
+  background-size: 300% 300%;
+  animation: catarsisGradientShift 8s ease-in-out infinite;
+}
+
+@keyframes catarsisGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Must stay after the rule above — equal specificity, so source order decides. */
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-catarsis {
+    animation: none;
+  }
 }
 
 .link-hover-underline {

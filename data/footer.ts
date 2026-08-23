@@ -13,5 +13,5 @@ export const footerContent: FooterContent = {
     serif: "Let's talk.",
   },
   yearPrefix: '©',
-  contactEmail: 'armandorour@outlook.com',
+  contactEmail: 'armando_rour@outlook.com',
 }
