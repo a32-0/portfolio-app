@@ -7,9 +7,9 @@ export const CHAT_WELCOME_MESSAGE =
 
 /** Exactly 3, matching what the model returns after every answer, so the panel never reflows. */
 export const INITIAL_SUGGESTIONS = [
-  "What's your experience with design systems?",
-  'Tell me about the WhatsApp project at Liverpool',
-  'How can I get in touch with him?',
+  "Give me the 30-second version of his experience",
+  "How did he cut a 35-minute task down to 3 minutes?",
+  "How do you design a product with no screens?",
 ]
 
 /** Picked at random per turn. No trailing ellipsis — the drawer animates its own three dots. */
