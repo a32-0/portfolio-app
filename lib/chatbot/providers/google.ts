@@ -1,15 +1,18 @@
+/**
+ * Gemini Flash-Lite adapter. Prior assistant turns use the role name `model`, not `assistant`.
+ * Thinking is forced to MINIMAL: Gemini 3 defaults to "high", which cost ~2.5s of dead air
+ * before the first token. Client built lazily — see anthropic.ts.
+ */
 import { GoogleGenAI, ThinkingLevel } from '@google/genai'
 import { CHAT_MODELS, MAX_OUTPUT_TOKENS, TEMPERATURE } from '@/lib/chatbot/constants'
 import type { ChatProvider } from './types'
 
-// Lazy — see providers/anthropic.ts.
 let ai: GoogleGenAI | undefined
 function getClient() {
   if (!ai) ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
   return ai
 }
 
-/** Gemini Flash-Lite. Prior assistant turns use the role name `model`, not `assistant`. */
 export const googleProvider: ChatProvider = async ({ system, messages }) => {
   const stream = await getClient().models.generateContentStream({
     model: CHAT_MODELS.google,
@@ -21,7 +24,6 @@ export const googleProvider: ChatProvider = async ({ system, messages }) => {
       systemInstruction: system,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
       temperature: TEMPERATURE,
-      // Gemini 3 defaults to "high", which cost ~2.5s of dead air before the first token.
       thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
     },
   })
