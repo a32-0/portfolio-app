@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata, Viewport } from 'next'
 import Header from '@/components/Header'
 import FooterSection from '@/components/FooterSection'
+import SiteNavProvider from '@/components/SiteNavProvider'
 import { Inter, Roboto_Mono, Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -108,9 +109,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${robotoMono.variable} ${lora.variable}`}>
       <body>
-        <Header />
-        {children}
-        <FooterSection />
+        <SiteNavProvider>
+          <Header />
+          {children}
+          <FooterSection />
+        </SiteNavProvider>
         <Analytics />
         <SpeedInsights />
       </body>
