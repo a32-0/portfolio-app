@@ -17,6 +17,10 @@ html {
   --color-quinary: #cfcfcf;
   --color-accent: #f97316;
 
+  /* Complements of --color-primary, one per work view. */
+  --color-complement-teal: #00e9d8;
+  --color-complement-red: #e90300;
+
   /* Brand spectrum — CatarsisLLM gradient stops, echoing the footer color cycle. */
   --color-brand-violet: #a442ff; /* 0%   */
   --color-brand-magenta: #f351ff; /* 20%  */
@@ -26,13 +30,13 @@ html {
   --color-brand-green: #00ff27; /* 100% */
 
   /* CatarsisLLM (chat) — dark sub-palette, retunable without touching components. */
-  --color-chat-bg: #121212; /* drawer backdrop */
-  --color-chat-surface: #1e1e1e; /* header + input pills */
+  --color-chat-bg: #121212;
+  --color-chat-surface: #1e1e1e;
   --color-chat-text: #f8f8f8;
-  --color-chat-text-muted: #868686; /* message body */
-  --color-chat-text-dim: #71717a; /* input placeholder */
-  --color-chat-divider: #3f464a; /* answer ↔ suggestions rule */
-  --color-chat-accent: #0001e9; /* user bubble + send button */
+  --color-chat-text-muted: #868686;
+  --color-chat-text-dim: #71717a;
+  --color-chat-divider: #3f464a;
+  --color-chat-accent: #0001e9;
 
   /* Custom fonts */
   --font-sans:
@@ -108,8 +112,7 @@ html {
   animation: footerColorCycle 18s linear infinite;
 }
 
-/* Chat message list. `stable` reserves the scrollbar's lane so it can't overlay the message
- * bubbles, and the thin themed bar keeps that lane narrow instead of an OS-width gutter. */
+/* Chat message list — `stable` keeps the scrollbar off the message bubbles. */
 .chat-scroll {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
@@ -206,12 +209,13 @@ button:not(:disabled),
 }
 
 .btn-pill:hover {
-  background-color: var(--color-accent);
-  color: var(--color-black);
+  background-color: var(--btn-hover-bg, var(--color-accent));
+  color: var(--btn-hover-fg, var(--color-black));
   outline-color: transparent;
 }
 
-/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value. */
+/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value.
+ * Painted 3x the button and drifted, so the colors move without anything re-rendering. */
 .bg-gradient-catarsis {
   background-image: linear-gradient(
     to bottom right,
@@ -222,7 +226,6 @@ button:not(:disabled),
     var(--color-brand-yellow) 80%,
     var(--color-brand-green) 100%
   );
-  /* Painted 3× the button, then drifted — the colors move without anything re-rendering. */
   background-size: 300% 300%;
   animation: catarsisGradientShift 8s ease-in-out infinite;
 }

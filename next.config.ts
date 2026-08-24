@@ -1,10 +1,13 @@
-import type { NextConfig } from "next";
-import createMDX from '@next/mdx'
-
-const withMDX = createMDX()
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  async redirects() {
+    return [
+      { source: '/archive', destination: '/#work', permanent: true },
+      // Analytics pseudo-routes are never real pages; a stray visit lands on the home page.
+      { source: '/e/:path*', destination: '/', permanent: false },
+    ]
+  },
+}
 
-export default withMDX(nextConfig);
+export default nextConfig

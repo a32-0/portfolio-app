@@ -13,6 +13,11 @@ import { CloseIcon, MenuIcon } from '@/components/ui/icons'
 import Container from '@/components/Container'
 import ChatDrawer from '@/components/Chat/ChatDrawer'
 import { useChatStream } from '@/components/Chat/useChatStream'
+import { useSiteNav } from '@/components/SiteNavProvider'
+import { ANALYTICS_ROUTES } from '@/data/analytics'
+import { trackRoute } from '@/lib/analytics'
+
+const WORK_HREF = '/#work'
 
 export default function Navigation() {
   const pathname = usePathname()
@@ -20,9 +25,9 @@ export default function Navigation() {
   const [isFooterVisible, setIsFooterVisible] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
-  // Owned here, not in ChatDrawer: this stays mounted, so the conversation survives closing
-  // the drawer and only resets on a full page reload.
+  // owned here, not in ChatDrawer, so the conversation survives closing the drawer
   const chat = useChatStream()
+  const { isWorkDark, setActiveWorkView } = useSiteNav()
 
   useEffect(() => {
     const onScroll = () => {
@@ -72,21 +77,21 @@ export default function Navigation() {
     }
   }
 
-  const isCaseStudy = pathname.startsWith('/work/')
-  const isArchive = pathname === '/archive'
+  // Routes that render on a light background need the nav inverted from the start.
+  const isLightPage = pathname.startsWith('/work/') || pathname === '/about'
+  // The work views only exist on the home route.
+  const onDarkWork = isWorkDark && pathname === '/'
   const solid = isScrolled || isMenuOpen
 
   const bgClass = isFooterVisible
     ? 'bg-primary'
-    : isCaseStudy
-      ? 'bg-white'
-      : isArchive
+    : isLightPage || solid
+      ? onDarkWork
         ? 'bg-black'
-        : solid
-          ? 'bg-white'
-          : 'bg-transparent'
+        : 'bg-white'
+      : 'bg-transparent'
 
-  const isLight = (isCaseStudy || (solid && !isArchive)) && !isFooterVisible
+  const isLight = (isLightPage || solid) && !isFooterVisible && !onDarkWork
   const textClass = isLight ? 'text-black' : 'text-white'
 
   const regularLinks = navLinks.filter((link) => !link.external)
@@ -96,7 +101,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`w-full rounded-b-xl font-sans text-base font-normal transition-colors duration-300 ${bgClass} ${textClass}`}
+      className={`w-full rounded-b-xl font-sans text-base font-normal transition-[background-color,color] duration-300 ease-out motion-reduce:transition-none ${bgClass} ${textClass}`}
     >
       <Container className="flex items-center justify-between py-4">
         <Link
@@ -113,13 +118,18 @@ export default function Navigation() {
             <Link
               key={link.label}
               href={link.href}
+              onClick={() => {
+                if (link.href !== WORK_HREF) return
+                setActiveWorkView('product')
+                trackRoute(ANALYTICS_ROUTES.workNav)
+              }}
               className="hidden md:inline link-hover-underline hover:opacity-70"
             >
               {link.label}
             </Link>
           ))}
 
-          {/* Visibility goes on the wrapper: a `hidden` on Button loses to its own `flex`. */}
+          {/* wrapper carries visibility: a `hidden` on Button loses to its own `flex` */}
           {contactLink && (
             <div className="hidden md:block">
               <Button
@@ -135,7 +145,10 @@ export default function Navigation() {
 
           <Button
             variant="gradient"
-            onClick={() => setIsChatOpen((open) => !open)}
+            onClick={() => {
+              if (!isChatOpen) trackRoute(ANALYTICS_ROUTES.chatOpen)
+              setIsChatOpen((open) => !open)
+            }}
             aria-expanded={isChatOpen}
             aria-label={isChatOpen ? 'Close chat' : `Open ${CHAT_NAME} chat`}
           >
@@ -163,7 +176,12 @@ export default function Navigation() {
               <Link
                 key={link.label}
                 href={link.href}
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu()
+                  if (link.href !== WORK_HREF) return
+                  setActiveWorkView('product')
+                  trackRoute(ANALYTICS_ROUTES.workNav)
+                }}
                 className="py-2 text-3xl link-hover-underline hover:opacity-70"
               >
                 {link.label}
