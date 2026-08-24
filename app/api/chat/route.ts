@@ -1,3 +1,7 @@
+/**
+ * Chat endpoint. Validates the payload, rate-limits by IP, then streams the active provider's
+ * reply back as plain text.
+ */
 import type { NextRequest } from 'next/server'
 import { getActiveProvider } from '@/lib/chatbot/providers'
 import type { ChatTurn } from '@/lib/chatbot/providers/types'
@@ -9,8 +13,7 @@ import {
   MAX_HISTORY_MESSAGES,
 } from '@/lib/chatbot/constants'
 
-// Well under Vercel's 300s default, so a stuck upstream call can't run indefinitely.
-export const maxDuration = 30
+export const maxDuration = 30 // well under Vercel's 300s default
 
 function isChatTurn(value: unknown, maxLength: number): value is ChatTurn {
   if (typeof value !== 'object' || value === null) return false
@@ -41,11 +44,10 @@ export async function POST(request: NextRequest) {
   if (!Array.isArray(rawMessages) || rawMessages.length === 0) {
     return Response.json({ error: 'messages must be a non-empty array.' }, { status: 400 })
   }
-  // Loose ceiling for the whole array; the tight cap below applies only to the new message.
   if (!rawMessages.every((m) => isChatTurn(m, MAX_HISTORY_MESSAGE_LENGTH))) {
     return Response.json(
       { error: 'One or more messages are malformed or too long.' },
-      { status: 400 },
+      { status: 400 }
     )
   }
 
@@ -57,7 +59,7 @@ export async function POST(request: NextRequest) {
   if (lastMessage.content.length > MAX_MESSAGE_LENGTH) {
     return Response.json(
       { error: `Please keep your question under ${MAX_MESSAGE_LENGTH} characters.` },
-      { status: 400 },
+      { status: 400 }
     )
   }
 
@@ -69,9 +71,9 @@ export async function POST(request: NextRequest) {
         {
           error: 'rate_limited',
           message:
-            "You've hit the limit of questions for now — please try again in a bit, or email armando_rour@outlook.com directly.",
+            "You've hit the limit of questions for now, please try again in a bit, or email armando_rour@outlook.com directly.",
         },
-        { status: 429 },
+        { status: 429 }
       )
     }
   } catch (err) {
@@ -94,6 +96,9 @@ export async function POST(request: NextRequest) {
     })
   } catch (err) {
     console.error('[chat] provider request failed:', err)
-    return Response.json({ error: 'Something went wrong generating a response.' }, { status: 502 })
+    return Response.json(
+      { error: 'Something went wrong. Please try again in a moment.' },
+      { status: 502 }
+    )
   }
 }

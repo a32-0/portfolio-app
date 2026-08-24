@@ -1,16 +1,17 @@
+/**
+ * GPT-5 nano adapter. This model family requires `max_completion_tokens` (not `max_tokens`)
+ * and rejects any `temperature` other than the default. Client built lazily — see anthropic.ts.
+ */
 import OpenAI from 'openai'
 import { CHAT_MODELS, MAX_OUTPUT_TOKENS } from '@/lib/chatbot/constants'
 import type { ChatProvider } from './types'
 
-// Lazy — see providers/anthropic.ts.
 let client: OpenAI | undefined
 function getClient() {
   if (!client) client = new OpenAI()
   return client
 }
 
-/** GPT-5 nano. This family requires `max_completion_tokens` (not `max_tokens`) and rejects
- * any `temperature` other than the default. */
 export const openaiProvider: ChatProvider = async ({ system, messages }) => {
   const stream = await getClient().chat.completions.create({
     model: CHAT_MODELS.openai,
@@ -37,8 +38,7 @@ export const openaiProvider: ChatProvider = async ({ system, messages }) => {
       }
     },
     cancel() {
-      // Stops billing when the visitor abandons mid-stream.
-      stream.controller.abort()
+      stream.controller.abort() // stop billing when the visitor abandons mid-stream
     },
   })
 }
