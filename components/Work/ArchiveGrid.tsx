@@ -1,16 +1,8 @@
 import { archiveProjects } from '@/data/projects'
-import { archiveSection } from '@/data/archive'
 import ArchiveCard from './ArchiveCard'
 
-type Props = {
-  limit?: number
-}
-
-export default function ArchiveGrid({ limit }: Props) {
-  const projectList =
-    typeof limit === 'number' ? archiveProjects.slice(0, Math.max(limit, 0)) : archiveProjects
-
-  const columns = projectList.reduce<[typeof projectList, typeof projectList]>(
+export default function ArchiveGrid() {
+  const columns = archiveProjects.reduce<[typeof archiveProjects, typeof archiveProjects]>(
     (acc, project, index) => {
       acc[index % 2].push(project)
       return acc
@@ -19,19 +11,7 @@ export default function ArchiveGrid({ limit }: Props) {
   )
 
   return (
-    <section
-      id={archiveSection.id}
-      className="inline-flex w-full flex-col items-start justify-start gap-8 pb-16 md:gap-12 md:pb-32"
-    >
-      <div className="flex w-full flex-col items-start justify-start gap-2">
-        <h2 className="text-display-lg font-medium font-serif italic text-white">
-          {archiveSection.title}
-        </h2>
-        <p className="text-lg md:text-xl font-normal font-sans text-white">
-          {archiveSection.description}
-        </p>
-      </div>
-
+    <div className="inline-flex w-full flex-col items-start justify-start gap-8 md:gap-12">
       <div className="inline-flex w-full flex-col items-start justify-start gap-8 lg:flex-row">
         {columns.map((column, columnIndex) => (
           <div
@@ -51,6 +31,6 @@ export default function ArchiveGrid({ limit }: Props) {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   )
 }
