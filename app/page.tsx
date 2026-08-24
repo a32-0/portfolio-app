@@ -1,18 +1,11 @@
-import Container from '@/components/Container'
 import Hero from '@/components/Hero'
-import SelectedWork from '@/components/Work/SelectedWork'
-import DesignPrinciples from '@/components/About/DesignPrinciples'
-import About from '@/components/About/About'
+import WorkSection from '@/components/Work/WorkSection'
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-24 md:gap-50">
+    <main className="flex flex-col">
       <Hero />
-      <Container className="flex flex-col gap-24 pb-24 md:gap-50 md:pb-50">
-        <SelectedWork />
-        <DesignPrinciples />
-        <About />
-      </Container>
+      <WorkSection />
     </main>
   )
 }

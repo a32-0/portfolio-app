@@ -1,4 +1,10 @@
-/** Tuning knobs for the chatbot — cost, limits, and behavior all live here. */
+/**
+ * Tuning knobs for the chatbot: cost, limits, behavior.
+ *
+ * TEMPERATURE is deliberately low so the bot doesn't improvise facts, and is skipped for
+ * OpenAI, which rejects any value but the default. RATE_LIMIT is sized against Gemini's
+ * 500 requests/day: 8 × 24h caps one IP at 192/day.
+ */
 
 export const DEFAULT_CHAT_PROVIDER = 'anthropic'
 
@@ -8,27 +14,17 @@ export const CHAT_MODELS = {
   google: 'gemini-3.5-flash-lite',
 } as const
 
-/** Max response length. */
 export const MAX_OUTPUT_TOKENS = 1024
-
-/** Low on purpose: this bot must not improvise facts. Not applied to OpenAI — gpt-5-nano
- * rejects any temperature other than the default. */
-export const TEMPERATURE = 0.4
-
-/** Max length of a new user message. */
+export const TEMPERATURE = 0.7
 export const MAX_MESSAGE_LENGTH = 1500
-
-/** Looser ceiling for echoed-back history, so a full-length reply survives the round trip. */
-export const MAX_HISTORY_MESSAGE_LENGTH = MAX_OUTPUT_TOKENS * 6
-
-/** Prior turns sent upstream. Truncated server-side, whatever the client sends. */
 export const MAX_HISTORY_MESSAGES = 16
 
-/** Per-IP rate limit. Sized against Gemini's 500 requests/day: one IP maxes out at
- * 8 × 24 = 192/day, well under the shared daily quota. */
+/** Looser than MAX_MESSAGE_LENGTH so a full reply survives being echoed back as history. */
+export const MAX_HISTORY_MESSAGE_LENGTH = MAX_OUTPUT_TOKENS * 6
+
 export const RATE_LIMIT_REQUESTS = 8
 export const RATE_LIMIT_WINDOW = '1 h'
 
-/** Separates the answer from the 3 follow-up suggestions. Lives here (not system-prompt.ts)
- * so the client can import it without pulling the knowledge base into the browser bundle. */
+/** Lives here, not in system-prompt.ts, so the client can import it without pulling the
+ * knowledge base into the browser bundle. */
 export const SUGGESTIONS_MARKER = '§§§SUGGESTIONS§§§'

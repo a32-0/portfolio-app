@@ -25,8 +25,7 @@ type Props = {
   chat: ChatStream
 }
 
-/** Logo + text row. Shared by the greeting, the loading phrase, and every answer, so the
- * three stay pixel-identical and the layout doesn't shift as one replaces another. */
+/** Logo + text row, shared by the greeting, the loading phrase, and every answer. */
 function BotRow({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div className="flex items-start">
@@ -38,15 +37,19 @@ function BotRow({ children, className = '' }: { children: ReactNode; className?:
   )
 }
 
-/** Chat drawer, triggered from the nav. Always mounted and animated via `isOpen` — a
- * conditionally-rendered element unmounts before it can transition out. */
+/**
+ * Chat drawer, triggered from the nav.
+ *
+ * Always mounted and animated via `isOpen`, since a conditionally-rendered element unmounts
+ * before it can transition out. While closed it is `inert`, and `visibility` is in the
+ * transition list so it only flips after the slide-out finishes.
+ */
 export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
   const { messages, suggestions, sendMessage, isLoading, error } = chat
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  // One phrase per turn, not re-rolled on every render.
   const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0])
   const wasLoading = useRef(false)
   useEffect(() => {
@@ -59,7 +62,7 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
   const hasStarted = messages.length > 0
   const activeSuggestions = hasStarted ? suggestions : INITIAL_SUGGESTIONS
 
-  // The loading phrase shows only until the answer starts arriving, so the two never stack.
+  // the loading phrase yields as soon as the answer starts, so the two never stack
   const lastMessage = messages[messages.length - 1]
   const isAwaitingFirstToken = isLoading && !lastMessage?.content
 
@@ -91,7 +94,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
 
   return (
     <>
-      {/* Scrim — also the click-outside-to-close target. */}
       <div
         onClick={onClose}
         aria-hidden="true"
@@ -104,7 +106,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
         role="dialog"
         aria-modal="true"
         aria-label={`Chat with ${CHAT_NAME}`}
-        // Untabbable while closed. `visibility` transitions so it flips after the slide-out.
         inert={!isOpen}
         className={`bg-chat-bg fixed inset-y-0 right-0 z-50 flex w-full flex-col gap-4 p-4 transition-[translate,opacity,visibility] duration-300 ease-out motion-reduce:transition-none sm:w-120 ${
           isOpen ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-full opacity-0'
@@ -117,7 +118,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
           </IconButton>
         </div>
 
-        {/* pr-2 keeps the bubbles clear of the scrollbar lane. */}
         <div
           ref={scrollRef}
           className="chat-scroll flex flex-1 flex-col gap-2 overflow-y-auto pr-2"
@@ -126,7 +126,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
 
           {messages.map((message) =>
             message.role === 'user' ? (
-              // Squared top-right corner + 300px cap (max-w-75).
               <div
                 key={message.id}
                 className="bg-chat-accent text-chat-text max-w-75 self-end rounded-[30px] rounded-tr-none px-4 py-3 text-base whitespace-pre-wrap"
@@ -134,7 +133,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
                 {message.content}
               </div>
             ) : (
-              // Skipped while empty: the loading row below stands in until the first token.
               message.content.length > 0 && (
                 <BotRow key={message.id} className="text-chat-text whitespace-pre-wrap">
                   {message.content}
@@ -158,7 +156,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
             <p className="rounded-[30px] bg-red-950 px-4 py-3 text-sm text-red-300">{error}</p>
           )}
 
-          {/* Skipped when a turn returns no suggestions, so it never dangles. */}
           {!isLoading && activeSuggestions.length > 0 && (
             <div className="border-chat-divider my-2 border-t" />
           )}

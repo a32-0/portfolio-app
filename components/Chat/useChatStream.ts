@@ -1,5 +1,13 @@
 'use client'
 
+/**
+ * Conversation state and streaming for /api/chat. Splits the stream into the displayed answer
+ * and the 3 follow-up suggestions the model appends after SUGGESTIONS_MARKER.
+ *
+ * Message ids come from a ref, never module scope: a module-level counter resets on Fast
+ * Refresh while the state survives, reissuing ids that already exist — and since the streaming
+ * update matches by id, a collision writes the same text into two bubbles.
+ */
 import { useCallback, useRef, useState } from 'react'
 import { SUGGESTIONS_MARKER } from '@/lib/chatbot/constants'
 
@@ -17,8 +25,6 @@ function parseSuggestions(raw: string): string[] {
     .slice(0, 3)
 }
 
-/** Conversation state + streaming from /api/chat. Splits the stream into the displayed
- * answer and the 3 follow-up suggestions the model appends after SUGGESTIONS_MARKER. */
 export function useChatStream() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [suggestions, setSuggestions] = useState<string[]>([])
@@ -28,9 +34,6 @@ export function useChatStream() {
   messagesRef.current = messages
   const isLoadingRef = useRef(false)
 
-  // Counter lives in a ref, not module scope: a module-level one resets on Fast Refresh while
-  // the message state survives, reissuing ids that already exist. Duplicate ids don't just
-  // warn — the streaming update matches by id, so a collision writes into two bubbles.
   const idCounterRef = useRef(0)
   const nextId = () => `msg-${++idCounterRef.current}`
 
@@ -53,7 +56,7 @@ export function useChatStream() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          // Stripped display text, never the raw marker + suggestions.
+          // stripped display text, never the raw marker + suggestions
           messages: [...history, userMessage].map(({ role, content }) => ({ role, content })),
         }),
       })
@@ -77,10 +80,10 @@ export function useChatStream() {
         if (markerIndex !== -1) {
           displayText = accumulated.slice(0, markerIndex).trimEnd()
         } else if (finalFlush) {
-          // Marker never arrived — show everything rather than stranding the held-back tail.
+          // marker never arrived; show everything rather than stranding the held-back tail
           displayText = accumulated
         } else {
-          // Hold back a marker's length so one split across chunks never flashes on screen.
+          // hold back a marker's length so one split across chunks never flashes on screen
           const safeLength = Math.max(0, accumulated.length - SUGGESTIONS_MARKER.length)
           displayText = accumulated.slice(0, safeLength)
         }
@@ -103,7 +106,6 @@ export function useChatStream() {
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
-      // Drop the placeholder if nothing streamed in.
       setMessages((prev) => prev.filter((m) => m.id !== assistantId || m.content.length > 0))
     } finally {
       setIsLoading(false)
