@@ -40,8 +40,6 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Render-time state adjustment (not an effect): closes the menu when the
-  // route changes underneath it, e.g. browser back/forward while open.
   const [menuPathname, setMenuPathname] = useState(pathname)
   if (menuPathname !== pathname) {
     setMenuPathname(pathname)
@@ -62,12 +60,35 @@ export default function Navigation() {
 
   useEffect(() => {
     if (!isMenuOpen && !isChatOpen) return
-    const previous = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+
+    const { body } = document
+    const offset = window.scrollY
+    const previous = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+    }
+
+    body.style.overflow = 'hidden'
+    body.style.position = 'fixed'
+    body.style.top = `-${offset}px`
+    body.style.width = '100%'
+
     return () => {
-      document.body.style.overflow = previous
+      body.style.overflow = previous.overflow
+      body.style.position = previous.position
+      body.style.top = previous.top
+      body.style.width = previous.width
+      window.scrollTo(0, offset)
     }
   }, [isMenuOpen, isChatOpen])
+
+  useEffect(() => {
+    if (!isChatOpen) return
+    document.documentElement.classList.add('chat-open')
+    return () => document.documentElement.classList.remove('chat-open')
+  }, [isChatOpen])
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     setIsMenuOpen(false)
@@ -77,9 +98,7 @@ export default function Navigation() {
     }
   }
 
-  // Routes that render on a light background need the nav inverted from the start.
   const isLightPage = pathname.startsWith('/work/') || pathname === '/about'
-  // The work views only exist on the home route.
   const onDarkWork = isWorkDark && pathname === '/'
   const solid = isScrolled || isMenuOpen
 
@@ -128,8 +147,6 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
-
-          {/* wrapper carries visibility: a `hidden` on Button loses to its own `flex` */}
           {contactLink && (
             <div className="hidden md:block">
               <Button

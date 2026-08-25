@@ -5,7 +5,6 @@ import { useSiteNav } from '@/components/SiteNavProvider'
 import { workViews } from '@/data/work'
 import { trackRoute } from '@/lib/analytics'
 
-/** Secondary nav for the work views. Sits in the flow and scrolls with the page. */
 export default function WorkNav() {
   const { activeWorkView, setActiveWorkView, isWorkDark } = useSiteNav()
 

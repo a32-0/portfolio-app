@@ -13,8 +13,6 @@ type Props = {
   className?: string
 }
 
-/** Anchor that reports its click as a page view. Lets a server component keep a tracked link
- * without becoming a client component itself. */
 export default function TrackedLink({ href, event, children, target, rel, className }: Props) {
   return (
     <a
