@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import type { MouseEventHandler, ReactNode } from 'react'
 
-/** Fill colour a tone resolves to: solid uses it as the resting state, outline as its hover. */
 const TONE_SOLID = {
   primary: 'bg-primary text-white',
   teal: 'bg-complement-teal text-black',
@@ -13,13 +12,9 @@ const TONE_HOVER_FILL = {
 } as const
 
 type Props = {
-  /** Omit to render a <button> instead of a link. */
   href?: string
   children: ReactNode
-  /** 'gradient' is the CatarsisLLM treatment and ignores outlineColor and tone. */
   variant?: 'outline' | 'gradient' | 'solid'
-  /** Colour a 'solid' button fills with, and the colour 'outline' fills with on hover.
-   * Left unset, outline hovers to --color-accent. */
   tone?: keyof typeof TONE_SOLID
   outlineColor?: 'black' | 'white'
   target?: string

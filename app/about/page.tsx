@@ -14,8 +14,8 @@ export default function AboutPage() {
   return (
     <main className="min-h-svh pt-24 sm:pt-32">
       <Container className="flex flex-col gap-20 pb-12">
-        <DesignPrinciples />
         <About />
+        <DesignPrinciples />
       </Container>
     </main>
   )

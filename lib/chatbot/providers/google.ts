@@ -41,6 +41,5 @@ export const googleProvider: ChatProvider = async ({ system, messages }) => {
         controller.error(err)
       }
     },
-    // TODO: no cancel-on-abandon here yet, unlike the other two adapters.
   })
 }

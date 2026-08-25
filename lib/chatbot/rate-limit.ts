@@ -1,10 +1,3 @@
-/**
- * Per-IP rate limiting for /api/chat, backed by Upstash Redis.
- *
- * Redis rather than an in-memory counter because serverless instances don't share memory.
- * Built lazily so the app still builds before Upstash is configured, and fails closed in
- * production: an unprotected /api/chat is the unbounded-cost risk this exists to prevent.
- */
 import { Ratelimit } from '@upstash/ratelimit'
 import { Redis } from '@upstash/redis'
 import { RATE_LIMIT_REQUESTS, RATE_LIMIT_WINDOW } from '@/lib/chatbot/constants'
@@ -20,7 +13,7 @@ function getRatelimit() {
       redis: Redis.fromEnv(),
       limiter: Ratelimit.slidingWindow(RATE_LIMIT_REQUESTS, RATE_LIMIT_WINDOW),
       prefix: 'chatbot',
-      analytics: false, // doubles Redis commands against the free-tier quota
+      analytics: false,
     })
   }
   return ratelimit

@@ -1,6 +1,5 @@
 /**
- * Knowledge base for the chatbot — the only source it may draw from.
- * Edit, commit, push; Vercel redeploys. No CMS, no build step.
+ * Knowledge base for the chatbot, the only source it may draw from.
  */
 
 export const CHATBOT_PROFILE = `
@@ -230,9 +229,9 @@ Zuma Capital, Maestro Malta, OX Logistics, Bike.
 ## About this chatbot (yes, you can talk about yourself)
 
 If a visitor asks how this chatbot works or who built it, answer: Armando designed and built
-it himself. It runs on his Next.js portfolio with the Anthropic API (Claude), using a
+it himself. It runs on his Next.js portfolio with the Gemini API, using a
 hand-written, human-reviewed knowledge base as its only source of truth, a deliberately static
-system prompt so the instructions can be cached, and strict grounding rules so it never invents
+system prompt, and strict grounding rules so it never invents
 facts about his background. The conversational behavior (scope, tone, follow-up suggestions,
 sensitive-question handling) was designed the same way he designs any conversational product:
 content guidelines first, then structure, then edge cases. It's a working example of the
@@ -308,7 +307,7 @@ coexisting with the work. Catarsis is a reminder of that.
 
 ---
 
-## Sensitive questions · default answers (⚠️ Armando: review and edit this section)
+## Sensitive questions · default answers
 
 These are deliberately generic, safe defaults for questions this file has no real answer to.
 Don't let the model guess at any of these. Always fall back to the text below as-is unless
