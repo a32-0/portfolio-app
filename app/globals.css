@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html.chat-open {
+  background-color: var(--color-chat-bg);
+}
+
 @theme {
   /* Color Palette */
   --color-white: #fff;
@@ -21,7 +25,7 @@ html {
   --color-complement-teal: #00e9d8;
   --color-complement-red: #e90300;
 
-  /* Brand spectrum — CatarsisLLM gradient stops, echoing the footer color cycle. */
+  /* CatarsisLLM gradient */
   --color-brand-violet: #a442ff; /* 0%   */
   --color-brand-magenta: #f351ff; /* 20%  */
   --color-brand-pink: #ff90c4; /* 40%  */
@@ -29,7 +33,7 @@ html {
   --color-brand-yellow: #e5ff00; /* 80%  */
   --color-brand-green: #00ff27; /* 100% */
 
-  /* CatarsisLLM (chat) — dark sub-palette, retunable without touching components. */
+  /* Chat */
   --color-chat-bg: #121212;
   --color-chat-surface: #1e1e1e;
   --color-chat-text: #f8f8f8;
@@ -214,8 +218,7 @@ button:not(:disabled),
   outline-color: transparent;
 }
 
-/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value.
- * Painted 3x the button and drifted, so the colors move without anything re-rendering. */
+/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value. */
 .bg-gradient-catarsis {
   background-image: linear-gradient(
     to bottom right,

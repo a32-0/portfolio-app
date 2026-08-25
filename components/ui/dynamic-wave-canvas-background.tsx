@@ -81,19 +81,19 @@ export default function HeroWave() {
     gl.enableVertexAttribArray(posLoc)
     gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0)
 
-    const timeLoc  = gl.getUniformLocation(program, 'u_time')
-    const resLoc   = gl.getUniformLocation(program, 'u_resolution')
+    const timeLoc = gl.getUniformLocation(program, 'u_time')
+    const resLoc = gl.getUniformLocation(program, 'u_resolution')
     const colorLoc = gl.getUniformLocation(program, 'u_color')
 
     // Read --color-primary from CSS
     const rawColor = getComputedStyle(document.documentElement)
       .getPropertyValue('--color-primary')
       .trim()
-    const [r, g, b] = hexToVec3(rawColor || '#0001f7')
+    const [r, g, b] = hexToVec3(rawColor || '#0001e9')
     gl.uniform3f(colorLoc, r, g, b)
 
     const resize = () => {
-      canvas.width  = canvas.offsetWidth
+      canvas.width = canvas.offsetWidth
       canvas.height = canvas.offsetHeight
       gl.viewport(0, 0, canvas.width, canvas.height)
     }

@@ -38,7 +38,7 @@ export const openaiProvider: ChatProvider = async ({ system, messages }) => {
       }
     },
     cancel() {
-      stream.controller.abort() // stop billing when the visitor abandons mid-stream
+      stream.controller.abort()
     },
   })
 }
