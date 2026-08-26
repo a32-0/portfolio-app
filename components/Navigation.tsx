@@ -14,8 +14,8 @@ import Container from '@/components/Container'
 import ChatDrawer from '@/components/Chat/ChatDrawer'
 import { useChatStream } from '@/components/Chat/useChatStream'
 import { useSiteNav } from '@/components/SiteNavProvider'
-import { ANALYTICS_ROUTES } from '@/data/analytics'
-import { trackRoute } from '@/lib/analytics'
+import { ANALYTICS_EVENTS } from '@/data/analytics'
+import { trackEvent } from '@/lib/analytics'
 
 const WORK_HREF = '/#work'
 
@@ -146,7 +146,7 @@ export default function Navigation() {
     setIsChatOpen(false)
     if (href !== WORK_HREF) return
     setActiveWorkView('product')
-    trackRoute(ANALYTICS_ROUTES.workNav)
+    trackEvent(ANALYTICS_EVENTS.workNav)
     // The router raises no scroll intent for the URL it is already on
     if (pathname === '/') document.getElementById('work')?.scrollIntoView()
   }
@@ -192,7 +192,7 @@ export default function Navigation() {
           <Button
             variant="gradient"
             onClick={() => {
-              if (!isChatOpen) trackRoute(ANALYTICS_ROUTES.chatOpen)
+              if (!isChatOpen) trackEvent(ANALYTICS_EVENTS.chatOpen)
               setIsChatOpen((open) => !open)
             }}
             aria-expanded={isChatOpen}

@@ -1,7 +1,6 @@
 import Container from '@/components/Container'
 import { footerContent } from '@/data/footer'
 import { socialLinks } from '@/data/social'
-import TrackedLink from '@/components/ui/TrackedLink'
 
 export default function FooterSection() {
   const currentYear = new Date().getFullYear()
@@ -38,18 +37,15 @@ export default function FooterSection() {
                 link.href.startsWith('mailto:') ||
                 link.href.endsWith('.pdf')
               const label = `${link.label}${isExternal ? ' ↗' : ''}`
-              const shared = {
-                href: link.href,
-                target: isExternal ? '_blank' : undefined,
-                rel: isExternal ? 'noreferrer' : undefined,
-                className: 'link-hover-underline transition hover:opacity-70',
-              }
-              return link.event ? (
-                <TrackedLink key={link.label} event={link.event} {...shared}>
-                  {label}
-                </TrackedLink>
-              ) : (
-                <a key={link.label} {...shared}>
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noreferrer' : undefined}
+                  data-umami-event={link.event}
+                  className="link-hover-underline transition hover:opacity-70"
+                >
                   {label}
                 </a>
               )
