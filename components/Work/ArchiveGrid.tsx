@@ -11,12 +11,12 @@ export default function ArchiveGrid() {
   )
 
   return (
-    <div className="inline-flex w-full flex-col items-start justify-start gap-8 md:gap-12">
-      <div className="inline-flex w-full flex-col items-start justify-start gap-8 lg:flex-row">
+    <div className="inline-flex w-full flex-col items-start justify-start gap-12">
+      <div className="inline-flex w-full flex-col items-start justify-start gap-12 lg:flex-row">
         {columns.map((column, columnIndex) => (
           <div
             key={`archive-column-${columnIndex + 1}`}
-            className="inline-flex w-full flex-1 flex-col items-start justify-start gap-8"
+            className="inline-flex w-full flex-1 flex-col items-start justify-start gap-12"
           >
             {column.map((project) => (
               <ArchiveCard
