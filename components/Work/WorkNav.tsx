@@ -3,9 +3,8 @@
 import Button from '@/components/ui/Button'
 import { useSiteNav } from '@/components/SiteNavProvider'
 import { workViews } from '@/data/work'
-import { trackRoute } from '@/lib/analytics'
+import { trackEvent } from '@/lib/analytics'
 
-/** Secondary nav for the work views. Sits in the flow and scrolls with the page. */
 export default function WorkNav() {
   const { activeWorkView, setActiveWorkView, isWorkDark } = useSiteNav()
 
@@ -25,7 +24,7 @@ export default function WorkNav() {
             outlineColor={isWorkDark ? 'white' : 'black'}
             onClick={() => {
               setActiveWorkView(view.id)
-              if (view.event && view.id !== activeWorkView) trackRoute(view.event)
+              if (view.event && view.id !== activeWorkView) trackEvent(view.event)
             }}
             aria-current={isActive ? 'true' : undefined}
           >
