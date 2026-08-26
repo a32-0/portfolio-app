@@ -37,7 +37,10 @@ export default function Navigation() {
   const { isWorkDark, setActiveWorkView } = useSiteNav()
 
   useEffect(() => {
+    // Locking scroll collapses the document height, snapping window.scrollY to 0 and
+    // firing a scroll event that isn't a real user scroll — ignore it while locked.
     const onScroll = () => {
+      if (scrollLock.current) return
       setIsScrolled(window.scrollY > 12)
       const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 50
       setIsFooterVisible(atBottom)
@@ -146,7 +149,6 @@ export default function Navigation() {
     setIsChatOpen(false)
     if (href !== WORK_HREF) return
     setActiveWorkView('product')
-    trackEvent(ANALYTICS_EVENTS.workNav)
     // The router raises no scroll intent for the URL it is already on
     if (pathname === '/') document.getElementById('work')?.scrollIntoView()
   }
