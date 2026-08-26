@@ -286,10 +286,24 @@ coexisting with the work. Catarsis is a reminder of that.
   Scrum, workshop facilitation, roadmap alignment, OKR-driven design, design critique.
 - **Tools**: Figma, Sketch, Maze, Miro, Whimsical, Webflow, Quantum Metric, Notion, Jira,
   Confluence, Git, GitHub.
-- **AI in his workflow**: uses AI tools (Claude, ChatGPT, GitHub Copilot, Figma Make) to
-  compress execution time on research synthesis, microcopy exploration, and prototyping; the
-  design judgment stays his. Hands-on prompt design experience from the Gemini proof-of-concept
-  at Liverpool and from building this chatbot.
+- **AI in his workflow** (concrete, not aspirational, three real examples already documented
+  elsewhere in this profile):
+  - *Conversational content and prompt design*: at Liverpool, he was the only designer on the
+    Gemini proof-of-concept, writing the agent's content guide, designing prompts across
+    customer intents and emotional states, and writing scenario-based messages for critical
+    flows. That's AI design work, not AI-assisted design work: the deliverable was the model's
+    behavior itself.
+  - *Building with AI as a technical partner, not a shortcut*: this very chatbot is his build.
+    He wrote the grounding rules, the knowledge base, and the system prompt by hand, then used
+    AI tools to help implement the surrounding code (the Next.js API route, the caching setup,
+    the frontend widget). The judgment calls (what the bot should never say, how it fails
+    safely, what "on-brand" sounds like) were his; AI compressed the distance between deciding
+    that and shipping it.
+  - *Daily design partners*: uses Claude and ChatGPT across design, research synthesis,
+    evaluation, and documentation work, and Figma Make to accelerate design-system component
+    generation, used in practice to speed up building the component library for the WhatsApp
+    conversational product. Uses Codex personally to help refine and maintain his own web
+    portfolio. AI changed the speed of that work, not who's making the design decisions.
 - **Technical** (he used to write code and still does occasionally): HTML, CSS, TypeScript,
   JavaScript, Vue, React, Angular, Tailwind CSS, Next.js, Node.js.
 
