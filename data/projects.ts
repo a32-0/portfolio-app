@@ -10,7 +10,7 @@ export type Project = {
   archived: boolean
   cardCategory?: string
   cardTitle?: string
-  cardTags?: string[]
+  cardSummary?: string
 }
 
 export const projects: Project[] = [
@@ -22,11 +22,10 @@ export const projects: Project[] = [
     caseStudy: true,
     archived: false,
     cardCategory: 'Invoicing Platform',
-    cardTitle:
-      'Redesigning a mission-critical invoicing journey used by 184K+ monthly users — reducing average session time from 35 minutes to under 3 minutes.',
-    cardTags: ['UX Research', 'Interaction Design', 'UX Writing'],
+    cardTitle: 'Redesigning a mission-critical invoicing journey used by 184K+ monthly users.',
+    cardSummary: 'Reducing average session time from 35 minutes to under 3 minutes.',
   },
-      {
+  {
     slug: 'whatsapp-liverpool',
     title: 'WhatsApp',
     cover: '/images/projects/whatsapp-liverpool/cover.png',
@@ -35,8 +34,8 @@ export const projects: Project[] = [
     archived: false,
     cardCategory: 'WhatsApp Business Platform',
     cardTitle:
-      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users — designed entirely without a traditional interface.',
-    cardTags: ['Conversational UX', 'Product Design', 'UX Research'],
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users.',
+    cardSummary: 'Designed entirely without a traditional interface.',
   },
   {
     slug: 'connect-liverpool',
@@ -47,8 +46,8 @@ export const projects: Project[] = [
     archived: false,
     cardCategory: 'Contact Center Sales Platform',
     cardTitle:
-      "Designing Liverpool's next-generation sales tool for 40+ agents processing up to ~$3M MXN in daily revenue — from an undefined brief to a validated, production-ready system.",
-    cardTags: ['Systems Design', 'Enterprise', 'UX Research'],
+      "Designing Liverpool's next-generation sales tool for 40+ agents processing up to ~$3M MXN in daily revenue.",
+    cardSummary: 'From an undefined brief to a validated, production-ready system.',
   },
   {
     slug: 'little-lemon',
@@ -63,6 +62,8 @@ export const projects: Project[] = [
     title: 'Immersio',
     cover: '/images/projects/immersio/cover.mp4',
     coverType: 'video',
+    coverWidth: 1468,
+    coverHeight: 1080,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -98,6 +99,8 @@ export const projects: Project[] = [
     title: 'CyberPuerta',
     cover: '/images/projects/cyberpuerta/cover.mp4',
     coverType: 'video',
+    coverWidth: 1436,
+    coverHeight: 1080,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -107,6 +110,8 @@ export const projects: Project[] = [
     title: 'OX BI',
     cover: '/images/projects/ox-bi/cover.mp4',
     coverType: 'video',
+    coverWidth: 1472,
+    coverHeight: 1080,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -165,6 +170,8 @@ export const projects: Project[] = [
     title: 'Mait',
     cover: '/images/projects/mait/cover.mp4',
     coverType: 'video',
+    coverWidth: 808,
+    coverHeight: 1080,
     featured: false,
     caseStudy: false,
     archived: true,
@@ -192,6 +199,8 @@ export const projects: Project[] = [
     title: 'Maestro Malta',
     cover: '/images/projects/maestro-malta/cover.mp4',
     coverType: 'video',
+    coverWidth: 808,
+    coverHeight: 1080,
     featured: false,
     caseStudy: false,
     archived: true,

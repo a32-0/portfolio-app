@@ -10,15 +10,28 @@ type Props = {
   alt?: string
 }
 
-export default function ArchiveCard({ product, src, alt, coverType, coverWidth, coverHeight }: Props) {
+export default function ArchiveCard({
+  product,
+  src,
+  alt,
+  coverType,
+  coverWidth,
+  coverHeight,
+}: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const mediaAlt = alt ?? product
 
   return (
     <div className="inline-flex w-full flex-col items-start justify-start gap-2">
-      <div className="w-full rounded-xl overflow-hidden bg-secondary">
+      <div className="w-full overflow-hidden bg-secondary">
         {isVideo ? (
-          <AutoPlayVideo src={src} alt={mediaAlt} title={product} />
+          <AutoPlayVideo
+            src={src}
+            alt={mediaAlt}
+            title={product}
+            width={coverWidth}
+            height={coverHeight}
+          />
         ) : (
           <Image
             src={src}
