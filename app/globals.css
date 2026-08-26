@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--color-white);
+}
+
 html.chat-open {
   background-color: var(--color-chat-bg);
 }
