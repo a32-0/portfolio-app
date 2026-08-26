@@ -1,5 +1,5 @@
-import type { AnalyticsRoute } from './analytics'
-import { ANALYTICS_ROUTES } from './analytics'
+import type { AnalyticsEvent } from './analytics'
+import { ANALYTICS_EVENTS } from './analytics'
 
 export type WorkViewId = 'product' | 'visual'
 
@@ -8,7 +8,7 @@ export type WorkView = {
   label: string
   theme: 'light' | 'dark'
   tone: 'primary' | 'teal'
-  event?: AnalyticsRoute
+  event?: AnalyticsEvent
 }
 
 export const workViews: WorkView[] = [
@@ -17,14 +17,14 @@ export const workViews: WorkView[] = [
     label: 'Product Design',
     theme: 'light',
     tone: 'primary',
-    event: ANALYTICS_ROUTES.productDesign,
+    event: ANALYTICS_EVENTS.productDesign,
   },
   {
     id: 'visual',
     label: 'Visual Design',
     theme: 'dark',
     tone: 'teal',
-    event: ANALYTICS_ROUTES.visualDesign,
+    event: ANALYTICS_EVENTS.visualDesign,
   },
 ]
 

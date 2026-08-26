@@ -4,6 +4,8 @@ import Header from '@/components/Header'
 import FooterSection from '@/components/FooterSection'
 import SiteNavProvider from '@/components/SiteNavProvider'
 import { Inter, Roboto_Mono, Lora } from 'next/font/google'
+import Script from 'next/script'
+import { UMAMI_SRC, UMAMI_WEBSITE_ID } from '@/data/analytics'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -114,6 +116,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <FooterSection />
         </SiteNavProvider>
+        {process.env.NODE_ENV === 'production' && (
+          <Script src={UMAMI_SRC} data-website-id={UMAMI_WEBSITE_ID} />
+        )}
         <Analytics />
         <SpeedInsights />
       </body>
