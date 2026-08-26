@@ -50,7 +50,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
         </div>
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-[220px_1fr]">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[220px_1fr]">
           {/* Sticky sidebar */}
           <aside className="hidden md:block">
             <div className="sticky top-32">

@@ -25,34 +25,36 @@ export default function FooterSection() {
         </p>
 
         <nav
-          className="self-stretch inline-flex items-center justify-between py-2 font-sans text-base font-normal text-white"
+          className="self-stretch inline-flex items-center justify-between py-6 font-sans text-base font-normal text-white"
           aria-label="Footer links"
         >
           <p>
             {footerContent.yearPrefix} {currentYear}
           </p>
-          {socialLinks.map((link) => {
-            const isExternal =
-              link.href.startsWith('http') ||
-              link.href.startsWith('mailto:') ||
-              link.href.endsWith('.pdf')
-            const label = `${link.label}${isExternal ? ' ↗' : ''}`
-            const shared = {
-              href: link.href,
-              target: isExternal ? '_blank' : undefined,
-              rel: isExternal ? 'noreferrer' : undefined,
-              className: 'link-hover-underline transition hover:opacity-70',
-            }
-            return link.event ? (
-              <TrackedLink key={link.label} event={link.event} {...shared}>
-                {label}
-              </TrackedLink>
-            ) : (
-              <a key={link.label} {...shared}>
-                {label}
-              </a>
-            )
-          })}
+          <div className="flex h-6 items-center gap-6">
+            {socialLinks.map((link) => {
+              const isExternal =
+                link.href.startsWith('http') ||
+                link.href.startsWith('mailto:') ||
+                link.href.endsWith('.pdf')
+              const label = `${link.label}${isExternal ? ' ↗' : ''}`
+              const shared = {
+                href: link.href,
+                target: isExternal ? '_blank' : undefined,
+                rel: isExternal ? 'noreferrer' : undefined,
+                className: 'link-hover-underline transition hover:opacity-70',
+              }
+              return link.event ? (
+                <TrackedLink key={link.label} event={link.event} {...shared}>
+                  {label}
+                </TrackedLink>
+              ) : (
+                <a key={link.label} {...shared}>
+                  {label}
+                </a>
+              )
+            })}
+          </div>
         </nav>
       </Container>
     </footer>
