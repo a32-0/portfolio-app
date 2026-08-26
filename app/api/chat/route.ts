@@ -13,7 +13,7 @@ import {
   MAX_HISTORY_MESSAGES,
 } from '@/lib/chatbot/constants'
 
-export const maxDuration = 30 // well under Vercel's 300s default
+export const maxDuration = 30
 
 function isChatTurn(value: unknown, maxLength: number): value is ChatTurn {
   if (typeof value !== 'object' || value === null) return false

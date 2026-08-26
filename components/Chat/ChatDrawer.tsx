@@ -18,6 +18,7 @@ import {
 import IconButton from '@/components/ui/IconButton'
 import { ArrowUpIcon, CloseIcon } from '@/components/ui/icons'
 import type { ChatStream } from './useChatStream'
+import { useKeyboardInset } from './useKeyboardInset'
 
 type Props = {
   isOpen: boolean
@@ -37,15 +38,9 @@ function BotRow({ children, className = '' }: { children: ReactNode; className?:
   )
 }
 
-/**
- * Chat drawer, triggered from the nav.
- *
- * Always mounted and animated via `isOpen`, since a conditionally-rendered element unmounts
- * before it can transition out. While closed it is `inert`, and `visibility` is in the
- * transition list so it only flips after the slide-out finishes.
- */
 export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
   const { messages, suggestions, sendMessage, isLoading, error } = chat
+  const keyboardInset = useKeyboardInset()
   const [input, setInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -61,8 +56,6 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
 
   const hasStarted = messages.length > 0
   const activeSuggestions = hasStarted ? suggestions : INITIAL_SUGGESTIONS
-
-  // the loading phrase yields as soon as the answer starts, so the two never stack
   const lastMessage = messages[messages.length - 1]
   const isAwaitingFirstToken = isLoading && !lastMessage?.content
 
@@ -107,6 +100,7 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
         aria-modal="true"
         aria-label={`Chat with ${CHAT_NAME}`}
         inert={!isOpen}
+        style={keyboardInset ? { paddingBottom: keyboardInset + 16 } : undefined}
         className={`bg-chat-bg fixed inset-y-0 right-0 z-50 flex w-full flex-col gap-4 p-4 transition-[translate,opacity,visibility] duration-300 ease-out motion-reduce:transition-none sm:w-120 ${
           isOpen ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-full opacity-0'
         }`}
@@ -175,7 +169,7 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-chat-surface flex items-center justify-between gap-2 rounded-[30px] px-6 py-4"
+          className="bg-chat-surface mb-[env(safe-area-inset-bottom)] flex items-center justify-between gap-2 rounded-[30px] px-6 py-4"
         >
           <input
             ref={inputRef}

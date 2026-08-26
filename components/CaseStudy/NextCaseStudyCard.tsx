@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function NextCaseStudyCard({ project }: Props) {
-  const { slug, title, cover, coverType, cardCategory, cardTitle, cardTags } = project
+  const { slug, title, cover, coverType, cardCategory, cardTitle, cardSummary } = project
   const isVideo = coverType === 'video' || cover.toLowerCase().endsWith('.mp4')
 
   return (
@@ -22,10 +22,10 @@ export default function NextCaseStudyCard({ project }: Props) {
             {cardTitle}
           </h3>
           <p className="w-full lg:text-right text-base md:text-lg font-normal font-sans text-tertiary">
-            {cardTags?.join(' · ')}
+            {cardSummary}
           </p>
         </div>
-        <div className="relative w-full lg:w-100 lg:shrink-0 overflow-hidden rounded-xl bg-secondary aspect-6/5">
+        <div className="relative w-full lg:w-100 lg:shrink-0 overflow-hidden bg-secondary aspect-6/5">
           {isVideo ? (
             <AutoPlayVideo
               src={cover}

@@ -1,20 +1,14 @@
-/**
- * Pseudo-routes for interactions Vercel Analytics can't see: the Hobby plan has no custom
- * events, but it does count a page view whenever the URL changes. Firing one of these reports
- * a click as a view (see lib/analytics.ts).
- *
- * The /e/ prefix keeps them grouped apart from real pages in the dashboard, and
- * next.config.ts redirects it so a stray visit never 404s.
- *
- * Cost per tracked click: two page views — the pseudo-route and the restored real one. Only
- * instrument what you'd actually act on.
- */
-export const ANALYTICS_ROUTES = {
-  workNav: '/e/work',
-  productDesign: '/e/product-design',
-  visualDesign: '/e/visual-design',
-  chatOpen: '/e/catarsis-chat',
-  resume: '/e/resume',
+/** Umami Cloud script. The website id is public — it ships in the client tag. */
+export const UMAMI_SRC = 'https://cloud.umami.is/script.js'
+export const UMAMI_WEBSITE_ID = '066dc0e7-ac3f-4b57-8345-5bc19b4bb25b'
+
+/** Custom events reported to Umami, for clicks that don't produce a page view. */
+export const ANALYTICS_EVENTS = {
+  workNav: 'work-nav',
+  productDesign: 'product-design',
+  visualDesign: 'visual-design',
+  chatOpen: 'catarsis-chat',
+  resume: 'resume',
 } as const
 
-export type AnalyticsRoute = (typeof ANALYTICS_ROUTES)[keyof typeof ANALYTICS_ROUTES]
+export type AnalyticsEvent = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS]
