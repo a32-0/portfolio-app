@@ -1,5 +1,3 @@
-/** Shared inline icons — one definition per glyph, sized for IconButton's 48px circle. */
-
 const iconProps = {
   width: 20,
   height: 20,

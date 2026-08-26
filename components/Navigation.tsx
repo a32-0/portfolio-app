@@ -1,7 +1,7 @@
 'use client'
 
 import type { MouseEvent } from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -14,8 +14,8 @@ import Container from '@/components/Container'
 import ChatDrawer from '@/components/Chat/ChatDrawer'
 import { useChatStream } from '@/components/Chat/useChatStream'
 import { useSiteNav } from '@/components/SiteNavProvider'
-import { ANALYTICS_ROUTES } from '@/data/analytics'
-import { trackRoute } from '@/lib/analytics'
+import { ANALYTICS_EVENTS } from '@/data/analytics'
+import { trackEvent } from '@/lib/analytics'
 
 const WORK_HREF = '/#work'
 
@@ -25,6 +25,13 @@ export default function Navigation() {
   const [isFooterVisible, setIsFooterVisible] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
+  const scrollLock = useRef<{
+    overflow: string
+    position: string
+    top: string
+    width: string
+    offset: number
+  } | null>(null)
   // owned here, not in ChatDrawer, so the conversation survives closing the drawer
   const chat = useChatStream()
   const { isWorkDark, setActiveWorkView } = useSiteNav()
@@ -40,8 +47,6 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Render-time state adjustment (not an effect): closes the menu when the
-  // route changes underneath it, e.g. browser back/forward while open.
   const [menuPathname, setMenuPathname] = useState(pathname)
   if (menuPathname !== pathname) {
     setMenuPathname(pathname)
@@ -60,26 +65,60 @@ export default function Navigation() {
     return () => window.removeEventListener('keydown', onKey)
   }, [isMenuOpen, isChatOpen])
 
+  // Releasing the scroll lock has to happen before a navigation commits: a fixed body
+  // swallows the router's scroll to the hash, and restoring the offset undoes it.
+  const releaseScrollLock = (restoreScroll: boolean) => {
+    const lock = scrollLock.current
+    if (!lock) return
+    scrollLock.current = null
+
+    const { body } = document
+    body.style.overflow = lock.overflow
+    body.style.position = lock.position
+    body.style.top = lock.top
+    body.style.width = lock.width
+    if (restoreScroll) window.scrollTo({ top: lock.offset, behavior: 'instant' })
+  }
+
   useEffect(() => {
     if (!isMenuOpen && !isChatOpen) return
-    const previous = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = previous
+
+    const { body } = document
+    const offset = window.scrollY
+    scrollLock.current = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      offset,
     }
+
+    body.style.overflow = 'hidden'
+    body.style.position = 'fixed'
+    body.style.top = `-${offset}px`
+    body.style.width = '100%'
+
+    return () => releaseScrollLock(true)
   }, [isMenuOpen, isChatOpen])
 
+  useEffect(() => {
+    if (!isChatOpen) return
+    document.documentElement.classList.add('chat-open')
+    return () => document.documentElement.classList.remove('chat-open')
+  }, [isChatOpen])
+
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isHome = pathname === '/'
+    releaseScrollLock(isHome)
     setIsMenuOpen(false)
-    if (pathname === '/') {
+    setIsChatOpen(false)
+    if (isHome) {
       event.preventDefault()
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
-  // Routes that render on a light background need the nav inverted from the start.
   const isLightPage = pathname.startsWith('/work/') || pathname === '/about'
-  // The work views only exist on the home route.
   const onDarkWork = isWorkDark && pathname === '/'
   const solid = isScrolled || isMenuOpen
 
@@ -98,6 +137,19 @@ export default function Navigation() {
   const contactLink = navLinks.find((link) => link.external)
 
   const closeMenu = () => setIsMenuOpen(false)
+
+  // In-app links: the destination owns the scroll, so the locked offset is dropped.
+  // Both overlays close, otherwise the one left open locks the body again mid-navigation.
+  const handleNavigate = (href: string) => {
+    releaseScrollLock(false)
+    setIsMenuOpen(false)
+    setIsChatOpen(false)
+    if (href !== WORK_HREF) return
+    setActiveWorkView('product')
+    trackEvent(ANALYTICS_EVENTS.workNav)
+    // The router raises no scroll intent for the URL it is already on
+    if (pathname === '/') document.getElementById('work')?.scrollIntoView()
+  }
 
   return (
     <nav
@@ -118,18 +170,12 @@ export default function Navigation() {
             <Link
               key={link.label}
               href={link.href}
-              onClick={() => {
-                if (link.href !== WORK_HREF) return
-                setActiveWorkView('product')
-                trackRoute(ANALYTICS_ROUTES.workNav)
-              }}
+              onClick={() => handleNavigate(link.href)}
               className="hidden md:inline link-hover-underline hover:opacity-70"
             >
               {link.label}
             </Link>
           ))}
-
-          {/* wrapper carries visibility: a `hidden` on Button loses to its own `flex` */}
           {contactLink && (
             <div className="hidden md:block">
               <Button
@@ -146,7 +192,7 @@ export default function Navigation() {
           <Button
             variant="gradient"
             onClick={() => {
-              if (!isChatOpen) trackRoute(ANALYTICS_ROUTES.chatOpen)
+              if (!isChatOpen) trackEvent(ANALYTICS_EVENTS.chatOpen)
               setIsChatOpen((open) => !open)
             }}
             aria-expanded={isChatOpen}
@@ -176,12 +222,7 @@ export default function Navigation() {
               <Link
                 key={link.label}
                 href={link.href}
-                onClick={() => {
-                  closeMenu()
-                  if (link.href !== WORK_HREF) return
-                  setActiveWorkView('product')
-                  trackRoute(ANALYTICS_ROUTES.workNav)
-                }}
+                onClick={() => handleNavigate(link.href)}
                 className="py-2 text-3xl link-hover-underline hover:opacity-70"
               >
                 {link.label}
