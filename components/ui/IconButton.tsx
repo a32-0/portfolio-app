@@ -7,11 +7,17 @@ type Props = {
   type?: 'button' | 'submit'
   disabled?: boolean
   className?: string
+  size?: 'md' | 'sm'
   'aria-expanded'?: boolean
 }
 
 const BASE_CLASSES =
-  'bg-primary text-white flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-opacity hover:opacity-80 disabled:pointer-events-none disabled:opacity-40'
+  'bg-primary text-white flex shrink-0 items-center justify-center rounded-full transition-opacity hover:opacity-80 disabled:pointer-events-none disabled:opacity-40'
+
+const SIZE_CLASSES = {
+  md: 'h-12 w-12',
+  sm: 'h-8 w-8',
+}
 
 export default function IconButton({
   children,
@@ -20,15 +26,17 @@ export default function IconButton({
   type = 'button',
   disabled,
   className,
+  size = 'md',
   ...aria
 }: Props) {
+  const classes = `${BASE_CLASSES} ${SIZE_CLASSES[size]}${className ? ` ${className}` : ''}`
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
       aria-label={label}
-      className={className ? `${BASE_CLASSES} ${className}` : BASE_CLASSES}
+      className={classes}
       {...aria}
     >
       {children}
