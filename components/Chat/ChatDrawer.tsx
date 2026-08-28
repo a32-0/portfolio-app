@@ -49,7 +49,7 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
   const { messages, suggestions, sendMessage, isLoading, error } = chat
   const keyboardInset = useKeyboardInset()
   const [input, setInput] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const [loadingPhrase, setLoadingPhrase] = useState(LOADING_PHRASES[0])
@@ -85,12 +85,19 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
     submit()
   }
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault()
       submit()
     }
   }
+
+  useEffect(() => {
+    const el = inputRef.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${el.scrollHeight}px`
+  }, [input])
 
   return (
     <>
@@ -112,16 +119,16 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
           isOpen ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-full opacity-0'
         }`}
       >
-        <div className="bg-chat-surface text-chat-text flex items-center justify-between rounded-[30px] p-6">
+        <div className="bg-chat-surface text-chat-text flex h-12 shrink-0 items-center justify-between rounded-[30px] px-6 sm:h-20">
           <span className="text-[18px]">{CHAT_NAME}</span>
-          <IconButton onClick={onClose} label="Close chat">
+          <IconButton onClick={onClose} label="Close chat" size="sm" className="sm:h-12 sm:w-12">
             <CloseIcon />
           </IconButton>
         </div>
 
         <div
           ref={scrollRef}
-          className="chat-scroll flex flex-1 flex-col gap-2 overflow-y-auto pr-2"
+          className="chat-scroll flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto pr-2"
         >
           {!hasStarted && <BotRow className="text-chat-text">{CHAT_WELCOME_MESSAGE}</BotRow>}
 
@@ -176,20 +183,29 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-chat-surface mb-[env(safe-area-inset-bottom)] flex items-center justify-between gap-2 rounded-[30px] px-6 py-4"
+          className="bg-chat-surface mb-[env(safe-area-inset-bottom)] flex shrink-0 items-center gap-6 rounded-[30px] px-6 py-2 sm:min-h-20 sm:py-4"
         >
-          <input
+          <textarea
             ref={inputRef}
+            rows={1}
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask about Armando..."
             maxLength={1500}
-            className="text-chat-text placeholder:text-chat-text-dim flex-1 bg-transparent text-base outline-none"
+            className="text-chat-text placeholder:text-chat-text-dim max-h-42.75 flex-1 resize-none overflow-y-auto bg-transparent text-base outline-none sm:max-h-38.75"
           />
-          <IconButton type="submit" disabled={isLoading || !input.trim()} label="Send message">
-            <ArrowUpIcon />
-          </IconButton>
+          <div className="flex shrink-0 items-end self-stretch sm:self-auto">
+            <IconButton
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              label="Send message"
+              size="sm"
+              className="sm:h-12 sm:w-12"
+            >
+              <ArrowUpIcon />
+            </IconButton>
+          </div>
         </form>
       </div>
     </>
