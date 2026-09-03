@@ -26,18 +26,6 @@ export const projects: Project[] = [
     cardSummary: 'Reducing average session time from 35 minutes to under 3 minutes.',
   },
   {
-    slug: 'whatsapp-liverpool',
-    title: 'WhatsApp',
-    cover: '/images/projects/whatsapp-liverpool/cover.png',
-    featured: true,
-    caseStudy: true,
-    archived: false,
-    cardCategory: 'WhatsApp Business Platform',
-    cardTitle:
-      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users.',
-    cardSummary: 'Designed entirely without a traditional interface.',
-  },
-  {
     slug: 'connect-liverpool',
     title: 'Connect',
     cover: '/images/projects/connect-liverpool/cover.png',
@@ -48,6 +36,18 @@ export const projects: Project[] = [
     cardTitle:
       "Designing Liverpool's next-generation sales tool for 40+ agents processing up to ~$3M MXN in daily revenue.",
     cardSummary: 'From an undefined brief to a validated, production-ready system.',
+  },
+  {
+    slug: 'whatsapp-liverpool',
+    title: 'WhatsApp',
+    cover: '/images/projects/whatsapp-liverpool/cover.png',
+    featured: true,
+    caseStudy: true,
+    archived: false,
+    cardCategory: 'WhatsApp Business Platform',
+    cardTitle:
+      'Transforming an agent-assisted support channel into a scalable self-service product serving ~29K daily users.',
+    cardSummary: 'Designed entirely without a traditional interface.',
   },
   {
     slug: 'little-lemon',
