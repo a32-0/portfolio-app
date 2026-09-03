@@ -73,14 +73,18 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
           ref={scrollRef}
           className="chat-scroll flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto pr-2"
         >
-          {!hasStarted && <WelcomeMessage>{CHAT_WELCOME_MESSAGE}</WelcomeMessage>}
+          {!hasStarted && <WelcomeMessage isLive={isOpen}>{CHAT_WELCOME_MESSAGE}</WelcomeMessage>}
 
           {messages.map((message) =>
             message.role === 'user' ? (
               <UserMessage key={message.id}>{message.content}</UserMessage>
             ) : (
               message.content.length > 0 && (
-                <BotMessage key={message.id} className="text-chat-text whitespace-pre-wrap">
+                <BotMessage
+                  key={message.id}
+                  className="text-chat-text whitespace-pre-wrap"
+                  isThinking={isLoading && message.id === lastMessage?.id}
+                >
                   {message.content}
                 </BotMessage>
               )
@@ -88,7 +92,7 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
           )}
 
           {isAwaitingFirstToken && (
-            <BotMessage className="text-chat-text-muted">
+            <BotMessage className="text-chat-text-muted" isThinking>
               {loadingPhrase}
               <span aria-hidden="true">
                 <span className="ellipsis-dot">.</span>
