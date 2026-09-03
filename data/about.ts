@@ -22,6 +22,6 @@ export const aboutSection: AboutSection = {
       { text: 'Ilum', href: 'https://www.linkedin.com/company/ilum-prosperity-sherpas/' },
       ', I shipped across fintech, logistics SaaS, healthtech, and consumer apps.',
     ],
-    'What drives me is the distance between how hard something is to build and how effortless it should feel to use. In a past life I wrote code — and it shows.',
+    'What drives me is the gap between how hard something is to build and how simple it should feel to use. I used to write code, and it still shapes how I design.',
   ],
 }
