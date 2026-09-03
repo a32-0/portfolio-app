@@ -6,7 +6,7 @@ export const invoiceLiverpool: CaseStudy = {
   subtitle:
     "A legally sensitive, high-traffic flow that averaged 35 minutes per session. The fix wasn't just the UI.",
   overview:
-    "Liverpool's invoicing portal serves 184,000+ users per month. These are people who need to generate a legal fiscal receipt after a purchase. In Mexico, invoicing is a legally sensitive process: customers submit their RFC tax ID, fiscal regime, and personal data to receive a CFDI, a document with real legal and financial implications. Getting it wrong means calling support. Getting it very wrong means missing a tax deadline. When the redesign project landed on my plate, the portal averaged 35 minutes per session and required over 10 page navigations to complete a task that should take under 3.",
+    "Liverpool's invoicing portal serves 184,000+ users a month. These are people trying to get a legal fiscal receipt after a purchase. In Mexico, invoicing carries real weight: customers submit their RFC tax ID, fiscal regime, and personal data to receive a CFDI, a document with actual legal and financial consequences. Get it wrong and you're calling support. Get it very wrong and you miss a tax deadline. When this redesign landed on my desk, the portal averaged 35 minutes per session and took over 10 page navigations to finish something that should take under 3.",
   metrics: [
     { value: '−92%', label: 'Avg. session duration', delta: '35:10 → 2:56 min' },
     { value: '−72%', label: 'Pages per visit', delta: '10.63 → 2.93 pages' },
@@ -22,14 +22,14 @@ export const invoiceLiverpool: CaseStudy = {
       imageWidth: 1832,
       imageHeight: 2772,
       body: [
-        "The invoicing portal existed as a separate subdomain from Liverpool's main e-commerce site. Users would arrive from their purchase history or by searching directly. What they found was a fragmented experience: two separate portals depending on the type of purchase, inconsistent UI, poor error messaging, and no clear progress indicators.",
-        "A 35-minute average session on a form that should take 3 minutes is not a UX problem. It's a signal of structural failure. Users were navigating dead ends, retrying failed submissions without understanding why they failed, and in many cases giving up entirely.",
+        "The invoicing portal lived on a separate subdomain from Liverpool's main e-commerce site. Users landed there from their purchase history or by searching directly, and what they found was fragmented: two separate portals depending on the type of purchase, inconsistent UI, poor error messaging, no clear sense of progress.",
+        "A 35-minute average on a form that should take 3 isn't a UX problem you fix with polish. It's a sign something structural is broken. Users hit dead ends, retried failed submissions without knowing why they'd failed, and often gave up entirely.",
       ],
       subsections: [
         {
           title: 'Why invoicing is unusually complex',
           body: [
-            "Most redesign briefs involve simplifying a flow. This one had an additional constraint: the process involves legally mandated fields (RFC, fiscal regime, CFDI use) that can't simply be removed. Every simplification had to work within Mexico's fiscal compliance requirements, which means the design problem was not \"remove steps\" but \"make necessary complexity feel manageable.\" This distinction shaped every decision that followed.",
+            "Most redesign briefs are about simplifying a flow. This one had an extra constraint: the process runs on legally mandated fields (RFC, fiscal regime, CFDI use) that can't just be cut. Every simplification had to fit inside Mexico's fiscal compliance rules, so the actual problem wasn't \"remove steps,\" it was \"make necessary complexity feel manageable.\" That distinction shaped everything that came after.",
           ],
         },
       ],
@@ -39,38 +39,38 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'Research',
       title: 'Multi-method, multi-source',
       body: [
-        'Before touching the design, I ran a research sprint combining four methods to understand the problem from different angles.',
+        'Before touching the design, I ran a research sprint combining four methods to look at the problem from different angles.',
       ],
       subsections: [
         {
           title: 'Heuristic evaluation',
           body: [
-            "A Nielsen-based audit of the existing portal identified the most critical failure points immediately: no system feedback after invoice generation, a search icon that didn't behave like a button, tooltips that redirected users away from the portal entirely, and no email confirmation. These weren't edge cases. They were core flow failures that affected every user on every visit.",
+            "A Nielsen-based audit of the existing portal turned up the worst problems fast: no feedback after invoice generation, a search icon that didn't behave like a button, tooltips that redirected users off the portal entirely, no email confirmation. These weren't edge cases. They broke the core flow for every single user, every time.",
           ],
         },
         {
           title: 'A/B usability testing, unmoderated and remote via Maze',
           body: [
-            'I tested two redesigned proposals with 14 participants across devices (85.7% desktop, reflecting actual traffic patterns). The results gave a clear directional signal: Proposal 1 averaged 67.9 sec completion with 4.8/5 satisfaction but a 58.6% misclick rate. Proposal 2 averaged 86.2 sec with 4.5/5 satisfaction and a 28.2% misclick rate.',
-            'Proposal 1 was faster and better-rated, but the misclick analysis revealed a specific issue: the RFC search trigger was styled as an icon, not a button. That single affordance failure was responsible for the majority of misclicks. A fixable problem, not a structural one.',
+            'I tested two redesigned proposals with 14 participants across devices (85.7% desktop, matching actual traffic). The results pointed in a clear direction: Proposal 1 averaged 67.9 sec completion with 4.8/5 satisfaction but a 58.6% misclick rate. Proposal 2 averaged 86.2 sec with 4.5/5 satisfaction and a 28.2% misclick rate.',
+            'Proposal 1 was faster and rated higher, but the misclick data pointed at one specific issue: the RFC search trigger looked like an icon, not a button. That single affordance mistake accounted for most of the misclicks. Fixable, not structural.',
           ],
         },
         {
           title: 'Contact center interview',
           body: [
-            "A direct interview with a contact center agent at Liverpool provided unfiltered insight into the most common failure scenarios: users who didn't understand the difference between fiscal person types, users who submitted wrong data and couldn't find a way to correct it, and users who never received their invoice by email and assumed the process had failed. Agents were absorbing the cost of every UX failure.",
+            "A direct interview with a Liverpool contact center agent gave me unfiltered insight into the most common failures: users who didn't understand the difference between fiscal person types, users who submitted wrong data with no way to correct it, users who never got their invoice by email and assumed the whole thing had failed. Agents were absorbing the cost of every one of these failures.",
           ],
         },
         {
           title: 'Competitive benchmarking',
           body: [
-            "I evaluated five retail competitors (Costco, Sam's Club, Walmart, Palacio de Hierro, and Alsuper) across four dimensions: invoicing access location, number of required steps, help tools, and visual consistency. The conclusion was direct: Liverpool's portal was more visually modern than most competitors, but required significantly more steps and offered fewer help mechanisms.",
+            "I looked at five retail competitors (Costco, Sam's Club, Walmart, Palacio de Hierro, and Alsuper) across four dimensions: where invoicing lives, how many steps it takes, what help tools exist, and visual consistency. The finding was straightforward: Liverpool's portal looked more modern than most competitors, but took more steps and offered less help along the way.",
           ],
         },
         {
           title: 'Traffic analysis via SimilarWeb',
           body: [
-            '50% of visits were direct, meaning users knew where to go. But once they arrived, the behavior patterns were all wrong. An average of 10.63 pages per visit with a 35-minute session duration on a simple form pointed to one thing: users were getting lost and retrying, not browsing intentionally.',
+            "Half of all visits were direct, meaning people knew where to go. But once they arrived, the behavior fell apart. An average of 10.63 pages per visit and a 35-minute session on what should be a simple form meant one thing: people were getting lost and retrying, not browsing on purpose.",
           ],
         },
       ],
@@ -83,16 +83,16 @@ export const invoiceLiverpool: CaseStudy = {
       imageWidth: 1832,
       imageHeight: 1548,
       body: [
-        'The original project scope was clear: redesign the invoicing portal for internal merchandise purchases. What nobody had documented, or apparently noticed, was that Liverpool actually had two separate invoicing portals serving different purchase types, and that users were regularly landing on the wrong one.',
-        "A customer who bought from a Liverpool marketplace seller would arrive at the internal portal, enter their data, and get an error with no explanation of why or where to go next. The system knew. It just didn't tell them. When I mapped the full user journey, this fragmentation was the single largest source of confusion in the flow.",
+        'The original brief was clear: redesign the invoicing portal for internal merchandise purchases. What nobody had documented, or seemingly noticed, was that Liverpool ran two separate invoicing portals for different purchase types, and users kept landing on the wrong one.',
+        "A customer who bought from a Liverpool marketplace seller would show up at the internal portal, enter their data, and get an error with no explanation of why or where to go instead. The system knew what had happened. It just never told them. Once I mapped the full journey, this split turned out to be the single biggest source of confusion in the whole flow.",
       ],
       subsections: [
         {
           title: 'The pushback',
           body: [
-            'When I brought the portal unification proposal to the development team, the response was resistance. The two portals ran on different backend systems, and the engineering coordinator argued that unifying them was out of scope, technically complex, and unnecessary. Users could just be redirected.',
-            "My argument was that redirection is not a design solution. A user who has already entered their RFC and personal data, gets an error, and is then redirected to start over on a different portal has experienced a failure, regardless of whether the technical handoff worked. The burden of understanding Liverpool's internal architecture should not fall on the customer.",
-            'The discussion was not easy. But the argument held, the product lead supported the unification, and the decision was made to build a single unified portal. This was not in the original brief. It was identified through research, argued through reasoning, and implemented despite organizational resistance. It is also almost certainly the single biggest driver of the post-launch results.',
+            'When I brought the idea of unifying the portals to the development team, I got resistance. The two ran on different backend systems, and the engineering coordinator argued unification was out of scope, technically messy, and unnecessary. Users could just get redirected.',
+            "My argument was that redirection isn't a design solution. A user who has already entered their RFC and personal data, hits an error, and gets sent to start over on a different portal has already had a bad experience, whether or not the handoff worked correctly on the backend. Liverpool's internal architecture shouldn't be the customer's problem to figure out.",
+            'That conversation wasn\'t easy. But the argument held, the product lead backed the unification, and we built a single portal instead of two. It wasn\'t in the original brief. It came out of research, got argued through on its merits, and got built despite pushback, and it\'s almost certainly the single biggest driver behind the results after launch.',
           ],
         },
       ],
@@ -109,25 +109,25 @@ export const invoiceLiverpool: CaseStudy = {
         {
           title: 'Unified single-form experience',
           body: [
-            'One portal, one flow, one entry point. Users enter their invoicing code, whichever type it is, and the system handles classification silently. No decision required from the user upfront about portal type or merchandise category.',
+            'One portal, one flow, one entry point. Users enter their invoicing code, whatever type it is, and the system classifies it silently in the background. No upfront decision from the user about portal type or merchandise category.',
           ],
         },
         {
           title: 'Progressive disclosure for fiscal fields',
           body: [
-            "Mexico's fiscal data requirements are mandatory but confusing for many users. Rather than displaying all fields simultaneously, the redesign introduced a sequential reveal: ticket data first, fiscal identification second, personal data third. Each section is digestible on its own. The complexity is the same; the cognitive load is distributed.",
+            "Mexico's fiscal data requirements are mandatory and, for a lot of people, confusing. Instead of showing every field at once, the redesign reveals them in sequence: ticket data first, fiscal identification second, personal data third. Each section is manageable on its own. The complexity didn't go away, but it's no longer all hitting the user at the same time.",
           ],
         },
         {
           title: 'Actionable error states and system feedback',
           body: [
-            'The heuristic audit had identified the absence of feedback as a core failure. The redesign introduced clear confirmation of invoice generation, explicit error messages tied to specific fields with recovery instructions, and email confirmation as a default, not an option. Users needed to know the system had heard them.',
+            'The heuristic audit flagged missing feedback as a core failure. The redesign added clear confirmation when an invoice generates, specific error messages tied to the exact field that failed along with how to fix it, and email confirmation by default instead of as an afterthought. Users needed to know the system had actually registered what they did.',
           ],
         },
         {
           title: 'RFC field interaction fix',
           body: [
-            'The misclick analysis from the A/B test pointed directly at the RFC search trigger. The icon was redesigned as a clearly interactive button with an explicit label, eliminating the affordance ambiguity that had generated the majority of misclicks in testing.',
+            'The misclick data from the A/B test pointed straight at the RFC search trigger. The icon became a clearly interactive button with an explicit label, which removed the ambiguity that had caused most of the misclicks in testing.',
           ],
         },
       ],
@@ -140,15 +140,15 @@ export const invoiceLiverpool: CaseStudy = {
       imageWidth: 1832,
       imageHeight: 1412,
       body: [
-        'The results measured via SimilarWeb approximately one year post-launch show a fundamental change in how users interact with the portal.',
-        'Average session duration dropped from 35:10 to 2:56, a 92% reduction. Pages per visit dropped from 10.63 to 2.93, a 72% reduction. Bounce rate remained stable at around 37%, confirming that the reduction in session time reflects task completion, not earlier abandonment.',
-        "A 92% reduction in session time on a legally sensitive, high-volume flow is not just a UX metric. It's a business metric. Every minute saved across 184,000 monthly users is a direct reduction in friction, support load, and user frustration.",
+        'The results, measured via SimilarWeb roughly a year after launch, show a real shift in how people use the portal.',
+        'Average session duration dropped from 35:10 to 2:56, a 92% reduction. Pages per visit dropped from 10.63 to 2.93, a 72% reduction. Bounce rate held steady around 37%, which confirms the shorter sessions mean people are finishing the task, not giving up sooner.',
+        "A 92% drop in session time on a legally sensitive, high-volume flow isn't just a UX number. It's a business one. Every minute saved across 184,000 monthly users is friction, support load, and frustration removed at scale.",
       ],
       subsections: [
         {
           title: "What the numbers don't capture",
           body: [
-            "The unification of the two portals eliminated an entire category of user error that was previously invisible in the data: users who failed silently and never returned. There's no metric for the person who gave up, called support, or simply didn't invoice their purchase. The portal unification addressed a problem that hadn't been measured, which makes it both the hardest decision to argue for and the one with the deepest impact.",
+            "Unifying the two portals removed an entire category of error that never showed up in the data before: people who failed silently and never came back. There's no metric for someone who gave up, called support, or just never invoiced their purchase. That's what made the portal unification the hardest call to argue for, and the one with the deepest impact.",
           ],
         },
       ],
@@ -158,9 +158,9 @@ export const invoiceLiverpool: CaseStudy = {
       label: 'Learnings',
       title: 'What this project taught me',
       body: [
-        "The most valuable design decision in this project wasn't in the original brief. It came from looking at the problem at a system level rather than accepting the scope as defined. A designer who only redesigns what they're asked to redesign will produce better screens. A designer who questions whether the screens are the right problem will occasionally produce something that actually changes the outcome.",
-        'The resistance from the development team was real, and it required sustained argument over multiple conversations. What made the argument winnable was that it was grounded in user behavior data, not design preference, and that the counterargument had a clear and measurable human cost.',
-        "Research doesn't just answer the questions you ask. If you're paying attention, it also shows you the questions you should have asked.",
+        "The most valuable decision on this project wasn't in the brief. It came from looking at the problem at a system level instead of accepting the scope as given. A designer who only redesigns what they're handed will produce better screens. A designer who asks whether the screens are even the right problem will occasionally change the actual outcome.",
+        'The resistance from development was real, and it took several conversations to work through. What made the argument work was that it came from user behavior data, not design preference, and that the alternative had a clear, measurable human cost attached to it.',
+        "Research doesn't just answer the questions you brought to it. Pay attention and it'll show you the questions you should have asked in the first place.",
       ],
     },
   ],
