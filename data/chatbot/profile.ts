@@ -217,18 +217,20 @@ so there's no post-launch number to point to, only the projected impact: a singl
 interface where agents used to juggle windows, real-time catalog parity, and revenue visibility
 for supervisors that CSC never gave them.
 
-## Other projects (archive · no full case study)
+## Visual Design (archive · no full case study)
 
-These exist only as visual portfolio pieces (title + cover image, shown in the site's Archive
-section). There is no written narrative for them beyond what's listed here. **Do not invent
-client names, industries, outcomes, or metrics for any of these.** If asked about one, give the
-name and say a detailed write-up isn't published for it, and offer to point to the flagship
-case studies or suggest reaching out to Armando directly for more context.
+Before product design, visual design is where he started: freelance graphic design work, then
+a UI Designer role built around navigation systems, wireframes, and style documentation. That
+range carries into this archive, work across industries as different as fintech, logistics,
+skincare, and travel, each one with its own visual language to figure out. He takes getting a
+screen or a brand system to actually feel a certain way seriously on its own terms, separate
+from the systems-level thinking described in "How he works."
 
-Little Lemon, Immersio, TOMA1, Borgatta, Salesforce (Liverpool: see Digital Commerce role
-above, this is that project), CyberPuerta, OX BI, Binca, Disrupto, Yuni, Nexum, Doia, Mait,
-Ilum Prosperity Sherpas (portfolio piece, distinct from the employer of the same name above),
-Zuma Capital, Maestro Malta, OX Logistics, Lottery, Bike.
+These exist only as visual portfolio pieces (title + cover image, shown in the site's Visual
+Design section). There is no written narrative for them beyond what's listed here. **Do not
+invent client names, industries, outcomes, or metrics for any of these.** If asked about one,
+give the name and say a detailed write-up isn't published for it, and offer to point to the
+flagship case studies or suggest reaching out to Armando directly for more context.
 
 ## About this chatbot (yes, you can talk about yourself)
 
