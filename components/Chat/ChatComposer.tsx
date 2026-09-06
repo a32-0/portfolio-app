@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type FormEvent, type KeyboardEvent } from 'react'
+import { CHAT_DISCLAIMER, CHAT_INPUT_PLACEHOLDER } from '@/data/chatbot/ui'
 import IconButton from '@/components/ui/IconButton'
 import { ArrowUpIcon } from '@/components/ui/icons'
 
@@ -39,31 +40,34 @@ export default function ChatComposer({ value, onChange, onSubmit, isLoading, foc
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-chat-surface mb-[env(safe-area-inset-bottom)] flex shrink-0 items-center gap-6 rounded-[30px] px-6 py-2 sm:min-h-20 sm:py-4"
-    >
-      <textarea
-        ref={inputRef}
-        rows={1}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Ask about Armando..."
-        maxLength={1500}
-        className="text-chat-text placeholder:text-chat-text-dim max-h-42.75 flex-1 resize-none overflow-y-auto bg-transparent text-base outline-none sm:max-h-38.75"
-      />
-      <div className="flex shrink-0 items-end self-stretch sm:self-auto">
-        <IconButton
-          type="submit"
-          disabled={isLoading || !value.trim()}
-          label="Send message"
-          size="sm"
-          className="sm:h-12 sm:w-12"
-        >
-          <ArrowUpIcon />
-        </IconButton>
-      </div>
-    </form>
+    <div className="mb-[env(safe-area-inset-bottom)] flex shrink-0 flex-col gap-1">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-chat-surface flex items-center gap-6 rounded-[30px] px-6 py-2 sm:min-h-20 sm:py-4"
+      >
+        <textarea
+          ref={inputRef}
+          rows={1}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder={CHAT_INPUT_PLACEHOLDER}
+          maxLength={1500}
+          className="text-chat-text placeholder:text-chat-text-dim max-h-42.75 flex-1 resize-none overflow-y-auto bg-transparent text-base outline-none sm:max-h-38.75"
+        />
+        <div className="flex shrink-0 items-end self-stretch sm:self-auto">
+          <IconButton
+            type="submit"
+            disabled={isLoading || !value.trim()}
+            label="Send message"
+            size="sm"
+            className="sm:h-12 sm:w-12"
+          >
+            <ArrowUpIcon />
+          </IconButton>
+        </div>
+      </form>
+      <p className="text-chat-text-dim text-center text-xs">{CHAT_DISCLAIMER}</p>
+    </div>
   )
 }
