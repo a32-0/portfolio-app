@@ -7,18 +7,17 @@ export default function SuggestionsList({ suggestions, onSelect }: Props) {
   if (suggestions.length === 0) return null
 
   return (
-    <>
-      <div className="border-chat-divider my-2 border-t" />
+    <div className="mt-2 flex flex-col gap-3">
       {suggestions.map((prompt) => (
         <button
           key={prompt}
           type="button"
           onClick={() => onSelect(prompt)}
-          className="text-chat-text-muted rounded-[30px] px-4 py-3 text-left text-base transition-colors hover:bg-white/5"
+          className="bg-chat-surface text-chat-text-muted rounded-[30px] px-4 py-3 text-left text transition-colors hover:bg-white/5"
         >
           ↳ {prompt}
         </button>
       ))}
-    </>
+    </div>
   )
 }

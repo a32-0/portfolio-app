@@ -28,3 +28,8 @@ export const LOADING_PHRASES = [
   'Consulting the source directly',
   'Flipping back through the portfolio',
 ]
+
+/** Sits under the composer. */
+export const CHAT_DISCLAIMER = 'Answers may be wrong.'
+
+export const CHAT_INPUT_PLACEHOLDER = 'Ask about Armando...'
