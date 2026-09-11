@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navLinks } from '@/data/navigation'
-import { CHAT_NAME } from '@/data/chatbot/ui'
+import { CHAT_CTA } from '@/data/chatbot/ui'
 import Button from '@/components/ui/Button'
 import IconButton from '@/components/ui/IconButton'
 import Logo from '@/components/ui/Logo'
@@ -122,9 +122,8 @@ export default function Navigation() {
               setIsChatOpen((open) => !open)
             }}
             aria-expanded={isChatOpen}
-            aria-label={isChatOpen ? 'Close chat' : `Open ${CHAT_NAME} chat`}
           >
-            {CHAT_NAME}
+            {CHAT_CTA}
           </Button>
 
           <div className="md:hidden">
