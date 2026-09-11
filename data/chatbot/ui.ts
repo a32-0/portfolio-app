@@ -5,6 +5,9 @@ export const CHAT_NAME = 'CatarsisLLM'
 /** Split for the header, where "Catarsis" and "LLM" render in different font weights. */
 export const CHAT_NAME_PARTS = { primary: 'Catarsis', secondary: 'LLM' }
 
+/** Label of the button that opens the drawer. A CTA, not the bot's name. */
+export const CHAT_CTA = 'Ask about Armando'
+
 export const CHAT_WELCOME_MESSAGE =
   "Hey there! I'm CatarsisLLM, Armando's assistant. Ask me anything about his experience, projects, or how to get in touch."
 
