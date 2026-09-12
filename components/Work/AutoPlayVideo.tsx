@@ -9,10 +9,19 @@ type Props = {
   className?: string
   width?: number
   height?: number
+  poster?: string
 }
 
 // Plays the video when visible and pauses when it exits viewport.
-export default function AutoPlayVideo({ src, alt, title, className, width, height }: Props) {
+export default function AutoPlayVideo({
+  src,
+  alt,
+  title,
+  className,
+  width,
+  height,
+  poster,
+}: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
   useEffect(() => {
@@ -43,11 +52,12 @@ export default function AutoPlayVideo({ src, alt, title, className, width, heigh
       src={src}
       width={width}
       height={height}
+      poster={poster}
       style={width && height ? { aspectRatio: `${width} / ${height}` } : undefined}
       playsInline
       loop
       muted
-      preload="metadata"
+      preload="none"
       className={className ?? 'h-auto w-full'}
       aria-label={alt ?? title}
     />
