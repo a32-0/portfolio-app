@@ -5,6 +5,7 @@ export type Project = {
   coverType?: 'image' | 'video'
   coverWidth?: number
   coverHeight?: number
+  coverPoster?: string
   featured: boolean
   caseStudy: boolean
   archived: boolean
@@ -64,6 +65,7 @@ export const projects: Project[] = [
     coverType: 'video',
     coverWidth: 1468,
     coverHeight: 1080,
+    coverPoster: '/images/projects/immersio/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: true,
@@ -101,6 +103,7 @@ export const projects: Project[] = [
     coverType: 'video',
     coverWidth: 1436,
     coverHeight: 1080,
+    coverPoster: '/images/projects/cyberpuerta/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: true,
@@ -112,6 +115,7 @@ export const projects: Project[] = [
     coverType: 'video',
     coverWidth: 1472,
     coverHeight: 1080,
+    coverPoster: '/images/projects/ox-bi/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: true,
@@ -141,6 +145,7 @@ export const projects: Project[] = [
     title: 'Yuni',
     cover: '/images/projects/yuni/cover.mp4',
     coverType: 'video',
+    coverPoster: '/images/projects/yuni/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: false,
@@ -172,6 +177,7 @@ export const projects: Project[] = [
     coverType: 'video',
     coverWidth: 808,
     coverHeight: 1080,
+    coverPoster: '/images/projects/mait/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: true,
@@ -201,6 +207,7 @@ export const projects: Project[] = [
     coverType: 'video',
     coverWidth: 808,
     coverHeight: 1080,
+    coverPoster: '/images/projects/maestro-malta/cover-poster.webp',
     featured: false,
     caseStudy: false,
     archived: true,

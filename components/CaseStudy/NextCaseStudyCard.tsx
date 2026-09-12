@@ -8,7 +8,8 @@ type Props = {
 }
 
 export default function NextCaseStudyCard({ project }: Props) {
-  const { slug, title, cover, coverType, cardCategory, cardTitle, cardSummary } = project
+  const { slug, title, cover, coverType, coverPoster, cardCategory, cardTitle, cardSummary } =
+    project
   const isVideo = coverType === 'video' || cover.toLowerCase().endsWith('.mp4')
 
   return (
@@ -30,6 +31,7 @@ export default function NextCaseStudyCard({ project }: Props) {
             <AutoPlayVideo
               src={cover}
               title={title}
+              poster={coverPoster}
               className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
           ) : (
