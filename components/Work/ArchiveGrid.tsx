@@ -26,6 +26,7 @@ export default function ArchiveGrid() {
                 coverType={project.coverType}
                 coverWidth={project.coverWidth}
                 coverHeight={project.coverHeight}
+                coverPoster={project.coverPoster}
               />
             ))}
           </div>
