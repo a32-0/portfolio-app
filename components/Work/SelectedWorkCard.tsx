@@ -8,7 +8,17 @@ type Props = {
 }
 
 export default function SelectedWorkCard({ project }: Props) {
-  const { slug, title, cover, coverType, caseStudy, cardCategory, cardTitle, cardSummary } = project
+  const {
+    slug,
+    title,
+    cover,
+    coverType,
+    coverPoster,
+    caseStudy,
+    cardCategory,
+    cardTitle,
+    cardSummary,
+  } = project
   const isVideo = coverType === 'video' || cover.toLowerCase().endsWith('.mp4')
   const href = `/work/${slug}`
 
@@ -32,6 +42,7 @@ export default function SelectedWorkCard({ project }: Props) {
           <AutoPlayVideo
             src={cover}
             title={title}
+            poster={coverPoster}
             className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         ) : (
