@@ -7,6 +7,7 @@ type Props = {
   coverType?: 'image' | 'video'
   coverWidth?: number
   coverHeight?: number
+  coverPoster?: string
   alt?: string
 }
 
@@ -17,6 +18,7 @@ export default function ArchiveCard({
   coverType,
   coverWidth,
   coverHeight,
+  coverPoster,
 }: Props) {
   const isVideo = coverType === 'video' || src.toLowerCase().endsWith('.mp4')
   const mediaAlt = alt ?? product
@@ -31,6 +33,7 @@ export default function ArchiveCard({
             title={product}
             width={coverWidth}
             height={coverHeight}
+            poster={coverPoster}
           />
         ) : (
           <Image
