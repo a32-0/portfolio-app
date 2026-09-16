@@ -13,7 +13,6 @@ html.chat-open {
 }
 
 @theme {
-  /* Color Palette */
   --color-white: #fff;
   --color-black: #121212;
 
@@ -25,19 +24,16 @@ html.chat-open {
   --color-quinary: #cfcfcf;
   --color-accent: #f97316;
 
-  /* Complements of --color-primary, one per work view. */
   --color-complement-teal: #00e9d8;
   --color-complement-red: #e90300;
 
-  /* CatarsisLLM gradient */
-  --color-brand-violet: #a442ff; /* 0%   */
-  --color-brand-magenta: #f351ff; /* 20%  */
-  --color-brand-pink: #ff90c4; /* 40%  */
-  --color-brand-sand: #f2c566; /* 60%  */
-  --color-brand-yellow: #e5ff00; /* 80%  */
-  --color-brand-green: #00ff27; /* 100% */
+  --color-brand-violet: #a442ff;
+  --color-brand-magenta: #f351ff;
+  --color-brand-pink: #ff90c4;
+  --color-brand-sand: #f2c566;
+  --color-brand-yellow: #e5ff00;
+  --color-brand-green: #00ff27;
 
-  /* Chat */
   --color-chat-bg: #121212;
   --color-chat-surface: #1e1e1e;
   --color-chat-text: #f8f8f8;
@@ -46,7 +42,6 @@ html.chat-open {
   --color-chat-divider: #3f464a;
   --color-chat-accent: #0001e9;
 
-  /* Custom fonts */
   --font-sans:
     var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -57,7 +52,6 @@ html.chat-open {
 
   --font-serif: var(--font-lora), ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 
-  /* Fluid display type — max = desktop size, reached at 1200px viewport */
   --text-display-2xl: clamp(2.75rem, 1.27rem + 6.31vw, 6rem);
   --text-display-2xl--line-height: calc(25 / 24);
   --text-display-xl: clamp(2.5rem, 1.59rem + 3.89vw, 4.5rem);
@@ -69,13 +63,11 @@ html.chat-open {
   --text-display-sm: clamp(1.25rem, 0.965rem + 1.22vw, 1.875rem);
   --text-display-sm--line-height: 1.2;
 
-  /* Page container: 75rem content + 2 × 2rem gutter */
   --container-page: 79rem;
 
   --breakpoint-3xl: 125rem;
 }
 
-/* Pulse animation */
 @keyframes radarPulse {
   0% {
     transform: scale(1);
@@ -91,7 +83,6 @@ html.chat-open {
   animation: radarPulse 2s infinite ease-out;
 }
 
-/* Footer color cycle */
 @keyframes footerColorCycle {
   0% {
     background-color: #a442ff;
@@ -120,14 +111,12 @@ html.chat-open {
   animation: footerColorCycle 18s linear infinite;
 }
 
-/* Chat message list — `stable` keeps the scrollbar off the message bubbles. */
 .chat-scroll {
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: var(--color-chat-divider) transparent;
 }
 
-/* Older WebKit, which ignores scrollbar-width. */
 .chat-scroll::-webkit-scrollbar {
   width: 6px;
 }
@@ -141,7 +130,6 @@ html.chat-open {
   border-radius: 999px;
 }
 
-/* Chat loading ellipsis — dots appear one after another, then reset. */
 @keyframes ellipsisDot {
   0% {
     opacity: 0;
@@ -167,7 +155,6 @@ html.chat-open {
   animation-delay: 0.4s;
 }
 
-/* Marquee animation */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -197,14 +184,12 @@ html.chat-open {
   }
 }
 
-/* Custom breakpoint for very wide screens */
 @media (min-width: 2000px) {
   .columns-2000-4 {
     columns: 4;
   }
 }
 
-/* Tailwind v4's preflight dropped `cursor: pointer` on <button>. Restore it once here. */
 button:not(:disabled),
 [role='button']:not(:disabled) {
   cursor: pointer;
@@ -222,7 +207,6 @@ button:not(:disabled),
   outline-color: transparent;
 }
 
-/* CatarsisLLM gradient — a class, not a token, since a gradient isn't a --color-* value. */
 .bg-gradient-catarsis {
   background-image: linear-gradient(
     to bottom right,
@@ -247,7 +231,6 @@ button:not(:disabled),
   }
 }
 
-/* Must stay after the rule above — equal specificity, so source order decides. */
 @media (prefers-reduced-motion: reduce) {
   .bg-gradient-catarsis {
     animation: none;

@@ -1,16 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Project } from '@/data/projects'
-import AutoPlayVideo from '@/components/Work/AutoPlayVideo'
+import type { CaseStudyProject } from '@/data/caseStudyProjects'
 
 type Props = {
-  project: Project
+  project: CaseStudyProject
 }
 
 export default function NextCaseStudyCard({ project }: Props) {
-  const { slug, title, cover, coverType, coverPoster, cardCategory, cardTitle, cardSummary } =
-    project
-  const isVideo = coverType === 'video' || cover.toLowerCase().endsWith('.mp4')
+  const { slug, title, cover, cardCategory, cardTitle, cardSummary } = project
 
   return (
     <Link href={`/work/${slug}`} className="group block w-full transition-colors">
@@ -27,22 +24,13 @@ export default function NextCaseStudyCard({ project }: Props) {
           </p>
         </div>
         <div className="relative w-full lg:w-100 lg:shrink-0 overflow-hidden bg-secondary aspect-6/5">
-          {isVideo ? (
-            <AutoPlayVideo
-              src={cover}
-              title={title}
-              poster={coverPoster}
-              className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          ) : (
-            <Image
-              src={cover}
-              alt={title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 33vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          )}
+          <Image
+            src={cover}
+            alt={title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          />
         </div>
       </div>
     </Link>

@@ -10,7 +10,6 @@ const providers: Record<string, { provider: ChatProvider; apiKeyEnvVar: string }
   google: { provider: googleProvider, apiKeyEnvVar: 'GEMINI_API_KEY' },
 }
 
-/** Reads CHAT_PROVIDER. Swapping providers is just an env var change. */
 export function getActiveProvider(): ChatProvider {
   const key = (process.env.CHAT_PROVIDER || DEFAULT_CHAT_PROVIDER).toLowerCase()
   const entry = providers[key]

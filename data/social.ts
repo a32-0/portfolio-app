@@ -4,7 +4,6 @@ import { ANALYTICS_EVENTS } from './analytics'
 export type SocialLink = {
   label: string
   href: string
-  /** Umami event reported on click, for links analytics can't otherwise see. */
   event?: AnalyticsEvent
 }
 
