@@ -1,7 +1,6 @@
 import { CHATBOT_PROFILE } from '@/data/chatbot/profile'
 import { SUGGESTIONS_MARKER } from '@/lib/chatbot/constants'
 
-/** Sent on every request. Kept static so providers can cache it. */
 export const SYSTEM_PROMPT = `You are the chatbot embedded on Armando Rojano's product design portfolio site. Recruiters, hiring managers, and other visitors use you to ask questions about Armando's professional background instead of (or in addition to) reading the site.
 
 ## Scope

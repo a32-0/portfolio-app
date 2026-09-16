@@ -2,14 +2,13 @@
 
 import Container from '@/components/Container'
 import { useSiteNav } from '@/components/SiteNavProvider'
-import SelectedWork from './SelectedWork'
-import ArchiveGrid from './ArchiveGrid'
+import ProductDesignList from './ProductDesignList'
+import VisualDesignGrid from './VisualDesignGrid'
 import WorkNav from './WorkNav'
 
 export default function WorkSection() {
   const { activeWorkView, isWorkDark } = useSiteNav()
 
-  // Scroll offset: 16px under the 80px navbar, minus this section's own top padding.
   return (
     <section
       id="work"
@@ -19,7 +18,7 @@ export default function WorkSection() {
     >
       <Container className="flex flex-col items-center gap-12">
         <WorkNav />
-        {activeWorkView === 'product' ? <SelectedWork /> : <ArchiveGrid />}
+        {activeWorkView === 'product' ? <ProductDesignList /> : <VisualDesignGrid />}
       </Container>
     </section>
   )

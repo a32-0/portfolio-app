@@ -1,9 +1,6 @@
 import Logo from '@/components/ui/Logo'
 import type { ReactNode } from 'react'
 
-/** Logo + text row, shared by the loading phrase and every answer.
- *  Only the row being written animates: one Lottie player per message would stack up in a long
- *  conversation, so every finished answer paints the static mark. */
 type Props = {
   children: ReactNode
   className?: string
