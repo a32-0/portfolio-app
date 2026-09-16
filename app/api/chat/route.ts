@@ -1,7 +1,3 @@
-/**
- * Chat endpoint. Validates the payload, rate-limits by IP, then streams the active provider's
- * reply back as plain text.
- */
 import type { NextRequest } from 'next/server'
 import { getActiveProvider } from '@/lib/chatbot/providers'
 import type { ChatTurn } from '@/lib/chatbot/providers/types'

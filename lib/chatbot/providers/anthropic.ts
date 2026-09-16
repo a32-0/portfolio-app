@@ -1,9 +1,3 @@
-/**
- * Claude Haiku 4.5 adapter. The system prompt is cached, being identical on every request.
- *
- * Client built lazily: the SDK throws on a missing key at construction, and this module is
- * evaluated on every deploy regardless of which provider is active.
- */
 import Anthropic from '@anthropic-ai/sdk'
 import { CHAT_MODELS, MAX_OUTPUT_TOKENS, TEMPERATURE } from '@/lib/chatbot/constants'
 import type { ChatProvider } from './types'

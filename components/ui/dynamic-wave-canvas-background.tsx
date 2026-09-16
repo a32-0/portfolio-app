@@ -85,7 +85,6 @@ export default function HeroWave() {
     const resLoc = gl.getUniformLocation(program, 'u_resolution')
     const colorLoc = gl.getUniformLocation(program, 'u_color')
 
-    // Read --color-primary from CSS
     const rawColor = getComputedStyle(document.documentElement)
       .getPropertyValue('--color-primary')
       .trim()

@@ -1,24 +1,18 @@
-/** Chat UI copy. Edit text here, not in components/Chat/. */
-
 export const CHAT_NAME = 'CatarsisLLM'
 
-/** Split for the header, where "Catarsis" and "LLM" render in different font weights. */
 export const CHAT_NAME_PARTS = { primary: 'Catarsis', secondary: 'LLM' }
 
-/** Label of the button that opens the drawer. A CTA, not the bot's name. */
 export const CHAT_CTA = 'Ask about Armando'
 
 export const CHAT_WELCOME_MESSAGE =
   "Hey there! I'm CatarsisLLM, Armando's assistant. Ask me anything about his experience, projects, or how to get in touch."
 
-/** Exactly 3, matching what the model returns per answer, so the panel never reflows. */
 export const INITIAL_SUGGESTIONS = [
   'Give me the 30-second version of his experience',
   'How did he cut a 35-minute task down to 3 minutes?',
   'How do you design a product with no screens?',
 ]
 
-/** Picked at random per turn. No trailing ellipsis — the drawer animates its own three dots. */
 export const LOADING_PHRASES = [
   'Remembering what Armando wrote',
   "Searching through Armando's brain",
@@ -32,7 +26,6 @@ export const LOADING_PHRASES = [
   'Flipping back through the portfolio',
 ]
 
-/** Sits under the composer. */
 export const CHAT_DISCLAIMER = 'Answers may be wrong.'
 
 export const CHAT_INPUT_PLACEHOLDER = 'Ask about Armando...'
