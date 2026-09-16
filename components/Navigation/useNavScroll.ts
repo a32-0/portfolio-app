@@ -8,7 +8,6 @@ type ScrollLockSnapshot = {
   offset: number
 }
 
-// Tracks header background state and locks body scroll while an overlay (menu or chat) is open.
 export function useNavScroll(isOverlayOpen: boolean) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isFooterVisible, setIsFooterVisible] = useState(false)

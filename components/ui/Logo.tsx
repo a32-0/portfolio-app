@@ -11,7 +11,6 @@ type Props = {
   className?: string
 }
 
-/** default belongs to the navigation; the chat picks the one that matches what it is doing. */
 const ANIMATION_PATHS: Record<Exclude<LogoAnimation, 'rest'>, string> = {
   default: '/icons/Eyeball.json',
   staring: '/icons/Eyeball_Staring.json',

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import type { CaseStudy } from '@/data/caseStudies/types'
-import { featuredProjects } from '@/data/projects'
+import { caseStudyProjects } from '@/data/caseStudyProjects'
 import Container from '@/components/Container'
 import Button from '@/components/ui/Button'
 import NextCaseStudyCard from './NextCaseStudyCard'
@@ -9,8 +9,6 @@ import SectionNav from './SectionNav'
 type Props = {
   caseStudy: CaseStudy
 }
-
-const caseStudyProjects = featuredProjects.filter((p) => p.caseStudy)
 
 export default function CaseStudyPage({ caseStudy }: Props) {
   const { slug, title, subtitle, overview, metrics, sections, footnote } = caseStudy
@@ -22,23 +20,19 @@ export default function CaseStudyPage({ caseStudy }: Props) {
   return (
     <div className="bg-white pb-16 md:pb-32">
       <Container className="pt-24">
-        {/* Back button */}
         <div className="mb-8 md:mb-12">
           <Button href="/#work">← Back</Button>
         </div>
 
-        {/* Hero */}
         <div className="mb-10 md:mb-16">
           <h1 className="mb-4 font-serif text-display-lg italic text-black">{title}</h1>
           <p className="text-xl text-tertiary">{subtitle}</p>
         </div>
 
-        {/* Overview */}
         <div className="mb-10 md:mb-16 border-t border-secondary pt-12">
           <p className="text-lg tracking-normal text-black">{overview}</p>
         </div>
 
-        {/* Metrics */}
         <div className="mb-12 md:mb-20 grid grid-cols-2 gap-8 border-t border-secondary pt-12 md:grid-cols-4">
           {metrics.map((m) => (
             <div key={m.label}>
@@ -49,16 +43,13 @@ export default function CaseStudyPage({ caseStudy }: Props) {
           ))}
         </div>
 
-        {/* Two-column layout */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[220px_1fr]">
-          {/* Sticky sidebar */}
           <aside className="hidden md:block">
             <div className="sticky top-32">
               <SectionNav items={navItems} />
             </div>
           </aside>
 
-          {/* Sections */}
           <div className="space-y-16 md:space-y-24">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-32">
@@ -76,15 +67,16 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                   </div>
                 )}
 
-                {section.image && (
-                  section.image !== 'placeholder' ? (
+                {section.image &&
+                  (section.image !== 'placeholder' ? (
                     <div className="my-10 w-full rounded-xl overflow-hidden bg-quaternary">
                       <Image
                         src={section.image}
                         alt=""
                         width={section.imageWidth ?? 1200}
                         height={section.imageHeight ?? 800}
-                        sizes="(max-width: 768px) 100vw, 75vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1264px) 75vw, 932px"
+                        quality={90}
                         className="w-full h-auto"
                       />
                     </div>
@@ -94,8 +86,7 @@ export default function CaseStudyPage({ caseStudy }: Props) {
                         <span className="text-sm text-secondary">—</span>
                       </div>
                     </div>
-                  )
-                )}
+                  ))}
 
                 {section.subsections && (
                   <div className="mt-10 space-y-10">
@@ -135,7 +126,6 @@ export default function CaseStudyPage({ caseStudy }: Props) {
           </div>
         </div>
 
-        {/* Next case study */}
         {nextProject && (
           <div className="mt-16 pt-10 md:mt-32 md:pt-16 border-t border-secondary">
             <p className="mb-8 text-xl font-serif italic font-medium text-tertiary">
