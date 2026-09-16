@@ -1,8 +1,3 @@
-/**
- * Knowledge base for the site chatbot. This is the only source of truth it's allowed to draw
- * from when answering.
- */
-
 export const CHATBOT_PROFILE = `
 # Armando Rojano · Product Designer
 

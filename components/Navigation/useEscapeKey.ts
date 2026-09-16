@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 
-// Calls onEscape when Escape is pressed while active.
 export function useEscapeKey(active: boolean, onEscape: () => void) {
   useEffect(() => {
     if (!active) return

@@ -12,7 +12,6 @@ type NavAppearance = {
   isLight: boolean
 }
 
-// Derives the header's background/text classes from route, scroll and overlay state.
 export function getNavAppearance({
   pathname,
   isScrolled,

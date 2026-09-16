@@ -1,7 +1,3 @@
-/**
- * GPT-5 nano adapter. This model family requires `max_completion_tokens` (not `max_tokens`)
- * and rejects any `temperature` other than the default. Client built lazily — see anthropic.ts.
- */
 import OpenAI from 'openai'
 import { CHAT_MODELS, MAX_OUTPUT_TOKENS } from '@/lib/chatbot/constants'
 import type { ChatProvider } from './types'
