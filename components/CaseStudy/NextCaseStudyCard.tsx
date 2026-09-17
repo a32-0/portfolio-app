@@ -29,6 +29,7 @@ export default function NextCaseStudyCard({ project }: Props) {
             alt={title}
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
+            quality={90}
             className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         </div>
