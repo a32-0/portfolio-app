@@ -19,7 +19,7 @@ export default function VisualDesignCard({ item }: Props) {
             alt={title}
             width={width}
             height={height}
-            sizes="(max-width: 1024px) 100vw, (max-width: 1264px) 50vw, 576px"
+            sizes="(max-width: 1024px) 100vw, (max-width: 1264px) 90vw, 1024px"
             quality={90}
             className="w-full h-auto"
           />
