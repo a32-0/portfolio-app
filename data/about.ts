@@ -14,7 +14,7 @@ export const aboutSection: AboutSection = {
   eyebrow: 'About',
   body: [
     "I'm Armando.",
-    'I help teams turn operational complexity into interfaces that don\'t feel complicated, without hiding what it takes to run them. Based in Mexico City, working with distributed teams.',
+    'I help teams turn operational complexity into interfaces that don\'t feel complicated, without hiding what it takes to run them. Based in Mexico, working with distributed teams.',
     [
       "That's the kind of work I've been doing at ",
       { text: 'Liverpool', href: 'https://www.linkedin.com/company/elpuertodeliverpool' },
