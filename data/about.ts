@@ -13,8 +13,8 @@ export type AboutSection = {
 export const aboutSection: AboutSection = {
   eyebrow: 'About',
   body: [
-    "I'm Armando, a Product Designer based in Mexico.",
-    'I ask a lot of questions before opening Figma. Especially when the problem sits where users, operations, and technology pull in different directions.',
+    "I'm Armando.",
+    'I help teams turn operational complexity into interfaces that don\'t feel complicated, without hiding what it takes to run them. Based in Mexico City, working with distributed teams.',
     [
       "That's the kind of work I've been doing at ",
       { text: 'Liverpool', href: 'https://www.linkedin.com/company/elpuertodeliverpool' },
