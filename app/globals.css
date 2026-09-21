@@ -8,7 +8,8 @@ body {
   background-color: var(--color-white);
 }
 
-html.chat-open {
+html.chat-open,
+html.chat-open body {
   background-color: var(--color-chat-bg);
 }
 

@@ -19,7 +19,8 @@ type Props = {
 
 export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
   const { messages, suggestions, sendMessage, isLoading, error } = chat
-  const keyboardInset = useKeyboardInset()
+  const panelRef = useRef<HTMLDivElement>(null)
+  const keyboardInset = useKeyboardInset(panelRef, isOpen)
   const [input, setInput] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -58,12 +59,13 @@ export default function ChatDrawer({ isOpen, onClose, chat }: Props) {
       />
 
       <div
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label={`Chat with ${CHAT_NAME}`}
         inert={!isOpen}
         style={keyboardInset ? { paddingBottom: keyboardInset + 16 } : undefined}
-        className={`bg-chat-bg fixed inset-y-0 right-0 z-50 flex w-full flex-col gap-4 p-4 transition-[translate,opacity,visibility] duration-300 ease-out motion-reduce:transition-none sm:w-120 ${
+        className={`bg-chat-bg fixed inset-y-0 right-0 z-50 flex w-full flex-col gap-4 px-4 pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] transition-[translate,opacity,visibility] duration-300 ease-out motion-reduce:transition-none sm:w-120 ${
           isOpen ? 'visible translate-x-0 opacity-100' : 'invisible translate-x-full opacity-0'
         }`}
       >

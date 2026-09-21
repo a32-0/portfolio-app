@@ -40,7 +40,7 @@ export default function ChatComposer({ value, onChange, onSubmit, isLoading, foc
   }
 
   return (
-    <div className="mb-[env(safe-area-inset-bottom)] flex shrink-0 flex-col gap-1">
+    <div className="flex shrink-0 flex-col gap-1">
       <form
         onSubmit={handleSubmit}
         className="bg-chat-surface flex items-center gap-6 rounded-[30px] px-6 py-2 sm:min-h-20 sm:py-4"
