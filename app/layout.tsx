@@ -6,6 +6,7 @@ import SiteNavProvider from '@/components/SiteNavProvider'
 import { Inter, Roboto_Mono, Lora } from 'next/font/google'
 import Script from 'next/script'
 import { UMAMI_SRC, UMAMI_WEBSITE_ID } from '@/data/analytics'
+import { OG_IMAGE, OG_IMAGES, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/data/metadata'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
@@ -26,12 +27,12 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Armando Rojano | Product Designer',
     template: '%s | Armando Rojano',
   },
-  description:
-    'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
+  description: SITE_DESCRIPTION,
   applicationName: 'Armando Rojano Portfolio',
   authors: [{ name: 'Armando Rojano', url: 'https://www.linkedin.com/in/armandorour/' }],
   creator: 'Armando Rojano',
@@ -55,31 +56,22 @@ export const metadata: Metadata = {
     address: false,
   },
   alternates: {
-    canonical: 'https://armando-rojano.vercel.app/',
+    canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://armando-rojano.vercel.app/',
-    siteName: 'Armando Rojano | Product Designer',
-    title: 'Armando Rojano | Product Designer',
-    description:
-      'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
-    images: [
-      {
-        url: 'https://armando-rojano.vercel.app/icons/catarsis.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Armando Rojano portfolio',
-      },
-    ],
+    url: '/',
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: OG_IMAGES,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armando Rojano | Product Designer',
-    description:
-      'Product Designer designing operational systems across retail, service, and conversational ecosystems, with experience in high-traffic customer flows, internal platforms, and scalable self-service products.',
-    images: ['https://armando-rojano.vercel.app/icons/catarsis.svg'],
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE.url],
   },
   icons: {
     icon: '/icons/catarsis.svg',
@@ -104,6 +96,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
+  interactiveWidget: 'resizes-content',
   themeColor: '#0001e9',
 }
 
