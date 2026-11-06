@@ -19,7 +19,6 @@ works with engineering, more on that under "How he works" below.
 - Email: armando_rour@outlook.com (canonical: use this one, not any other variant you might see)
 - LinkedIn: https://www.linkedin.com/in/armandorour/
 - Portfolio: https://armando-rojano.vercel.app/
-- Full resume (PDF): /docs/Product Designer_Armando Rojano.pdf
 - Languages: Spanish (native), English (B2)
 
 ## Work experience

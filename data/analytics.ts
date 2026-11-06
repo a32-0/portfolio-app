@@ -5,7 +5,6 @@ export const ANALYTICS_EVENTS = {
   productDesign: 'product-design',
   visualDesign: 'visual-design',
   chatOpen: 'catarsis-chat',
-  resume: 'resume',
 } as const
 
 export type AnalyticsEvent = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS]

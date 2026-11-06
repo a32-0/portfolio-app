@@ -23,10 +23,5 @@ export const hero: HeroData = {
       label: 'Selected work',
       href: '/#work',
     },
-    {
-      label: 'Resume',
-      href: '/docs/Product Designer_Armando Rojano.pdf',
-      external: true,
-    },
   ],
 }
