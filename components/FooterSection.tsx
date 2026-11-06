@@ -32,10 +32,7 @@ export default function FooterSection() {
           </p>
           <div className="flex h-6 items-center gap-6">
             {socialLinks.map((link) => {
-              const isExternal =
-                link.href.startsWith('http') ||
-                link.href.startsWith('mailto:') ||
-                link.href.endsWith('.pdf')
+              const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:')
               const label = `${link.label}${isExternal ? ' ↗' : ''}`
               return (
                 <a
@@ -43,7 +40,6 @@ export default function FooterSection() {
                   href={link.href}
                   target={isExternal ? '_blank' : undefined}
                   rel={isExternal ? 'noreferrer' : undefined}
-                  data-umami-event={link.event}
                   className="link-hover-underline transition hover:opacity-70"
                 >
                   {label}
